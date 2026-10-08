@@ -175,14 +175,7 @@ export default function CloudSaasDigitalPlatformsSection({ onOpenPage }) {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
             className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left order-1 lg:order-2"
           >
-            {/* Tag Pill */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
-              <div className="w-6 h-[2px] bg-[#00A8B5]" />
-              <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#00A8B5]">
-                OUR FOCUS
-              </span>
-              <div className="w-6 h-[2px] bg-[#00A8B5] lg:hidden" />
-            </div>
+
 
             {/* Subheading */}
             <h3 className="font-display text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#002D33] tracking-tight leading-tight mb-5 text-center lg:text-left">

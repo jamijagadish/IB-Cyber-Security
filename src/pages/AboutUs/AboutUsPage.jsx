@@ -18,13 +18,14 @@ import {
   coursesData
 } from './AboutUsPageData';
 import helpIllustrationLeft from '../../assets/help_illustration_left.jpg';
-
-export default function AboutUs({ onClose }) {
+export default function AboutUs({ onClose, onOpenCopyrightPage }) {
   const handleBack = () => {
-    if (onClose) {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (onClose) {
       onClose();
     } else {
-      window.history.back();
+      window.location.hash = '#home';
     }
   };
 
@@ -39,6 +40,18 @@ export default function AboutUs({ onClose }) {
   const [activeArticle, setActiveArticle] = useState(null);
   const [toast, setToast] = useState('');
   const [feedbackState, setFeedbackState] = useState({});
+
+  const handleArticleClick = (article) => {
+    const titleLower = (article?.title || '').toLowerCase();
+    if (titleLower.includes('copyright') || article?.id === 'about-16') {
+      window.location.hash = '#copyright-page';
+      if (onOpenCopyrightPage) {
+        onOpenCopyrightPage();
+      }
+    } else {
+      setActiveArticle(article);
+    }
+  };
 
   const stepRef = useRef(0);
   const cooldownRef = useRef(false);
@@ -124,7 +137,7 @@ export default function AboutUs({ onClose }) {
           padding: 0;
           width: 100%;
           min-height: 100%;
-          background-color: #F7F3ED;
+          background-color: #001C1F;
           color: #1E293B;
         }
 
@@ -391,7 +404,7 @@ export default function AboutUs({ onClose }) {
               {filteredArticles.map((article, idx) => (
                 <div
                   key={article.id}
-                  onClick={() => setActiveArticle(article)}
+                  onClick={() => handleArticleClick(article)}
                   className="group relative bg-[#FFFDFB] hover:bg-white text-[#1E293B] p-4 sm:p-5 rounded-[22px] border border-[#EADFD5] hover:border-[#E07A5F]/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer select-none"
                 >
                   <div>

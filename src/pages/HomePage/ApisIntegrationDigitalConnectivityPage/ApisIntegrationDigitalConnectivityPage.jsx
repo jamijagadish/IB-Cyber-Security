@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Home } from 'lucide-react';
-import { apisIntegrationData } from '../../../data/HomePageData/ApisIntegrationDigitalConnectivityPageData/ApisIntegrationDigitalConnectivityPageData.js';
+import { apisIntegrationData } from './ApisIntegrationDigitalConnectivityPageData.js';
 
 export default function ApisIntegrationDigitalConnectivityPage({ onClose }) {
   const [activeCard, setActiveCard] = useState(4);

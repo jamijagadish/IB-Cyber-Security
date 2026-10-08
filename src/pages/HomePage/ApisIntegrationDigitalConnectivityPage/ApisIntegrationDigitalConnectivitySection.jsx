@@ -93,8 +93,7 @@ export default function ApisIntegrationDigitalConnectivitySection({ onOpenPage }
 
           {/* ================= 1. TOP CENTER HEADER ================= */}
           <div className="max-w-4xl mx-auto mb-12 sm:mb-14">
-            {/* Top Indicator Line */}
-            <div className="w-12 h-[2px] bg-[#00A8B5] mx-auto mb-4 rounded-full" />
+
 
             {/* Main Section Title (Original Color Restored) */}
             <AnimatedSectionHeading

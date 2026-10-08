@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Home } from 'lucide-react';
-import { cardsData } from '../../../data/HomePageData/InvestigationLegalInstitutionalTechnologyPageData/InvestigationLegalInstitutionalTechnologyPageData.js';
+import { cardsData } from './InvestigationLegalInstitutionalTechnologyPageData.js';
 
 const RecipeCard = ({ 
   glowColor = "#ff9966", 

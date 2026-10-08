@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home } from 'lucide-react';
-import { themes, cardData, pageContent } from '../../../data/HomePageData/GovernmentPublicTechnologyPageData/GovernmentPublicTechnologyPageData.js';
+import { themes, cardData, pageContent } from './GovernmentPublicTechnologyPageData.js';
 
 const defaultTheme = {
   bg: "from-[#00ffd6] to-[#08e260]",

@@ -444,10 +444,12 @@ function DeskSurface() {
    ========================================================================= */
 export default function SoftwareProduct({ onClose }) {
   const handleBack = () => {
-    if (onClose) {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (onClose) {
       onClose();
     } else {
-      window.history.back();
+      window.location.hash = '#home';
     }
   };
 

@@ -127,9 +127,8 @@ export default function AnimatedSectionHeading({
           return (
             <React.Fragment key={`word-${wordIdx}`}>
               <span
-                className={`inline-block whitespace-nowrap ${
-                  isHighlighted ? highlightClassName : ''
-                }`}
+                className={`inline-block whitespace-nowrap ${isHighlighted ? highlightClassName : ''
+                  }`}
               >
                 {wordChars.map((char, charInWordIdx) => {
                   const isFirstChar = wordIdx === 0 && charInWordIdx === 0;

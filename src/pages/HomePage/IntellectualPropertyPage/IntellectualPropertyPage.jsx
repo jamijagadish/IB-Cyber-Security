@@ -17,7 +17,7 @@ import {
   X,
   Home,
 } from 'lucide-react';
-import { intellectualPropertyData } from '../../../data/HomePageData/IntellectualPropertyPageData/IntellectualPropertyPageData';
+import { intellectualPropertyData } from './IntellectualPropertyPageData';
 
 const iconMap = {
   Laptop,
@@ -312,7 +312,9 @@ export default function IntellectualPropertyPage({ onClose }) {
   };
 
   const handleBack = () => {
-    if (onClose) {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (onClose) {
       onClose();
     } else {
       window.location.hash = '#intellectual-property';

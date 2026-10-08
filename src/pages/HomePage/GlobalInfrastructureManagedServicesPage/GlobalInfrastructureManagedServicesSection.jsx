@@ -113,12 +113,7 @@ export default function GlobalInfrastructureManagedServicesSection({ onOpenPage 
           
           {/* Left Column: Heading, Descriptions & Actions */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#AFDDE5] shadow-xs mb-4">
-              <Server className="w-4 h-4 text-[#0FA4AF]" />
-              <span className="text-xs font-extrabold text-[#003135] tracking-wider uppercase">
-                24/7 MISSION-CRITICAL INFRASTRUCTURE
-              </span>
-            </div>
+
 
             <AnimatedSectionHeading
               text="Global Infrastructure & Managed Services"

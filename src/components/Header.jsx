@@ -8,9 +8,72 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUpRight, Bell, CheckCheck, FileText, HelpCircle, Image, Menu, PhoneCall, PlayCircle, Search, UserPlus, X } from 'lucide-react';
-import { navigationItems, sectionsData } from '../data/HomePageData/Home';
 import LogoMark from './LogoMark';
+import brandLogo from '../assets/IBCS_BRAND_Transparent.png';
 import CenterAssembledText from './CenterAssembledText';
+
+import { SoftwareDevelopmentProductEngineeringPageData } from '../pages/HomePage/SoftwareDevelopmentProductEngineeringPage/SoftwareDevelopmentProductEngineeringPageData';
+import { OurTechnologyData } from '../pages/HomePage/OurTechnologyPage/OurTechnologyPageData';
+import { OurProductEcosystemData } from '../pages/HomePage/OurProductEcosystemPage/OurProductEcosystemPageData';
+import { CybersecurityDigitalSecurityData } from '../pages/HomePage/CybersecurityDigitalSecurityPage/CybersecurityDigitalSecurityPageData';
+import { ArtificialIntelligenceIntelligentSoftwareData } from '../pages/HomePage/ArtificialIntelligenceIntelligentSoftwarePage/ArtificialIntelligenceIntelligentSoftwareDataPage';
+import { CloudSaasDigitalPlatformsData } from '../pages/HomePage/CloudSaasDigitalPlatformsPage/CloudSaasAndDigitalPlatformsPageData';
+import { DataAnalyticsIntelligenceTechnologyData } from '../pages/HomePage/DataAnalyticsIntelligenceTechnologyPage/DataAnalyticsAndIntelligenceTechnologyPageData';
+import { SoftwareArchitectureProductEngineeringData } from '../pages/HomePage/SoftwareArchitectureProductEngineeringPage/SoftwareArchitectureProductEngineeringPageData';
+import { ProductDevelopmentLifecyclePageData } from '../pages/HomePage/ProductDevelopmentLifecyclePage/ProductDevelopmentLifecyclePageData';
+import { ApisIntegrationDigitalConnectivityData } from '../pages/HomePage/ApisIntegrationDigitalConnectivityPage/ApisIntegrationDigitalConnectivityPageData';
+import { EnterpriseBusinessSoftwareProductsData } from '../pages/HomePage/EnterpriseBusinessSoftwareProductsPage/EnterpriseBusinessSoftwareProductsPageData';
+import { GovernmentPublicTechnologyData } from '../pages/HomePage/GovernmentPublicTechnologyPage/GovernmentPublicTechnologyPageData';
+import { InvestigationLegalInstitutionalTechnologyData } from '../pages/HomePage/InvestigationLegalInstitutionalTechnologyPage/InvestigationLegalInstitutionalTechnologyPageData';
+import { EducationTrainingSkillDevelopmentTechnologyData } from '../pages/HomePage/EducationTrainingSkillDevelopmentTechnologyPage/EducationTrainingSkillDevelopmentTechnologyPageData';
+import { IntellectualPropertyPageData } from '../pages/HomePage/IntellectualPropertyPage/IntellectualPropertyPageData';
+import { SoftwareProductCommercialisationPageData } from '../pages/HomePage/SoftwareProductCommercialisationPage/SoftwareProductCommercialisationPageData';
+import { GlobalInfrastructureManagedServicesData } from '../pages/HomePage/GlobalInfrastructureManagedServicesPage/GlobalInfrastructureManagedServicesPageData';
+import { DevOpsContinuousDeliveryData } from '../pages/HomePage/DevOpsContinuousDeliveryPage/DevOpsContinuousDeliveryPageData';
+import { DigitalExperienceDesignData } from '../pages/HomePage/DigitalExperienceDesignPage/DigitalExperienceDesignPageData';
+import { RegulatoryComplianceGovernanceData } from '../pages/HomePage/RegulatoryComplianceGovernancePage/RegulatoryComplianceGovernancePageData';
+import { QuantumSecurityCryptographyData } from '../pages/HomePage/QuantumSecurityCryptographyPage/QuantumSecurityCryptographyData';
+import { IotSmartEdgeSystemsData } from '../pages/HomePage/IotSmartEdgeSystemsPage/IotSmartEdgeSystemsData';
+import { BlockchainDecentralisedTechData } from '../pages/HomePage/BlockchainDecentralisedTechPage/BlockchainDecentralisedTechData';
+
+export const navigationItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'About Us', href: '#about-us' },
+  { label: 'Software Products', href: '#software-products' },
+  { label: 'Published Software', href: '#published-software' },
+  { label: 'Software Launches', href: '#software-launches' },
+  { label: 'Upcoming Software', href: '#upcoming-software' },
+  { label: 'Software Library', href: '#software-library' },
+  { label: 'IT Services', href: '#it-services' },
+  { label: 'Skill Development', href: '#skill-development' },
+  { label: 'Careers', href: '#careers' },
+];
+
+export const sectionsData = [
+  SoftwareDevelopmentProductEngineeringPageData,
+  OurTechnologyData,
+  OurProductEcosystemData,
+  CybersecurityDigitalSecurityData,
+  ArtificialIntelligenceIntelligentSoftwareData,
+  CloudSaasDigitalPlatformsData,
+  DataAnalyticsIntelligenceTechnologyData,
+  SoftwareArchitectureProductEngineeringData,
+  ProductDevelopmentLifecyclePageData,
+  ApisIntegrationDigitalConnectivityData,
+  EnterpriseBusinessSoftwareProductsData,
+  GovernmentPublicTechnologyData,
+  InvestigationLegalInstitutionalTechnologyData,
+  EducationTrainingSkillDevelopmentTechnologyData,
+  IntellectualPropertyPageData,
+  SoftwareProductCommercialisationPageData,
+  GlobalInfrastructureManagedServicesData,
+  DevOpsContinuousDeliveryData,
+  DigitalExperienceDesignData,
+  RegulatoryComplianceGovernanceData,
+  QuantumSecurityCryptographyData,
+  IotSmartEdgeSystemsData,
+  BlockchainDecentralisedTechData,
+];
 
 // Initial sample notification list
 const initialNotifications = [
@@ -24,14 +87,10 @@ export default function Header() {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [notifications, setNotifications] = useState(initialNotifications);
-  const [showTopBanner, setShowTopBanner] = useState(true);
   const [showTopMeta, setShowTopMeta] = useState(true);
-  const lastScrollY = useRef(0);
   const searchInputRef = useRef(null);
   const metaTimerRef = useRef(null);
   const wasAtTopRef = useRef(true);
-  const isTransitioningRef = useRef(false);
-
   const unreadCount = notifications.filter((n) => n.unread).length;
 
   // Flatten all cards with parent section metadata for search
@@ -74,49 +133,35 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
 
-  // Handle window scroll behavior for header top banner & metadata
+  // Handle 5-second auto-hide timer & scroll-to-top re-trigger
   useEffect(() => {
     setShowTopMeta(true);
-    setShowTopBanner(true);
     wasAtTopRef.current = true;
 
     if (metaTimerRef.current) clearTimeout(metaTimerRef.current);
     metaTimerRef.current = setTimeout(() => {
       setShowTopMeta(false);
-    }, 7000);
+    }, 5000);
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY || document.documentElement.scrollTop || 0;
-      const isScrollDown = currentScrollY > lastScrollY.current + 4;
-      const isScrollUp = currentScrollY < lastScrollY.current - 4;
 
-      // 1. Page at top (<= 10px)
       if (currentScrollY <= 10) {
-        setShowTopBanner(true);
         if (!wasAtTopRef.current) {
           wasAtTopRef.current = true;
           setShowTopMeta(true);
           if (metaTimerRef.current) clearTimeout(metaTimerRef.current);
           metaTimerRef.current = setTimeout(() => {
             setShowTopMeta(false);
-          }, 7000);
+          }, 5000);
         }
       } else {
-        // 2. Page scrolled down from top
         if (wasAtTopRef.current) {
           wasAtTopRef.current = false;
           setShowTopMeta(false);
           if (metaTimerRef.current) clearTimeout(metaTimerRef.current);
         }
-
-        if (isScrollDown) {
-          setShowTopBanner(false);
-        } else if (isScrollUp) {
-          setShowTopBanner(true);
-        }
       }
-
-      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -132,72 +177,68 @@ export default function Header() {
   };
 
   return (
-    <header id="home" className="sticky inset-x-0 top-0 z-[9999] scroll-mt-0 bg-[#001C1F] shadow-lg w-full max-w-full overflow-x-clip">
-      {/* Company Header Announcement Bar (GPU-accelerated CSS Grid transitions - Zero scrollbars, zero lag) */}
-      <div
-        className={`grid transition-[grid-template-rows,opacity,padding] duration-350 ease-in-out overflow-hidden bg-[#001C1F] text-center px-2 sm:px-4 ${(showTopBanner || showTopMeta)
-            ? 'grid-rows-[1fr] opacity-100 py-1.5 border-b border-[#0FA4AF]/15'
-            : 'grid-rows-[0fr] opacity-0 py-0 border-b-0 pointer-events-none'
-          }`}
-      >
-        <div className="overflow-hidden min-h-0 w-full">
-          <div className="w-full max-w-[1480px] mx-auto px-2 sm:px-4 flex flex-col items-center justify-center text-center">
+    <header id="home" className="sticky inset-x-0 top-0 z-[9999] scroll-mt-0 bg-[#001C1F] shadow-lg w-full max-w-full">
+      {/* Company Header Announcement Bar */}
+      <div className="bg-[#001C1F] text-center px-2 sm:px-4 py-1.5 border-b border-[#0FA4AF]/15 w-full overflow-hidden">
+        <div className="w-full max-w-[1480px] mx-auto px-2 sm:px-4 flex flex-col items-center justify-center text-center">
 
-            {/* Welcome Heading (Shows at top, auto-hides after 7 seconds) */}
-            <div
-              className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-in-out w-full overflow-hidden ${showTopMeta ? 'grid-rows-[1fr] opacity-100 mb-1' : 'grid-rows-[0fr] opacity-0 mb-0 pointer-events-none'
-                }`}
-            >
-              <div className="overflow-hidden min-h-0 w-full py-0.5">
-                <h1 className="font-display text-[9px] xs:text-[10px] sm:text-xs md:text-sm font-extrabold tracking-tight sm:tracking-wider text-white uppercase flex items-center justify-center gap-1.5 sm:gap-2 px-1">
-                  <span className="navbar-live-dot shrink-0 my-auto" aria-hidden="true" />
-                  <CenterAssembledText key={showTopMeta ? 'welcome-active' : 'welcome-inactive'} text="WELCOME TO IB CYBER SECURITY PRIVATE LIMITED" />
-                </h1>
-              </div>
+          {/* Welcome Heading (Auto-hides after 5s, shows at top) */}
+          <div
+            className={`grid transition-[grid-template-rows,opacity,margin] duration-500 ease-in-out w-full overflow-hidden ${showTopMeta ? 'grid-rows-[1fr] opacity-100 mb-0.5' : 'grid-rows-[0fr] opacity-0 mb-0 pointer-events-none'
+              }`}
+          >
+            <div className="overflow-hidden min-h-0 w-full py-0.5">
+              <h1 className="font-display text-[9px] xs:text-[10px] sm:text-xs md:text-sm font-extrabold tracking-tight sm:tracking-wider text-white uppercase flex items-center justify-center gap-1.5 sm:gap-2 px-1">
+                <span className="navbar-live-dot shrink-0 my-auto" aria-hidden="true" />
+                <CenterAssembledText key={showTopMeta ? 'welcome-active' : 'welcome-inactive'} text="WELCOME TO IB CYBER SECURITY PRIVATE LIMITED" />
+              </h1>
             </div>
-
-            {/* Description (Shows on scroll up & top, hides on scroll down) */}
-            <div
-              className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out w-full overflow-hidden ${showTopBanner ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
-                }`}
-            >
-              <div className="overflow-hidden min-h-0 w-full py-0.5">
-                <p className="w-full max-w-full text-center whitespace-normal sm:whitespace-nowrap text-[9.5px] sm:text-[11px] md:text-[12.5px] font-medium leading-tight sm:leading-snug tracking-normal sm:tracking-tight text-[#0FA4AF]">
-                  One of the best international software product-based companies, focused on creating innovative and intelligent technology solutions. Creating intelligent software products and technologies for a digital future.
-                </p>
-              </div>
-            </div>
-
-            {/* Registration & Establishment Meta (Shows at top, auto-hides after 7 seconds) */}
-            <div
-              className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-in-out w-full overflow-hidden ${showTopMeta ? 'grid-rows-[1fr] opacity-100 mt-1' : 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
-                }`}
-            >
-              <div className="overflow-hidden min-h-0 w-full py-0.5">
-                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-[9px] sm:text-[10.5px] font-mono text-white/70">
-                  <span>ESTABLISHED • SEPT. 26-26</span>
-                  <span className="text-[#0FA4AF] hidden sm:inline">•</span>
-                  <span>MCA REGISTRATION NO. 1010</span>
-                </div>
-              </div>
-            </div>
-
           </div>
+
+          {/* Description */}
+          <div className="w-full py-0.5">
+            <p className="w-full max-w-full text-center whitespace-normal sm:whitespace-nowrap text-[9.5px] sm:text-[11px] md:text-[12.5px] font-medium leading-tight sm:leading-snug tracking-normal sm:tracking-tight text-[#0FA4AF]">
+              One of the best international software product-based companies, focused on creating innovative and intelligent technology solutions. Creating intelligent software products and technologies for a digital future.
+            </p>
+          </div>
+
+          {/* Registration & Establishment Meta (Auto-hides after 5s, shows at top) */}
+          <div
+            className={`grid transition-[grid-template-rows,opacity,margin] duration-500 ease-in-out w-full overflow-hidden ${showTopMeta ? 'grid-rows-[1fr] opacity-100 mt-0.5' : 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
+              }`}
+          >
+            <div className="overflow-hidden min-h-0 w-full py-0.5">
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-[9px] sm:text-[10.5px] font-mono text-white/70">
+                <span>ESTABLISHED • SEPT. 26-26</span>
+                <span className="text-[#0FA4AF] hidden sm:inline">•</span>
+                <span>MCA REGISTRATION NO. 1010</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
+
+
       {/* Sticky Navigation Menu Bar (Underneath Announcement Banner) */}
-      <div className="border-b border-white/10 bg-brand-navy/95 shadow-[0_8px_30px_-24px_rgba(0,49,53,.55)] backdrop-blur-xl w-full max-w-full overflow-hidden">
+      <div className="relative border-b border-white/10 bg-brand-navy/95 shadow-[0_8px_30px_-24px_rgba(0,49,53,.55)] backdrop-blur-xl w-full max-w-full">
         {/* Main Navigation Menu Bar (UNDERNEATH Heading & Description) */}
         <div className="w-full max-w-[1480px] mx-auto px-3 sm:px-5 lg:px-6 flex h-14 sm:h-16 items-center justify-between gap-1.5 sm:gap-2">
           {/* Logo & Brand Name */}
-          <a href="#home" className="group flex min-w-0 items-center gap-1.5 sm:gap-2 focus-ring shrink-0" aria-label="IB Cyber Security home">
-            <LogoMark className="h-7 w-7 sm:h-9 sm:w-9 shrink-0 drop-shadow-sm" />
+          <a href="#home" className="group flex min-w-0 items-center gap-2.5 sm:gap-3 focus-ring shrink-0" aria-label="IB Cyber Security home">
+            <div className="relative flex items-center justify-center shrink-0 rounded-full p-1 bg-white ring-2 ring-[#0FA4AF] shadow-[0_0_15px_rgba(15,164,175,0.7)] group-hover:shadow-[0_0_25px_rgba(15,164,175,1)] group-hover:scale-105 transition-all duration-300 overflow-hidden">
+              <img
+                src={brandLogo}
+                alt="IB Cyber Security Logo"
+                className="h-9 w-9 sm:h-11 sm:w-11 lg:h-12 lg:w-12 rounded-full object-contain shrink-0"
+              />
+            </div>
             <span className="flex flex-col font-display leading-[1.1] min-w-0">
               <span className="text-[11px] xs:text-[12px] sm:text-[13.5px] lg:text-[14px] font-extrabold tracking-[0.03em] text-white whitespace-nowrap">
                 IB CYBER SECURITY
               </span>
-              <span className="text-[8px] xs:text-[8.5px] sm:text-[9.5px] lg:text-[10px] font-bold tracking-[0.06em] text-white/80 whitespace-nowrap">
+              <span className="text-[8px] xs:text-[8.5px] sm:text-[9.5px] lg:text-[10px] font-bold tracking-[0.06em] text-[#0FA4AF] whitespace-nowrap">
                 PRIVATE LIMITED
               </span>
             </span>
@@ -357,49 +398,73 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer Modal */}
+        {/* Mobile Navigation Drawer Modal (Positioned cleanly under header bar) */}
         {isMenuOpen && (
-          <div id="mobile-navigation" className="absolute inset-x-0 top-full h-[calc(100vh-88px)] overflow-y-auto border-t border-brand-cyan/20 bg-[#0B1528] opacity-100 px-5 py-6 shadow-2xl sm:h-[calc(100vh-96px)] xl:hidden z-[9999]">
+          <div
+            id="mobile-navigation"
+            className="absolute top-full left-0 right-0 w-full min-h-[calc(100vh-60px)] max-h-[calc(100vh-60px)] overflow-y-auto bg-[#071622] border-t border-[#0FA4AF]/20 px-4 py-5 shadow-2xl xl:hidden z-[999999]"
+          >
             {/* Quick Action Buttons Grid on Mobile Drawer */}
-            <div className="grid grid-cols-4 gap-2 pb-4 border-b border-white/10 mb-4">
-              <a href="#help" onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center gap-1 p-2.5 rounded-xl bg-white/5 text-[11px] font-medium text-white hover:bg-white/10">
+            <div className="grid grid-cols-4 gap-2.5 pb-4 border-b border-white/10 mb-4 max-w-2xl mx-auto">
+              <a
+                href="#help"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-[#0F2232] border border-white/5 text-[11px] font-bold text-white hover:bg-[#18344B] transition-colors shadow-sm"
+              >
                 <HelpCircle className="h-4 w-4 text-[#0FA4AF]" /> Help
               </a>
-              <a href="#follow" onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center gap-1 p-2.5 rounded-xl bg-white/5 text-[11px] font-medium text-white hover:bg-white/10">
+              <a
+                href="#follow"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-[#0F2232] border border-white/5 text-[11px] font-bold text-white hover:bg-[#18344B] transition-colors shadow-sm"
+              >
                 <UserPlus className="h-4 w-4 text-[#0FA4AF]" /> Follow
               </a>
-              <a href="#gallery" onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center gap-1 p-2.5 rounded-xl bg-white/5 text-[11px] font-medium text-white hover:bg-white/10">
+              <a
+                href="#gallery"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-[#0F2232] border border-white/5 text-[11px] font-bold text-white hover:bg-[#18344B] transition-colors shadow-sm"
+              >
                 <Image className="h-4 w-4 text-[#0FA4AF]" /> Gallery
               </a>
-              <a href="#tender" onClick={() => setIsMenuOpen(false)} className="flex flex-col items-center justify-center gap-1 p-2.5 rounded-xl bg-white/5 text-[11px] font-medium text-white hover:bg-white/10">
+              <a
+                href="#tender"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-[#0F2232] border border-white/5 text-[11px] font-bold text-white hover:bg-[#18344B] transition-colors shadow-sm"
+              >
                 <FileText className="h-4 w-4 text-[#0FA4AF]" /> Tender
               </a>
             </div>
 
-            <nav className="mx-auto flex max-w-2xl flex-col space-y-1" aria-label="Mobile navigation">
+            {/* Navigation Items Cards (Matching Reference Screenshot layout & 10 numbered items) */}
+            <nav className="mx-auto flex max-w-2xl flex-col space-y-2.5 pb-8" aria-label="Mobile navigation">
               {navigationItems.map((item, index) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center justify-between border-b border-white/10 px-3 py-3 font-display text-sm font-bold text-white transition-all hover:bg-white/10 hover:text-brand-cyan rounded-xl focus-ring"
+                  className="flex items-center justify-between rounded-xl bg-[#0F2232] border border-white/5 px-4 py-3.5 font-display text-sm font-bold text-white transition-all hover:bg-[#18344B] hover:text-[#0FA4AF] focus-ring active:scale-[0.99] shadow-sm"
                 >
-                  <span>{item.label}</span>
-                  <span className="text-xs font-bold text-brand-cyan/80 font-mono tracking-wider">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="text-[14px] font-bold text-white">{item.label}</span>
+                  <span className="text-xs font-extrabold text-[#0FA4AF] font-mono tracking-wider">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                 </a>
               ))}
-              <div className="pt-4 grid grid-cols-2 gap-3">
+
+              {/* Bottom CTAs */}
+              <div className="pt-3 grid grid-cols-2 gap-3">
                 <a
                   href="#contact"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-[#0FA4AF]/40 bg-[#0FA4AF]/15 px-4 py-3 text-xs font-extrabold text-white shadow-md transition-all active:scale-[0.98]"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-[#0FA4AF]/40 bg-[#092B38] px-4 py-3.5 text-xs font-extrabold text-white shadow-md transition-all hover:bg-[#0F3A4B] active:scale-[0.98]"
                 >
                   <PhoneCall className="h-4 w-4 text-[#0FA4AF]" /> Contact Us
                 </a>
                 <a
                   href="#tender"
                   onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0FA4AF] to-[#0D5C63] px-4 py-3 text-xs font-extrabold text-white shadow-lg shadow-[#0FA4AF]/20 transition-all active:scale-[0.98]"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-[#0FA4AF] px-4 py-3.5 text-xs font-extrabold text-[#001C1F] shadow-lg shadow-[#0FA4AF]/20 transition-all hover:bg-[#12BCC8] active:scale-[0.98]"
                 >
                   <FileText className="h-4 w-4" /> Tender
                 </a>

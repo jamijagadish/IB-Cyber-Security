@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Home } from "lucide-react";
-import { cardsData } from "../../../data/HomePageData/CloudSaasDigitalPlatformsData/CloudSaasAndDigitalPlatformsPageData";
+import { cardsData } from "./CloudSaasAndDigitalPlatformsPageData";
 
 // Animated product illustrations
 const cloudPath = 'M40 65 C23 65 23 42 40 42 C43 20 76 19 82 40 C105 33 116 65 96 65 Z';

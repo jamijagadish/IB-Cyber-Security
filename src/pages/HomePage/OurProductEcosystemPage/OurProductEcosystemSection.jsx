@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import AnimatedSectionHeading from '../../../components/common/AnimatedSectionHeading';
-import { productEcosystemData } from '../../../data/HomePageData/OurProductEcosystemData/OurProductEcosystemPageData';
+import { productEcosystemData } from './OurProductEcosystemPageData';
 
 /* 3D Specimen Graphic SVGs matching reference image */
 function CyberShieldSpecimen() {

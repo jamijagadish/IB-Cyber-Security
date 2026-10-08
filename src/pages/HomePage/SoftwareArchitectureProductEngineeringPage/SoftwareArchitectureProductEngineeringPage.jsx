@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { RotateCcw, Home } from 'lucide-react';
-import { softwareArchitectureEngineeringData } from '../../../data/HomePageData/SoftwareArchitectureProductEngineeringPageData/SoftwareArchitectureProductEngineeringPageData.js';
+import { softwareArchitectureEngineeringData } from './SoftwareArchitectureProductEngineeringPageData.js';
 
 /* =========================================================================
    1. 3D SPECIMEN GRAPHIC ICONS (Compact high-fidelity SVGs: 88x88)

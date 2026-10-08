@@ -23,7 +23,7 @@ import {
   X,
   Home
 } from 'lucide-react'
-import { securityCardsData } from '../../../data/HomePageData/GlobalInfrastructureManagedServicesPageData/GlobalInfrastructureManagedServicesPageData.js'
+import { securityCardsData } from './GlobalInfrastructureManagedServicesPageData.js';
 
 // Icon registry mapping
 const ICONS = {

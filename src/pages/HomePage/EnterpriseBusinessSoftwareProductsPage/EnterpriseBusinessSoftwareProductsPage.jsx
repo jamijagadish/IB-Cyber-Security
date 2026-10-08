@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home } from 'lucide-react';
-import { cardsData } from '../../../data/HomePageData/EnterpriseBusinessSoftwareProductsPageData/EnterpriseBusinessSoftwareProductsPageData.js';
+import { cardsData } from './EnterpriseBusinessSoftwareProductsPageData.js';
 
 const Card = ({ card }) => {
   return (

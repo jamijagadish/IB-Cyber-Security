@@ -208,14 +208,7 @@ export default function EnterpriseBusinessSoftwareProductsSection({ onOpenPage }
             transition={{ duration: 0.65, ease: [0.215, 0.61, 0.355, 1] }}
             className="lg:col-span-6 flex flex-col items-center lg:items-start justify-center text-center lg:text-left"
           >
-            {/* Top Indicator Tag */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
-              <div className="w-6 h-[2.5px] bg-[#0FA4AF] rounded-full" />
-              <span className="text-xs font-extrabold tracking-wider uppercase text-[#0FA4AF]">
-                ENTERPRISE SOFTWARE
-              </span>
-              <div className="w-6 h-[2.5px] bg-[#0FA4AF] rounded-full lg:hidden" />
-            </div>
+
 
             {/* Main Section Heading */}
             <AnimatedSectionHeading

@@ -31,6 +31,10 @@ const SoftwareProductPage = lazy(() => import('./pages/SoftwareProducts/Software
 const AboutUsPage = lazy(() => import('./pages/AboutUs/AboutUsPage'));
 const GalleryPage = lazy(() => import('./pages/Gallery/GalleryPage'));
 const FollowPage = lazy(() => import('./pages/Follow/FollowPage'));
+const CareerPage = lazy(() => import('./pages/Careers/CareerPage'));
+const CybersecurityDigitalSecurityPage = lazy(() => import('./pages/HomePage/CybersecurityDigitalSecurityPage/CybersecurityDigitalSecurityPage'));
+const CopyRightPage = lazy(() => import('./pages/AboutUs/CopyRight/CopyRightPage'));
+const SkillDevelopmentPage = lazy(() => import('./pages/SkillDevelopment/SkillDevelopmentPage.jsx'));
 
 // Root App Component
 export default function App() {
@@ -58,6 +62,11 @@ export default function App() {
   const [isAboutUsPageOpen, setIsAboutUsPageOpen] = useState(false);
   const [isGalleryPageOpen, setIsGalleryPageOpen] = useState(false);
   const [isFollowPageOpen, setIsFollowPageOpen] = useState(false);
+  const [isCareerPageOpen, setIsCareerPageOpen] = useState(false);
+  const [isCybersecurityPageOpen, setIsCybersecurityPageOpen] = useState(false);
+  const [isCopyrightPageOpen, setIsCopyrightPageOpen] = useState(false);
+  const [isSkillDevPageOpen, setIsSkillDevPageOpen] = useState(false);
+
 
   // Initial fast platform loading transition
   useEffect(() => {
@@ -105,15 +114,19 @@ export default function App() {
                                       ? 'digital-exp'
                                        : isRegulatoryPageOpen
                                          ? 'regulatory'
-                                          : isSoftwareProductPageOpen
-                                            ? 'software-products'
-                                            : isAboutUsPageOpen
-                                              ? 'about-us'
-                                              : isGalleryPageOpen
-                                                ? 'gallery'
-                                                : isFollowPageOpen
-                                                  ? 'follow'
-                                                  : 'home';
+                                           : isSoftwareProductPageOpen
+                                             ? 'software-products'
+                                             : isAboutUsPageOpen
+                                               ? 'about-us'
+                                               : isGalleryPageOpen
+                                                 ? 'gallery'
+                                                 : isFollowPageOpen
+                                                   ? 'follow'
+                                                   : isCareerPageOpen
+                                                     ? 'careers'
+                                                     : isCybersecurityPageOpen
+                                                       ? 'cybersecurity'
+                                                       : 'home';
 
   const isAnyDetailPageOpen =
     isSdpePageOpen ||
@@ -138,7 +151,11 @@ export default function App() {
     isSoftwareProductPageOpen ||
     isAboutUsPageOpen ||
     isGalleryPageOpen ||
-    isFollowPageOpen;
+    isFollowPageOpen ||
+    isCareerPageOpen ||
+    isCybersecurityPageOpen ||
+    isCopyrightPageOpen ||
+    isSkillDevPageOpen;
 
   useEffect(() => {
     const handleHash = () => {
@@ -166,6 +183,10 @@ export default function App() {
         setIsAboutUsPageOpen(false);
         setIsGalleryPageOpen(false);
         setIsFollowPageOpen(false);
+        setIsCareerPageOpen(false);
+        setIsCybersecurityPageOpen(false);
+        setIsCopyrightPageOpen(false);
+        setIsSkillDevPageOpen(false);
       };
 
       if (window.location.hash === '#sdpe-page') {
@@ -227,6 +248,37 @@ export default function App() {
         resetAll(); setIsGalleryPageOpen(true);
       } else if (window.location.hash === '#follow' || window.location.hash === '#follow-page' || window.location.hash === '#follow-us') {
         resetAll(); setIsFollowPageOpen(true);
+      } else if (
+        window.location.hash === '#careers' ||
+        window.location.hash === '#career' ||
+        window.location.hash === '#careers-page' ||
+        window.location.hash === '#career-page' ||
+        window.location.hash === '#/vacancies' ||
+        window.location.hash === '#/policies' ||
+        window.location.hash === '#/verification' ||
+        window.location.hash === '#/portal'
+      ) {
+        resetAll(); setIsCareerPageOpen(true);
+      } else if (
+        window.location.hash === '#cybersecurity-digital-security-page' ||
+        window.location.hash === '#cybersecurity-page' ||
+        window.location.hash === '#cybersecurity'
+      ) {
+        resetAll(); setIsCybersecurityPageOpen(true);
+      } else if (
+        window.location.hash === '#copyright-page' ||
+        window.location.hash === '#copyright' ||
+        window.location.hash === '#copyright-policy' ||
+        window.location.hash === '#about-us-copyright'
+      ) {
+        resetAll(); setIsCopyrightPageOpen(true);
+      } else if (
+        window.location.hash === '#skill-development-page' ||
+        window.location.hash === '#skill-development' ||
+        window.location.hash === '#skill-dev' ||
+        window.location.hash === '#skill-dev-page'
+      ) {
+        resetAll(); setIsSkillDevPageOpen(true);
       } else {
         resetAll();
       }
@@ -252,7 +304,7 @@ export default function App() {
         clearTimeout(timer2);
       };
     }
-  }, [isAnyDetailPageOpen, isSdpePageOpen, isIpPageOpen, isSpcPageOpen, isPdlPageOpen, isOpePageOpen, isOtPageOpen, isAiPageOpen, isCloudPageOpen, isDaPageOpen, isApisPageOpen, isEduPageOpen, isEntPageOpen, isGovPageOpen, isInvPageOpen, isArchPageOpen, isGlobalInfraPageOpen, isDevOpsPageOpen, isDigitalExpPageOpen, isRegulatoryPageOpen, isSoftwareProductPageOpen, isAboutUsPageOpen, isGalleryPageOpen, isFollowPageOpen]);
+  }, [isAnyDetailPageOpen, isSdpePageOpen, isIpPageOpen, isSpcPageOpen, isPdlPageOpen, isOpePageOpen, isOtPageOpen, isAiPageOpen, isCloudPageOpen, isDaPageOpen, isApisPageOpen, isEduPageOpen, isEntPageOpen, isGovPageOpen, isInvPageOpen, isArchPageOpen, isGlobalInfraPageOpen, isDevOpsPageOpen, isDigitalExpPageOpen, isRegulatoryPageOpen, isSoftwareProductPageOpen, isAboutUsPageOpen, isGalleryPageOpen, isFollowPageOpen, isCareerPageOpen, isCybersecurityPageOpen, isCopyrightPageOpen, isSkillDevPageOpen]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -279,6 +331,8 @@ export default function App() {
   const openDevOps = () => { setIsDevOpsPageOpen(true); scrollToTop(); };
   const openDigitalExp = () => { setIsDigitalExpPageOpen(true); scrollToTop(); };
   const openRegulatory = () => { setIsRegulatoryPageOpen(true); scrollToTop(); };
+  const openCybersecurity = () => { setIsCybersecurityPageOpen(true); scrollToTop(); };
+  const openCopyright = () => { setIsCopyrightPageOpen(true); scrollToTop(); window.location.hash = '#copyright-page'; };
 
   const openSoftwareProduct = () => { setIsSoftwareProductPageOpen(true); scrollToTop(); };
   const openAboutUs = () => { setIsAboutUsPageOpen(true); scrollToTop(); };
@@ -307,6 +361,10 @@ export default function App() {
     setIsAboutUsPageOpen(false);
     setIsGalleryPageOpen(false);
     setIsFollowPageOpen(false);
+    setIsCareerPageOpen(false);
+    setIsCybersecurityPageOpen(false);
+    setIsCopyrightPageOpen(false);
+    setIsSkillDevPageOpen(false);
 
     window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${sectionId}`);
 
@@ -341,6 +399,11 @@ export default function App() {
   const handleCloseAboutUsPage = () => closePageAndScrollTo('home');
   const handleCloseGalleryPage = () => closePageAndScrollTo('home');
   const handleCloseFollowPage = () => closePageAndScrollTo('home');
+  const handleCloseCareerPage = () => closePageAndScrollTo('home');
+  const handleCloseCybersecurityPage = () => closePageAndScrollTo('cybersecurity-digital-security');
+  const handleCloseCopyrightPage = () => { window.location.hash = '#about-us'; };
+  const openSkillDev = () => { setIsSkillDevPageOpen(true); scrollToTop(); window.location.hash = '#skill-development-page'; };
+  const handleCloseSkillDevPage = () => closePageAndScrollTo('home');
 
   return (
     <div className="min-h-screen bg-[#001C1F]">
@@ -369,6 +432,7 @@ export default function App() {
             onOpenDevOpsPage={openDevOps}
             onOpenDigitalExpPage={openDigitalExp}
             onOpenRegulatoryPage={openRegulatory}
+            onOpenCybersecurityPage={openCybersecurity}
           />
         </div>
 
@@ -393,9 +457,13 @@ export default function App() {
           {isDigitalExpPageOpen && <DigitalExperienceDesignPage onClose={handleCloseDigitalExpPage} />}
           {isRegulatoryPageOpen && <RegulatoryComplianceGovernancePage onClose={handleCloseRegulatoryPage} />}
           {isSoftwareProductPageOpen && <SoftwareProductPage onClose={handleCloseSoftwareProductPage} />}
-          {isAboutUsPageOpen && <AboutUsPage onClose={handleCloseAboutUsPage} />}
+          {isAboutUsPageOpen && <AboutUsPage onClose={handleCloseAboutUsPage} onOpenCopyrightPage={openCopyright} />}
           {isGalleryPageOpen && <GalleryPage onClose={handleCloseGalleryPage} />}
           {isFollowPageOpen && <FollowPage onClose={handleCloseFollowPage} />}
+          {isCareerPageOpen && <CareerPage onClose={handleCloseCareerPage} />}
+          {isCybersecurityPageOpen && <CybersecurityDigitalSecurityPage onClose={handleCloseCybersecurityPage} />}
+          {isCopyrightPageOpen && <CopyRightPage onClose={handleCloseCopyrightPage} />}
+          {isSkillDevPageOpen && <SkillDevelopmentPage onClose={handleCloseSkillDevPage} />}
         </Suspense>
       </main>
 

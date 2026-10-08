@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
-import { productEcosystemData } from '../../../data/HomePageData/OurProductEcosystemData/OurProductEcosystemPageData';
+import { productEcosystemData } from './OurProductEcosystemPageData';
 
 /* =========================================================================
    1. 3D SPECIMEN GRAPHIC ICONS (High-fidelity SVGs for the 12 products)

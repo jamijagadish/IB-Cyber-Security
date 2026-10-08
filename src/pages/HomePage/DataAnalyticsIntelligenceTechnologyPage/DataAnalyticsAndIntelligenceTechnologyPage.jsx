@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import * as Icons from 'lucide-react';
-import { DATA_ANALYTICS_CARDS } from '../../../data/HomePageData/DataAnalyticsIntelligenceTechnologyData/DataAnalyticsAndIntelligenceTechnologyPageData';
+import { DATA_ANALYTICS_CARDS } from './DataAnalyticsAndIntelligenceTechnologyPageData';
 
 function useNativeScroll(containerRef, totalItems) {
   const [position, setPosition] = useState({ currentIndex: 0, maxIndex: 0 });

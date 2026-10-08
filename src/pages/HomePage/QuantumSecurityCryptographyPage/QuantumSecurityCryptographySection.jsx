@@ -114,12 +114,7 @@ export default function QuantumSecurityCryptographySection({ onOpenPage }) {
           
           {/* Left Column: Heading, Descriptions & Actions */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#AFDDE5] shadow-xs mb-4">
-              <Atom className="w-4 h-4 text-[#0FA4AF]" />
-              <span className="text-xs font-extrabold text-[#003135] tracking-wider uppercase">
-                POST-QUANTUM CRYPTOGRAPHY
-              </span>
-            </div>
+
 
             <AnimatedSectionHeading
               text="Quantum Security & Advanced Cryptography"

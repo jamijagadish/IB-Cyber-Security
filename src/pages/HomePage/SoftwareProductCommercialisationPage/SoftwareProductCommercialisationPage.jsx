@@ -38,7 +38,7 @@ import {
   ChevronDown,
   Home,
 } from 'lucide-react';
-import { intellectualPropertyData } from '../../../data/HomePageData/SoftwareProductCommercialisationPageData/SoftwareProductCommercialisationPageData';
+import { intellectualPropertyData } from './SoftwareProductCommercialisationPageData';
 
 // Lookup dictionary for Lucide icons
 const iconMap = {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Home, X } from "lucide-react";
-import { cardData } from "../../../data/HomePageData/RegulatoryComplianceGovernancePageData/RegulatoryComplianceGovernancePageData";
+import { cardData } from "./RegulatoryComplianceGovernancePageData";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    CARD COMPONENT

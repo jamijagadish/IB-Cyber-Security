@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home } from "lucide-react";
-import { demoCards } from "../../../data/HomePageData/DevOpsContinuousDeliveryPageData/DevOpsContinuousDeliveryPageData";
+import { demoCards } from "./DevOpsContinuousDeliveryPageData";
 import {
   Cloud, Key, RefreshCw, Server, Tag, Code2,
   Cpu, Users, Blocks, Globe, Sliders, Network

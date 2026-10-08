@@ -120,12 +120,7 @@ export default function DevOpsContinuousDeliverySection({ onOpenPage }) {
         
         {/* Header */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#AFDDE5] shadow-xs mb-4">
-            <GitPullRequest className="w-4 h-4 text-[#0FA4AF]" />
-            <span className="text-xs font-extrabold text-[#003135] tracking-wider uppercase">
-              AUTOMATED CI/CD &amp; RELEASE ENGINEERING
-            </span>
-          </div>
+
 
           <AnimatedSectionHeading
             text="DevOps & Continuous Delivery"

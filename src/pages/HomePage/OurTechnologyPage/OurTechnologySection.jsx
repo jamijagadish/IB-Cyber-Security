@@ -66,12 +66,7 @@ export default function OurTechnologySection({ onOpenPage }) {
 
           {/* Left Column: Category Tag, Description Paragraphs & Button */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Category Tag: — OUR TECHNOLOGY — */}
-            <div className="flex items-center justify-center lg:justify-start gap-2.5 text-[#0FA4AF] font-bold text-xs sm:text-sm tracking-wider uppercase mb-4">
-              <span className="w-7 h-[2px] bg-[#0FA4AF]"></span>
-              <span>OUR TECHNOLOGY</span>
-              <span className="w-7 h-[2px] bg-[#0FA4AF] lg:hidden"></span>
-            </div>
+
 
             {/* Description Paragraphs (100% Intact Text) */}
             <div className="space-y-4 text-[15px] sm:text-[16px] leading-relaxed text-[#003135]/85 font-medium mb-8 text-center lg:text-left">

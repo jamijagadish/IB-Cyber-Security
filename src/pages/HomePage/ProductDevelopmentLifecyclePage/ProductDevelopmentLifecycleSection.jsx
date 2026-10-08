@@ -207,14 +207,7 @@ export default function ProductDevelopmentLifecycleSection({ onOpenPage }) {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
             className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left order-1 lg:order-2"
           >
-            {/* Tag Pill Line */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
-              <div className="w-8 h-[2.5px] bg-[#00A8B5] rounded-full" />
-              <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#00A8B5]">
-                OUR METHODOLOGY
-              </span>
-              <div className="w-8 h-[2.5px] bg-[#00A8B5] rounded-full lg:hidden" />
-            </div>
+
 
             {/* Main Section Heading */}
             <AnimatedSectionHeading

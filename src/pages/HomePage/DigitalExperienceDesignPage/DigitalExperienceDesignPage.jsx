@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, X, ShieldAlert } from "lucide-react";
-import { cardData as cardsData } from "../../../data/HomePageData/DigitalExperienceDesignPageData/DigitalExperienceDesignPageData";
+import { cardData as cardsData } from "./DigitalExperienceDesignPageData";
 
 /* ─── ICONS & ILLUSTRATIONS ──────────────────────────────────────────────── */
 

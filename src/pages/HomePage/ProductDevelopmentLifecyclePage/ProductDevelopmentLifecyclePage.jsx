@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence, LayoutGroup } from 'framer-motion';
 import { Lightbulb, Target, Box, ChevronDown, X, Home } from 'lucide-react';
-import { stages, introData } from '../../../data/HomePageData/ProductDevelopmentLifecycleData/ProductDevelopmentLifecyclePageData';
+import { stages, introData } from './ProductDevelopmentLifecyclePageData';
 
 const themes = [
   { 

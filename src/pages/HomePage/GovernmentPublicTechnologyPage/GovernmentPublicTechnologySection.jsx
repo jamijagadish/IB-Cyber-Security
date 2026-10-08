@@ -36,48 +36,48 @@ function GovernmentInfrastructureSVG() {
       </g>
 
       {/* Connection Bus Lines */}
-      <path d="M 260 180 L 120 100" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
-      <path d="M 260 180 L 400 100" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
-      <path d="M 260 180 L 120 260" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
-      <path d="M 260 180 L 400 260" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
+      <path d="M 260 180 L 118 92" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
+      <path d="M 260 180 L 402 92" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
+      <path d="M 260 180 L 118 268" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
+      <path d="M 260 180 L 402 268" stroke="url(#govLineGrad)" strokeWidth="2" strokeDasharray="4 3" />
 
       {/* Node 1: Citizen Services (Top-Left) */}
-      <g transform="translate(70, 60)">
-        <rect width="100" height="70" rx="12" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="28" cy="28" r="14" fill="#E6F7F9" />
-        <path d="M 24 28 A 4 4 0 0 1 32 28 Z" fill="#0FA4AF" />
-        <circle cx="28" cy="22" r="3" fill="#0FA4AF" />
-        <text x="20" y="52" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Citizen Services</text>
-        <circle cx="85" cy="20" r="3.5" fill="#10B981" />
+      <g transform="translate(52, 56)">
+        <rect width="132" height="72" rx="14" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="28" cy="26" r="13" fill="#E6F7F9" />
+        <path d="M 24 26 A 4 4 0 0 1 32 26 Z" fill="#0FA4AF" />
+        <circle cx="28" cy="20" r="3" fill="#0FA4AF" />
+        <text x="66" y="54" textAnchor="middle" fill="#003135" fontSize="10.5" fontWeight="800" fontFamily="system-ui">Citizen Services</text>
+        <circle cx="114" cy="20" r="3.5" fill="#10B981" />
       </g>
 
       {/* Node 2: Administrative Workflows (Top-Right) */}
-      <g transform="translate(350, 60)">
-        <rect width="100" height="70" rx="12" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="28" cy="28" r="14" fill="#E6F7F9" />
-        <rect x="23" y="21" width="10" height="13" rx="2" fill="none" stroke="#0FA4AF" strokeWidth="1.5" />
-        <line x1="26" y1="25" x2="30" y2="25" stroke="#0FA4AF" strokeWidth="1.5" />
-        <line x1="26" y1="28" x2="30" y2="28" stroke="#0FA4AF" strokeWidth="1.5" />
-        <text x="14" y="52" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Admin Workflow</text>
-        <circle cx="85" cy="20" r="3.5" fill="#0FA4AF" />
+      <g transform="translate(336, 56)">
+        <rect width="132" height="72" rx="14" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="28" cy="26" r="13" fill="#E6F7F9" />
+        <rect x="23" y="19" width="10" height="13" rx="2" fill="none" stroke="#0FA4AF" strokeWidth="1.5" />
+        <line x1="26" y1="23" x2="30" y2="23" stroke="#0FA4AF" strokeWidth="1.5" />
+        <line x1="26" y1="26" x2="30" y2="26" stroke="#0FA4AF" strokeWidth="1.5" />
+        <text x="66" y="54" textAnchor="middle" fill="#003135" fontSize="10.5" fontWeight="800" fontFamily="system-ui">Admin Workflow</text>
+        <circle cx="114" cy="20" r="3.5" fill="#0FA4AF" />
       </g>
 
       {/* Node 3: Reporting & Records (Bottom-Left) */}
-      <g transform="translate(70, 220)">
-        <rect width="100" height="70" rx="12" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="28" cy="28" r="14" fill="#E6F7F9" />
-        <path d="M 22 29 L 26 23 L 30 26 L 34 20" stroke="#0FA4AF" strokeWidth="1.8" strokeLinecap="round" />
-        <text x="18" y="52" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Audit &amp; Reporting</text>
-        <circle cx="85" cy="20" r="3.5" fill="#0FA4AF" />
+      <g transform="translate(52, 232)">
+        <rect width="132" height="72" rx="14" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="28" cy="26" r="13" fill="#E6F7F9" />
+        <path d="M 22 27 L 26 21 L 30 24 L 34 18" stroke="#0FA4AF" strokeWidth="1.8" strokeLinecap="round" />
+        <text x="66" y="54" textAnchor="middle" fill="#003135" fontSize="10.5" fontWeight="800" fontFamily="system-ui">Audit &amp; Reporting</text>
+        <circle cx="114" cy="20" r="3.5" fill="#0FA4AF" />
       </g>
 
       {/* Node 4: Statutory Compliance & Legal Gate (Bottom-Right) */}
-      <g transform="translate(350, 220)">
-        <rect width="100" height="70" rx="12" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="28" cy="28" r="14" fill="#E6F7F9" />
-        <path d="M 28 19 L 33 22 V 27 C 33 30 28 33 28 33 C 28 33 23 30 23 27 V 22 Z" fill="none" stroke="#0FA4AF" strokeWidth="1.5" />
-        <text x="16" y="52" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Compliance Gate</text>
-        <circle cx="85" cy="20" r="3.5" fill="#10B981" />
+      <g transform="translate(336, 232)">
+        <rect width="132" height="72" rx="14" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="28" cy="26" r="13" fill="#E6F7F9" />
+        <path d="M 28 17 L 33 20 V 25 C 33 28 28 31 28 31 C 28 31 23 28 23 25 V 20 Z" fill="none" stroke="#0FA4AF" strokeWidth="1.5" />
+        <text x="66" y="54" textAnchor="middle" fill="#003135" fontSize="10.5" fontWeight="800" fontFamily="system-ui">Compliance Gate</text>
+        <circle cx="114" cy="20" r="3.5" fill="#10B981" />
       </g>
 
       {/* Center Central Hub: Government Digital Core */}
@@ -97,6 +97,7 @@ function GovernmentInfrastructureSVG() {
     </svg>
   );
 }
+
 
 export default function GovernmentPublicTechnologySection({ onOpenPage }) {
   const handleCtaClick = (e) => {
@@ -120,13 +121,7 @@ export default function GovernmentPublicTechnologySection({ onOpenPage }) {
           
           {/* Left Column: Heading, Descriptions & Actions */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Category Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#AFDDE5] shadow-xs mb-4">
-              <Landmark className="w-4 h-4 text-[#0FA4AF]" />
-              <span className="text-xs font-extrabold text-[#003135] tracking-wider uppercase">
-                PUBLIC SECTOR TRANSFORMATION
-              </span>
-            </div>
+
 
             {/* Main Heading */}
             <AnimatedSectionHeading

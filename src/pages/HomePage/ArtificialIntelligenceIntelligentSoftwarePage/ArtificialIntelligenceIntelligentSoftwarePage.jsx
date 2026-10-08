@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { artificialIntelligenceData } from '../../../data/HomePageData/ArtificialIntelligenceIntelligentSoftwareData/ArtificialIntelligenceIntelligentSoftwareDataPage';
+import { artificialIntelligenceData } from './ArtificialIntelligenceIntelligentSoftwareDataPage';
 import {
   ChevronLeft,
   ChevronRight,

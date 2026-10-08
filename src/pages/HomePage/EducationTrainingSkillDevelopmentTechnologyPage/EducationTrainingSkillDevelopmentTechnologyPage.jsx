@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import * as Icons from 'lucide-react';
 import { Home } from 'lucide-react';
-import { CYBER_LAW_LEGAL_AWARENESS_CARDS } from '../../../data/HomePageData/EducationTrainingSkillDevelopmentTechnologyPageData/EducationTrainingSkillDevelopmentTechnologyPageData.js';
+import { CYBER_LAW_LEGAL_AWARENESS_CARDS } from './EducationTrainingSkillDevelopmentTechnologyPageData.js';
 
 function useNativeScroll(containerRef, totalItems) {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -1,9 +1,7 @@
+import { motion } from 'framer-motion';
 import { ArrowRight, Cpu, ShieldCheck, Cloud, Layers, Lock, Activity, CheckCircle2, Database, Server, Zap } from 'lucide-react';
 import AnimatedSectionHeading from '../../../components/common/AnimatedSectionHeading';
 
-const fullP1 = "Welcome to IB Cyber Security Private Limited, an international software product-based company dedicated to building, owning, and commercialising next-generation digital platforms and intelligent technology solutions.";
-const fullP2 = "Our enterprise software portfolio combines cutting-edge engineering, cybersecurity resilience, artificial intelligence, cloud architecture, and data intelligence to serve governments, business enterprises, public institutions, and international markets.";
-const fullP3 = "Through a structured end-to-end product development lifecycle, we transform complex operational challenges into scalable, reliable, and secure software platforms. We remain committed to fostering digital trust, operational excellence, and technological innovation across every layer of the modern digital landscape.";
 
 // Truly scattered 3D floating icons (varying depth sizes, non-circular 2D positions, zero laptop overlap)
 const floatingIcons = [
@@ -20,15 +18,21 @@ const floatingIcons = [
 export default function IntroductionSection({ onOpenPage }) {
   const handleCtaClick = (e) => {
     e.preventDefault();
-    window.location.hash = '#about-us';
     if (onOpenPage) {
       onOpenPage();
+    } else {
+      const nextSection = document.getElementById('products-platforms');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.hash = '#products-platforms';
+      }
     }
   };
 
   return (
     <section id="introduction" className="relative scroll-mt-20 py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#F0F9FA] via-[#E4F4F7] to-[#D5EEF2] border-b border-[#0FA4AF]/20 overflow-hidden">
-      
+
       {/* Background Decorative Wave SVG & Dot Matrix */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Soft Background Radial Glows */}
@@ -57,34 +61,75 @@ export default function IntroductionSection({ onOpenPage }) {
 
       <div className="site-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* Left Column: Category, Heading & 3 Paragraphs */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Category Tag: — INTRODUCTION — */}
-            <div className="flex items-center justify-center lg:justify-start gap-2.5 text-[#0FA4AF] font-bold text-xs sm:text-sm tracking-wider uppercase mb-3">
-              <span className="w-7 h-[2px] bg-[#0FA4AF]"></span>
-              <span>INTRODUCTION</span>
-              <span className="w-7 h-[2px] bg-[#0FA4AF] lg:hidden"></span>
-            </div>
 
-            {/* Main Heading */}
-            <AnimatedSectionHeading
-              text="Introduction"
-              priority={true}
+
+            {/* Main Heading - Exclusive 3D Letter-by-Letter Fold Animation on Scroll */}
+            <motion.h2
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.06,
+                    delayChildren: 0.05,
+                  },
+                },
+              }}
               className="font-display text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.1] tracking-tight text-[#003135] mb-5 text-center lg:text-left"
-            />
+            >
+              <span className="sr-only">Introduction</span>
+              <span aria-hidden="true" className="inline-block" style={{ perspective: '800px', transformStyle: 'preserve-3d' }}>
+                {'Introduction'.split('').map((char, index) => (
+                  <motion.span
+                    key={index}
+                    variants={{
+                      hidden: {
+                        opacity: 0,
+                        rotateX: -90,
+                        y: -22,
+                        transformOrigin: 'top center',
+                      },
+                      visible: {
+                        opacity: 1,
+                        rotateX: 0,
+                        y: 0,
+                        transition: {
+                          duration: 0.55,
+                          ease: [0.16, 1, 0.3, 1],
+                        },
+                      },
+                    }}
+                    style={{ transformStyle: 'preserve-3d', display: 'inline-block' }}
+                    className="inline-block will-change-transform"
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+            </motion.h2>
 
-            {/* 3 Paragraphs */}
+            {/* Paragraphs */}
             <div className="space-y-3.5 text-[15px] sm:text-[16px] leading-relaxed text-[#003135]/85 font-medium text-center lg:text-left">
-              <p>{fullP1}</p>
-              <p>{fullP2}</p>
-              <p>{fullP3}</p>
+              <p>
+                <strong className="font-bold text-[#003135]">IB Cyber Security Private Limited (IBCS)</strong> is a technology-driven product company building secure, intelligent, and scalable digital solutions for government, law enforcement, enterprises, and financial institutions.
+              </p>
+              <p>
+                IBCS develops innovative cybersecurity platforms, investigation and intelligence tools, AI-powered solutions, government technology platforms, digital evidence and forensic systems, and SaaS products.
+              </p>
+              <p>
+                With a strong focus on innovation, reliability, customization, and advanced technology, we transform complex digital challenges into purposeful products that strengthen security, intelligence, and decision-making, advancing our vision of a <strong className="font-bold text-[#003135]">Cyber Safe India</strong>.
+              </p>
             </div>
           </div>
 
           {/* Right Column: Sleek Compact Laptop, Scattered Icons & Far-Right Aligned Explore Now Button */}
           <div className="lg:col-span-6 w-full flex flex-col items-center lg:items-end">
-            
+
             {/* Graphic Illustration Container */}
             <div className="relative w-full max-w-lg aspect-[1.35/1] flex items-center justify-center p-6 sm:p-10 mb-4">
 
@@ -105,10 +150,10 @@ export default function IntroductionSection({ onOpenPage }) {
 
               {/* Sleek Compact Laptop (Centered, Zero Overlap) */}
               <div className="relative z-10 w-[190px] sm:w-[230px] lg:w-[250px] mx-auto flex flex-col items-center">
-                
+
                 {/* Laptop Display Screen */}
                 <div className="relative w-full rounded-2xl bg-gradient-to-b from-[#1C2C30] via-[#0F1C1F] to-[#0A1315] p-2 sm:p-2.5 border-2 border-[#2A444A] shadow-xl">
-                  
+
                   {/* Top Bezel Webcam Dot */}
                   <div className="flex justify-center mb-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#00A4B4]/60 border border-[#003135]"></span>
@@ -116,7 +161,7 @@ export default function IntroductionSection({ onOpenPage }) {
 
                   {/* Screen Dashboard Display */}
                   <div className="rounded-xl bg-[#001D21] p-3 aspect-[1.6/1] flex flex-col justify-between overflow-hidden relative border border-[#0FA4AF]/20 shadow-inner">
-                    
+
                     {/* Screen Glare Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none"></div>
 
@@ -139,7 +184,7 @@ export default function IntroductionSection({ onOpenPage }) {
 
                     {/* Dashboard Screen Content */}
                     <div className="grid grid-cols-12 gap-2 h-full items-center relative z-10">
-                      
+
                       {/* Shield Security Status */}
                       <div className="col-span-5 flex flex-col items-center justify-center p-1.5 bg-gradient-to-br from-[#003840]/90 to-[#002227]/90 rounded-lg border border-[#0FA4AF]/30 shadow-md">
                         <div className="relative w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-[#0FA4AF]/30 to-[#005159]/40 border border-[#0FA4AF] flex items-center justify-center text-[#35D7E4] mb-0.5">
@@ -161,7 +206,7 @@ export default function IntroductionSection({ onOpenPage }) {
                           </div>
                           <Activity className="w-2 h-2 text-[#35D7E4] animate-pulse" />
                         </div>
-                        
+
                         <div className="p-1 bg-[#001D21]/80 rounded border border-[#0FA4AF]/15 flex items-center justify-between gap-1">
                           <div className="flex items-end gap-0.5 h-5">
                             <span className="w-1 h-2.5 bg-[#35D7E4] rounded-t"></span>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { OurTechnologyData } from '../../../data/HomePageData/OurTechnologyData/OurTechnologyPageData';
+import { OurTechnologyData } from './OurTechnologyPageData';
 import { BrainCircuit, Cpu, Sparkles, ShieldCheck, Cloud, Database, LineChart, Settings, Network, Share2, Fingerprint, Lightbulb, X, ChevronLeft, ChevronRight, Home } from 'lucide-react';
 
 const iconMap = {

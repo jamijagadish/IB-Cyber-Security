@@ -112,12 +112,7 @@ export default function RegulatoryComplianceGovernanceSection({ onOpenPage }) {
 
           {/* Right Column: Heading, Descriptions & Actions */}
           <div className="lg:col-span-6 order-1 lg:order-2 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#AFDDE5] shadow-xs mb-4">
-              <ShieldCheck className="w-4 h-4 text-[#0FA4AF]" />
-              <span className="text-xs font-extrabold text-[#003135] tracking-wider uppercase">
-                STATUTORY GOVERNANCE &amp; GRC SYSTEMS
-              </span>
-            </div>
+
 
             <AnimatedSectionHeading
               text="Regulatory Compliance & Risk Governance"

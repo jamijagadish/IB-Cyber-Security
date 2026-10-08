@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Home } from 'lucide-react'
 
-import cards from '../../../data/HomePageData/SoftwareDevelopmentProductEngineeringPageData/SoftwareDevelopmentProductEngineeringPageData.js'
+import cards from './SoftwareDevelopmentProductEngineeringPageData.js';
 
 
 const paths = [
@@ -550,7 +550,9 @@ export default function SoftwareDevelopmentProductEngineeringPage({ onClose }) {
   }, [])
 
   const handleBack = () => {
-    if (onClose) {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (onClose) {
       onClose();
     } else {
       window.location.hash = '#products-platforms';

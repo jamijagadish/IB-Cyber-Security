@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import AnimatedSectionHeading from '../../../components/common/AnimatedSectionHeading';
-import { artificialIntelligenceData } from '../../../data/HomePageData/ArtificialIntelligenceIntelligentSoftwareData/ArtificialIntelligenceIntelligentSoftwareDataPage';
+import { artificialIntelligenceData } from './ArtificialIntelligenceIntelligentSoftwareDataPage';
 
 /* =========================================================================
    1. 3D SPECIMEN GRAPHIC ICONS

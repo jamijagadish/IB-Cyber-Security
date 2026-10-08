@@ -1,4 +1,5 @@
 import React from 'react';
+import brandLogo from '../assets/IBCS_BRAND_Transparent.png';
 import {
   ArrowRight,
   ArrowUp,
@@ -38,16 +39,16 @@ function ShieldLockBadge() {
 }
 
 /* =========================================================================
-   BRAND LOGO BADGE (Light Website Theme)
+   BRAND LOGO BADGE (Transparent Official Logo)
    ========================================================================= */
 function FooterBrandBadge() {
   return (
-    <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-[#0FA4AF] to-[#003135] p-[1.5px] shadow-[0_0_15px_rgba(15,164,175,0.25)] flex items-center justify-center shrink-0">
-      <div className="w-full h-full rounded-[10px] bg-gradient-to-br from-[#024950] to-[#001C1F] flex items-center justify-center relative overflow-hidden">
-        <span className="font-display font-black text-white text-[15px] sm:text-[16px] tracking-tight relative z-10">
-          IB
-        </span>
-      </div>
+    <div className="relative flex items-center justify-center shrink-0 rounded-full p-1 bg-white ring-2 ring-[#0FA4AF] shadow-[0_0_15px_rgba(15,164,175,0.7)] hover:shadow-[0_0_25px_rgba(15,164,175,1)] hover:scale-105 transition-all duration-300 overflow-hidden">
+      <img
+        src={brandLogo}
+        alt="IB Cyber Security Logo"
+        className="w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full object-contain shrink-0"
+      />
     </div>
   );
 }

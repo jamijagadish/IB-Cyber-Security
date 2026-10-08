@@ -189,14 +189,7 @@ export default function CybersecurityDigitalSecuritySection({ onOpenPage }) {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.215, 0.61, 0.355, 1] }}
             className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
-            {/* Tag Pill: — OUR FOCUS — */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
-              <div className="w-6 h-[2px] bg-[#0FA4AF]" />
-              <span className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#0FA4AF]">
-                OUR FOCUS
-              </span>
-              <div className="w-6 h-[2px] bg-[#0FA4AF] lg:hidden" />
-            </div>
+
 
             {/* Subheading */}
             <h3 className="font-display text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#003135] tracking-tight leading-tight mb-5 text-center lg:text-left">

@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import BlockchainClusterGraphic from './BlockchainClusterGraphic';
 import SectionDecorativeBackground from '../../../components/common/SectionDecorativeBackground';
-import { BlockchainDecentralisedTechData } from '../../../data/HomePageData/BlockchainDecentralisedTechData/BlockchainDecentralisedTechData';
+import { BlockchainDecentralisedTechData } from './BlockchainDecentralisedTechData';
 
 export default function BlockchainDecentralisedTechSection({ onOpenPage }) {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -145,32 +145,7 @@ export default function BlockchainDecentralisedTechSection({ onOpenPage }) {
       <div className="site-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* HEADER AREA */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          {/* Eyebrow Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#AFDDE5] shadow-xs mb-4"
-          >
-            {/* Hexagon Cube Icon */}
-            <svg
-              className="w-3.5 h-3.5 text-[#0FA4AF]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-              <line x1="12" y1="22.08" x2="12" y2="12" />
-            </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-[#003135] tracking-wider uppercase">
-              {badge}
-            </span>
-          </motion.div>
+
 
           {/* Main Title */}
           <AnimatedSectionHeading

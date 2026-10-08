@@ -44,12 +44,7 @@ export default function SoftwareDevelopmentProductEngineeringSection({ onOpenPag
           
           {/* Left Column: Category Tag, Heading & Call to Action Button */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Category Tag: — OUR SERVICES — */}
-            <div className="flex items-center justify-center lg:justify-start gap-2.5 text-[#0FA4AF] font-bold text-xs sm:text-sm tracking-wider uppercase mb-3">
-              <span className="w-7 h-[2px] bg-[#0FA4AF]"></span>
-              <span>OUR SERVICES</span>
-              <span className="w-7 h-[2px] bg-[#0FA4AF] lg:hidden"></span>
-            </div>
+
 
             {/* Main Heading */}
             <AnimatedSectionHeading
