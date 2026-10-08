@@ -208,30 +208,20 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex flex-1 items-center justify-center gap-1 xl:gap-1.5 2xl:gap-3.5 mx-auto min-w-0" aria-label="Primary navigation">
-            {navigationItems.map((item) => {
-              const parts = item.label.split(' ');
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="rounded-md px-1.5 py-1 text-[10.5px] font-bold text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan focus-ring 2xl:px-2.5 2xl:text-[12.5px] text-center whitespace-nowrap"
-                >
-                  {parts.length > 1 ? (
-                    <span className="flex flex-col items-center leading-[1.15] text-center">
-                      <span>{parts[0]}</span>
-                      <span>{parts.slice(1).join(' ')}</span>
-                    </span>
-                  ) : (
-                    <span>{item.label}</span>
-                  )}
-                </a>
-              );
-            })}
+          <nav className="hidden xl:flex flex-1 items-center justify-center gap-1.5 xl:gap-2.5 2xl:gap-4 mx-auto min-w-0" aria-label="Primary navigation">
+            {navigationItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="rounded-lg px-2 py-1.5 text-[12px] xl:text-[12.5px] 2xl:text-[13.5px] font-bold tracking-wide text-white/95 transition-all hover:bg-white/10 hover:text-brand-cyan focus-ring whitespace-nowrap shrink-0"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
-          {/* Right Side Action Area: Search, Help, Follow, Gallery, Contact Us, Demo */}
-          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+          {/* Right Side Action Area: Search, Contact Us, Mobile Menu */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             {/* 1. Search Icon & Floating Popover */}
             <div className="relative">
               <button
@@ -240,7 +230,7 @@ export default function Header() {
                   setIsSearchOpen((prev) => !prev);
                   setIsNotificationOpen(false);
                 }}
-                className="relative grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+                className="relative grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
                 aria-label={isSearchOpen ? 'Close search' : 'Open search'}
                 title="Search"
               >
@@ -298,40 +288,40 @@ export default function Header() {
               )}
             </div>
 
-            {/* 2. Help Icon */}
+            {/* 2. Help Icon (2xl screens only) */}
             <a
               href="#help"
-              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Help"
               aria-label="Help"
             >
               <HelpCircle className="h-4 w-4" />
             </a>
 
-            {/* 3. Follow Icon */}
+            {/* 3. Follow Icon (2xl screens only) */}
             <a
               href="#follow"
-              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Follow"
               aria-label="Follow"
             >
               <UserPlus className="h-4 w-4" />
             </a>
 
-            {/* 4. Gallery Icon */}
+            {/* 4. Gallery Icon (2xl screens only) */}
             <a
               href="#gallery"
-              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Gallery"
               aria-label="Gallery"
             >
               <Image className="h-4 w-4" />
             </a>
 
-            {/* 5. Tender Icon */}
+            {/* 5. Tender Icon (2xl screens only) */}
             <a
               href="#tender"
-              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Tender"
               aria-label="Tender"
             >
@@ -341,10 +331,10 @@ export default function Header() {
             {/* 6. Contact Us CTA Button */}
             <a
               href="#contact"
-              className="group inline-flex items-center gap-1 rounded-md bg-brand-rust px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-bold text-white transition-all hover:bg-[#a9543e] shrink-0 shadow-xs whitespace-nowrap"
+              className="group inline-flex items-center gap-1 rounded-lg bg-brand-rust px-3 py-1.5 text-[11px] sm:text-[12px] font-bold text-white transition-all hover:bg-[#a9543e] shrink-0 shadow-xs whitespace-nowrap"
             >
               <span>Contact Us</span>
-              <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
             {/* Mobile Navigation Menu Toggle */}
