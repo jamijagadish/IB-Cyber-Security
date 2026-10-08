@@ -40,8 +40,8 @@ export default function Header() {
     const cards = Array.isArray(section.cards)
       ? section.cards
       : Array.isArray(section)
-      ? section
-      : [];
+        ? section
+        : [];
     return cards.map((card) => ({
       ...card,
       sectionTitle: section.eyebrow || card.title || '',
@@ -135,20 +135,18 @@ export default function Header() {
     <header id="home" className="sticky inset-x-0 top-0 z-[9999] scroll-mt-0 bg-[#001C1F] shadow-lg w-full max-w-full overflow-x-clip">
       {/* Company Header Announcement Bar (GPU-accelerated CSS Grid transitions - Zero scrollbars, zero lag) */}
       <div
-        className={`grid transition-[grid-template-rows,opacity,padding] duration-350 ease-in-out overflow-hidden bg-[#001C1F] text-center px-2 sm:px-4 ${
-          (showTopBanner || showTopMeta)
+        className={`grid transition-[grid-template-rows,opacity,padding] duration-350 ease-in-out overflow-hidden bg-[#001C1F] text-center px-2 sm:px-4 ${(showTopBanner || showTopMeta)
             ? 'grid-rows-[1fr] opacity-100 py-1.5 border-b border-[#0FA4AF]/15'
             : 'grid-rows-[0fr] opacity-0 py-0 border-b-0 pointer-events-none'
-        }`}
+          }`}
       >
         <div className="overflow-hidden min-h-0 w-full">
           <div className="w-full max-w-[1480px] mx-auto px-2 sm:px-4 flex flex-col items-center justify-center text-center">
-            
+
             {/* Welcome Heading (Shows at top, auto-hides after 7 seconds) */}
             <div
-              className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-in-out w-full overflow-hidden ${
-                showTopMeta ? 'grid-rows-[1fr] opacity-100 mb-1' : 'grid-rows-[0fr] opacity-0 mb-0 pointer-events-none'
-              }`}
+              className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-in-out w-full overflow-hidden ${showTopMeta ? 'grid-rows-[1fr] opacity-100 mb-1' : 'grid-rows-[0fr] opacity-0 mb-0 pointer-events-none'
+                }`}
             >
               <div className="overflow-hidden min-h-0 w-full py-0.5">
                 <h1 className="font-display text-[9px] xs:text-[10px] sm:text-xs md:text-sm font-extrabold tracking-tight sm:tracking-wider text-white uppercase flex items-center justify-center gap-1.5 sm:gap-2 px-1">
@@ -160,9 +158,8 @@ export default function Header() {
 
             {/* Description (Shows on scroll up & top, hides on scroll down) */}
             <div
-              className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out w-full overflow-hidden ${
-                showTopBanner ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
-              }`}
+              className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out w-full overflow-hidden ${showTopBanner ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0 pointer-events-none'
+                }`}
             >
               <div className="overflow-hidden min-h-0 w-full py-0.5">
                 <p className="w-full max-w-full text-center whitespace-normal sm:whitespace-nowrap text-[9.5px] sm:text-[11px] md:text-[12.5px] font-medium leading-tight sm:leading-snug tracking-normal sm:tracking-tight text-[#0FA4AF]">
@@ -173,9 +170,8 @@ export default function Header() {
 
             {/* Registration & Establishment Meta (Shows at top, auto-hides after 7 seconds) */}
             <div
-              className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-in-out w-full overflow-hidden ${
-                showTopMeta ? 'grid-rows-[1fr] opacity-100 mt-1' : 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
-              }`}
+              className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ease-in-out w-full overflow-hidden ${showTopMeta ? 'grid-rows-[1fr] opacity-100 mt-1' : 'grid-rows-[0fr] opacity-0 mt-0 pointer-events-none'
+                }`}
             >
               <div className="overflow-hidden min-h-0 w-full py-0.5">
                 <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-[9px] sm:text-[10.5px] font-mono text-white/70">
@@ -208,20 +204,30 @@ export default function Header() {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex flex-1 items-center justify-center gap-1.5 xl:gap-2.5 2xl:gap-4 mx-auto min-w-0" aria-label="Primary navigation">
-            {navigationItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="rounded-lg px-2 py-1.5 text-[12px] xl:text-[12.5px] 2xl:text-[13.5px] font-bold tracking-wide text-white/95 transition-all hover:bg-white/10 hover:text-brand-cyan focus-ring whitespace-nowrap shrink-0"
-              >
-                {item.label}
-              </a>
-            ))}
+          <nav className="hidden xl:flex flex-1 items-center justify-center gap-1.5 xl:gap-2.5 2xl:gap-4 px-1 sm:px-2 mx-auto min-w-0" aria-label="Primary navigation">
+            {navigationItems.map((item) => {
+              const parts = item.label.split(' ');
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="rounded-lg px-1.5 xl:px-2 py-1 text-[11.5px] xl:text-[12px] 2xl:text-[13px] font-bold text-white/95 transition-colors hover:bg-white/10 hover:text-brand-cyan focus-ring text-center whitespace-nowrap shrink-0 flex items-center justify-center"
+                >
+                  {parts.length > 1 ? (
+                    <span className="flex flex-col items-center leading-[1.18] text-center">
+                      <span>{parts[0]}</span>
+                      <span>{parts.slice(1).join(' ')}</span>
+                    </span>
+                  ) : (
+                    <span className="leading-tight">{item.label}</span>
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
-          {/* Right Side Action Area: Search, Contact Us, Mobile Menu */}
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Right Side Action Area: Search, Help, Follow, Gallery, Tender, Contact Us */}
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
             {/* 1. Search Icon & Floating Popover */}
             <div className="relative">
               <button
@@ -230,7 +236,7 @@ export default function Header() {
                   setIsSearchOpen((prev) => !prev);
                   setIsNotificationOpen(false);
                 }}
-                className="relative grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+                className="relative grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
                 aria-label={isSearchOpen ? 'Close search' : 'Open search'}
                 title="Search"
               >
@@ -288,40 +294,40 @@ export default function Header() {
               )}
             </div>
 
-            {/* 2. Help Icon (2xl screens only) */}
+            {/* 2. Help Icon */}
             <a
               href="#help"
-              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Help"
               aria-label="Help"
             >
               <HelpCircle className="h-4 w-4" />
             </a>
 
-            {/* 3. Follow Icon (2xl screens only) */}
+            {/* 3. Follow Icon */}
             <a
               href="#follow"
-              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Follow"
               aria-label="Follow"
             >
               <UserPlus className="h-4 w-4" />
             </a>
 
-            {/* 4. Gallery Icon (2xl screens only) */}
+            {/* 4. Gallery Icon */}
             <a
               href="#gallery"
-              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Gallery"
               aria-label="Gallery"
             >
               <Image className="h-4 w-4" />
             </a>
 
-            {/* 5. Tender Icon (2xl screens only) */}
+            {/* 5. Tender Icon */}
             <a
               href="#tender"
-              className="hidden 2xl:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Tender"
               aria-label="Tender"
             >
@@ -331,7 +337,7 @@ export default function Header() {
             {/* 6. Contact Us CTA Button */}
             <a
               href="#contact"
-              className="group inline-flex items-center gap-1 rounded-lg bg-brand-rust px-3 py-1.5 text-[11px] sm:text-[12px] font-bold text-white transition-all hover:bg-[#a9543e] shrink-0 shadow-xs whitespace-nowrap"
+              className="group inline-flex items-center gap-1 rounded-md bg-brand-rust px-2.5 sm:px-3 py-1 text-[11px] sm:text-[11.5px] font-bold text-white transition-all hover:bg-[#a9543e] shrink-0 shadow-xs whitespace-nowrap"
             >
               <span>Contact Us</span>
               <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
