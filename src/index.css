@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #001C1F;
+  }
+
+  body {
+    @apply m-0 min-w-[320px] overflow-x-hidden bg-[#001C1F] font-sans text-brand-navy antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-rust text-white;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-[1480px] px-5 sm:px-8 lg:px-10 xl:px-12;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center gap-2.5 rounded-lg bg-brand-rust px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#a9543e] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy;
+    box-shadow: 0 10px 30px -14px rgba(150, 71, 52, 0.85);
+  }
+
+  .button-primary:hover {
+    box-shadow: 0 14px 34px -14px rgba(150, 71, 52, 1);
+  }
+
+  .button-secondary-dark {
+    @apply inline-flex items-center gap-2.5 rounded-lg border border-brand-cyan/30 bg-white/[0.04] text-sm font-bold text-white transition-all duration-200 hover:border-brand-cyan/60 hover:bg-brand-cyan/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2;
+  }
+
+  .slider-control {
+    @apply inline-grid h-10 w-10 place-items-center rounded-lg border border-brand-cyan/30 bg-brand-navy/50 text-white backdrop-blur-md transition-colors hover:border-brand-cyan/70 hover:bg-brand-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan;
+  }
+
+  .text-gradient {
+    background: linear-gradient(100deg, #ffffff 8%, #AFDDE5 60%, #0FA4AF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(175, 221, 229, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(175, 221, 229, 0.07) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, black, transparent 94%);
+}
+
+.slider-progress {
+  animation: slider-progress 6.5s linear forwards;
+}
+
+.navbar-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.navbar-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: navbar-marquee 20s linear infinite;
+  will-change: transform;
+}
+
+.navbar-marquee:hover .navbar-marquee-track {
+  animation-play-state: paused;
+}
+
+.navbar-marquee-label {
+  display: none;
+}
+
+.navbar-live-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  flex: none;
+  border-radius: 9999px;
+  background: #0FA4AF;
+  box-shadow: 0 0 0 4px rgba(15, 164, 175, 0.15), 0 0 10px rgba(15, 164, 175, 0.58);
+}
+
+.navbar-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3rem 0 0.85rem;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+@keyframes navbar-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 640px) {
+  .navbar-marquee-label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    height: 100%;
+    max-width: none;
+    flex: none;
+    align-items: center;
+    gap: 0.375rem;
+    border-right: 1px solid rgba(175, 221, 229, 0.35);
+    background: #003135;
+    padding: 0 0.7rem 0 1.15rem;
+    color: #ffffff;
+    font-size: 0.5625rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar-live-dot {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-marquee-label {
+    padding-left: 1.35rem;
+    font-size: 0.625rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-marquee-label {
+    padding-left: 1.5rem;
+  }
+}
+
+.navbar-marquee-separator {
+  margin: 0 1.25rem;
+  color: #0FA4AF;
+  font-size: 0.5rem;
+}
+
+.navbar-marquee-highlight {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.navbar-marquee-meta {
+  color: #F0B8A8;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+}
+
+@keyframes slider-progress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes radar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-1 {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-slow 4.6s ease-in-out 0.8s infinite;
+}
+
+.animate-float-3 {
+  animation: float-slow 4.2s ease-in-out 1.5s infinite;
+}
+
+.animate-float-4 {
+  animation: float-slow 4.8s ease-in-out 2.2s infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+.animate-radar-spin {
+  animation: radar-spin 20s linear infinite;
+}
+
+/* Page Loader & Progressive Reveal Animations */
+@keyframes page-beam {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes loader-progress {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-page-beam {
+  animation: page-beam 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-loader-progress {
+  animation: loader-progress 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .navbar-marquee-track {
+    width: 100%;
+    transform: none;
+  }
+
+  .navbar-marquee-item[aria-hidden='true'] {
+    display: none;
+  }
+}

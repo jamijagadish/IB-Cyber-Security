@@ -1,0 +1,240 @@
+/**
+ * Software Architecture & Engineering Product Ecosystem Dataset
+ * 12 Core Capabilities with authentic descriptions, 12-stage color palettes, specimen graphics,
+ * concise focus summaries, and technical domain pills.
+ */
+
+export const artificialIntelligenceData = [
+  {
+    id: 1,
+    number: "01",
+    title: "Software Architecture",
+    fullTitle: "01. Software Architecture",
+    specimen: "ai-brain",
+    tag: "Core Foundation",
+    summary: "Scalable technical foundations, modular components, APIs, and resilient data systems.",
+    pills: ["Scalability", "Data Systems"],
+    colorTheme: {
+      name: "Emerald Green",
+      accent: "#10b981",
+      secondary: "#059669",
+      glow: "rgba(16, 185, 129, 0.35)",
+      border: "rgba(16, 185, 129, 0.4)",
+    },
+    description:
+      "We design software architectures that provide the technical foundation for scalable and maintainable software products. Architecture decisions cover application components, data systems, APIs, security, infrastructure and integrations. Our product engineering approach aims to create architectures that can evolve as products gain users, functionality and operational complexity.",
+  },
+  {
+    id: 2,
+    number: "02",
+    title: "System Architecture",
+    fullTitle: "02. System Architecture",
+    specimen: "ml-neural",
+    tag: "Platform Systems",
+    summary: "End-to-end platform design across distributed services, databases, and infrastructure.",
+    pills: ["Reliability", "Platforms"],
+    colorTheme: {
+      name: "Deep Teal",
+      accent: "#0d9488",
+      secondary: "#0f766e",
+      glow: "rgba(13, 148, 136, 0.35)",
+      border: "rgba(13, 148, 136, 0.4)",
+    },
+    description:
+      "We engineer complete system architectures for complex digital products and platforms. This includes defining services, applications, databases, integrations and infrastructure components required to operate the product. Our system architecture approach focuses on reliability, scalability, security and efficient communication between different technology layers.",
+  },
+  {
+    id: 3,
+    number: "03",
+    title: "Application Architecture",
+    fullTitle: "03. Application Architecture",
+    specimen: "gen-ai",
+    tag: "Application Core",
+    summary: "Structured layers, business logic, API orchestration, and security controls.",
+    pills: ["Business Logic", "Data Flows"],
+    colorTheme: {
+      name: "Ocean Cyan",
+      accent: "#0284c7",
+      secondary: "#0369a1",
+      glow: "rgba(2, 132, 199, 0.35)",
+      border: "rgba(2, 132, 199, 0.4)",
+    },
+    description:
+      "Our application architecture capabilities focus on designing structured, maintainable and scalable software applications. We define application layers, business logic, APIs, data flows and security controls according to product requirements. The objective is to create software products that can evolve efficiently while maintaining performance and reliability.",
+  },
+  {
+    id: 4,
+    number: "04",
+    title: "UI/UX Product Design",
+    fullTitle: "04. UI/UX Product Design",
+    specimen: "auto-gears",
+    tag: "User Experience",
+    summary: "Intuitive workflows, accessibility, visual design systems, and interaction patterns.",
+    pills: ["Workflows", "Interactions"],
+    colorTheme: {
+      name: "Sky Azure",
+      accent: "#2563eb",
+      secondary: "#1d4ed8",
+      glow: "rgba(37, 99, 235, 0.35)",
+      border: "rgba(37, 99, 235, 0.4)",
+    },
+    description:
+      "We design user interfaces and experiences that make software products intuitive, accessible and efficient to use. Our UI/UX process considers user workflows, information architecture, visual interfaces and interaction patterns. We combine product design with engineering requirements to create digital products that balance usability, functionality, security and performance.",
+  },
+  {
+    id: 5,
+    number: "05",
+    title: "Database Architecture",
+    fullTitle: "05. Database Architecture",
+    specimen: "data-crystal",
+    tag: "Data Engineering",
+    summary: "High-performance data storage, workload processing, and retrieval schemas.",
+    pills: ["Storage", "Workloads"],
+    colorTheme: {
+      name: "Royal Cobalt",
+      accent: "#4f46e5",
+      secondary: "#4338ca",
+      glow: "rgba(79, 70, 229, 0.35)",
+      border: "rgba(79, 70, 229, 0.4)",
+    },
+    description:
+      "We design database architectures that support the storage, processing and retrieval requirements of software products. Database decisions consider application workloads, data structures, scalability, performance and security. Our database engineering capabilities support enterprise software, SaaS products, analytics platforms and specialised technology applications.",
+  },
+  {
+    id: 6,
+    number: "06",
+    title: "API Architecture",
+    fullTitle: "06. API Architecture",
+    specimen: "api-mesh",
+    tag: "Integration Fabric",
+    summary: "Connected endpoints, authentication, versioning, and secure ecosystem exchange.",
+    pills: ["Endpoints", "Protocols"],
+    colorTheme: {
+      name: "Midnight Indigo",
+      accent: "#6366f1",
+      secondary: "#4f46e5",
+      glow: "rgba(99, 102, 241, 0.35)",
+      border: "rgba(99, 102, 241, 0.4)",
+    },
+    description:
+      "We design API architectures that allow software products and digital services to communicate through structured interfaces. API architecture covers endpoints, authentication, data exchange, versioning and integration patterns. Our approach enables products to become connected, extensible and capable of participating in larger digital ecosystems.",
+  },
+  {
+    id: 7,
+    number: "07",
+    title: "Secure Software Engineering",
+    fullTitle: "07. Secure Software Engineering",
+    specimen: "cyber-shield",
+    tag: "Security Engineering",
+    summary: "Secure coding practices, vulnerability management, data encryption, and access control.",
+    pills: ["Data Security", "Access Control"],
+    colorTheme: {
+      name: "Amethyst Violet",
+      accent: "#7c3aed",
+      secondary: "#6d28d9",
+      glow: "rgba(124, 58, 237, 0.35)",
+      border: "rgba(124, 58, 237, 0.4)",
+    },
+    description:
+      "Security is integrated into our software engineering approach from architecture through deployment. We consider secure coding, access control, data protection, vulnerability management and security testing while building software products. Our objective is to develop technology products where security is treated as a product engineering requirement rather than an afterthought.",
+  },
+  {
+    id: 8,
+    number: "08",
+    title: "Quality Engineering",
+    fullTitle: "08. Quality Engineering",
+    specimen: "doc-proc",
+    tag: "Quality Assurance",
+    summary: "Rigorous functional, performance, security, and regression lifecycle testing.",
+    pills: ["Testing", "Validation"],
+    colorTheme: {
+      name: "Fuchsia Orchid",
+      accent: "#c026d3",
+      secondary: "#a21caf",
+      glow: "rgba(192, 38, 211, 0.35)",
+      border: "rgba(192, 38, 211, 0.4)",
+    },
+    description:
+      "We apply quality engineering practices to validate the reliability, functionality and performance of software products. Quality activities can include functional testing, integration testing, performance testing, security testing and regression testing. Our goal is to ensure that technology products are thoroughly evaluated throughout their development and release lifecycle.",
+  },
+  {
+    id: 9,
+    number: "09",
+    title: "Performance Engineering",
+    fullTitle: "09. Performance Engineering",
+    specimen: "investigation-lens",
+    tag: "Latency & Scale",
+    summary: "Optimising application response times, database queries, and throughput under load.",
+    pills: ["Throughput", "Latency"],
+    colorTheme: {
+      name: "Crimson Rose",
+      accent: "#e11d48",
+      secondary: "#be123c",
+      glow: "rgba(225, 29, 72, 0.35)",
+      border: "rgba(225, 29, 72, 0.4)",
+    },
+    description:
+      "We design and optimise software products to perform efficiently under expected workloads. Performance engineering can cover application response times, database performance, infrastructure usage and scalability. These practices help technology products maintain reliable user experiences as usage, data volumes and system complexity increase.",
+  },
+  {
+    id: 10,
+    number: "10",
+    title: "Integration Engineering",
+    fullTitle: "10. Integration Engineering",
+    specimen: "recommend-spark",
+    tag: "Ecosystem Connect",
+    summary: "High-reliability connectivity across cloud services, APIs, and external systems.",
+    pills: ["Cloud Connect", "Pipelines"],
+    colorTheme: {
+      name: "Sunset Coral",
+      accent: "#ea580c",
+      secondary: "#c2410c",
+      glow: "rgba(234, 88, 12, 0.35)",
+      border: "rgba(234, 88, 12, 0.4)",
+    },
+    description:
+      "We engineer integrations between software applications, databases, APIs, cloud services and external technology systems. Integration engineering enables software products to operate as part of broader digital ecosystems. Our approach focuses on reliable data exchange, secure connectivity and maintainable integration architectures.",
+  },
+  {
+    id: 11,
+    number: "11",
+    title: "Product Reliability Engineering",
+    fullTitle: "11. Product Reliability Engineering",
+    specimen: "knowledge-mesh",
+    tag: "SRE & Resilience",
+    summary: "Continuous monitoring, error handling, high availability, and disaster recovery.",
+    pills: ["Resilience", "Uptime"],
+    colorTheme: {
+      name: "Golden Amber",
+      accent: "#d97706",
+      secondary: "#b45309",
+      glow: "rgba(217, 119, 6, 0.35)",
+      border: "rgba(217, 119, 6, 0.4)",
+    },
+    description:
+      "We build engineering practices that support the reliability and availability of software products throughout their operational lifecycle. Reliability considerations include monitoring, error handling, system resilience, performance and recovery. Our objective is to create technology products that remain dependable as they scale and evolve.",
+  },
+  {
+    id: 12,
+    number: "12",
+    title: "Continuous Product Engineering",
+    fullTitle: "12. Continuous Product Engineering",
+    specimen: "ai-lab",
+    tag: "Lifecycle Evolution",
+    summary: "Post-launch feature roadmaps, tech stack modernization, and code upgrades.",
+    pills: ["Evolution", "Roadmaps"],
+    colorTheme: {
+      name: "Deep Emerald",
+      accent: "#059669",
+      secondary: "#047857",
+      glow: "rgba(5, 150, 105, 0.35)",
+      border: "rgba(5, 150, 105, 0.4)",
+    },
+    description:
+      "Software products require continuous engineering after their initial launch. We support ongoing product improvement through feature development, performance optimisation, security enhancements, technical upgrades and infrastructure evolution. Continuous product engineering allows technology products to adapt to changing user requirements, technologies and market conditions.",
+  },
+];
+
+export const ArtificialIntelligenceIntelligentSoftwareData = artificialIntelligenceData;
+export const ArtificialIntelligenceIntelligentSoftwareDataPage = artificialIntelligenceData;
+export default artificialIntelligenceData;
