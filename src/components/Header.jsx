@@ -132,17 +132,17 @@ export default function Header() {
   };
 
   return (
-    <header id="home" className="sticky inset-x-0 top-0 z-[9999] scroll-mt-0 bg-[#001C1F] shadow-lg">
+    <header id="home" className="sticky inset-x-0 top-0 z-[9999] scroll-mt-0 bg-[#001C1F] shadow-lg w-full max-w-full overflow-x-clip">
       {/* Company Header Announcement Bar (GPU-accelerated CSS Grid transitions - Zero scrollbars, zero lag) */}
       <div
-        className={`grid transition-[grid-template-rows,opacity,padding] duration-350 ease-in-out overflow-hidden bg-[#001C1F] text-center px-3 sm:px-4 ${
+        className={`grid transition-[grid-template-rows,opacity,padding] duration-350 ease-in-out overflow-hidden bg-[#001C1F] text-center px-2 sm:px-4 ${
           (showTopBanner || showTopMeta)
             ? 'grid-rows-[1fr] opacity-100 py-1.5 border-b border-[#0FA4AF]/15'
             : 'grid-rows-[0fr] opacity-0 py-0 border-b-0 pointer-events-none'
         }`}
       >
         <div className="overflow-hidden min-h-0 w-full">
-          <div className="site-container max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
+          <div className="w-full max-w-[1480px] mx-auto px-2 sm:px-4 flex flex-col items-center justify-center text-center">
             
             {/* Welcome Heading (Shows at top, auto-hides after 7 seconds) */}
             <div
@@ -151,7 +151,7 @@ export default function Header() {
               }`}
             >
               <div className="overflow-hidden min-h-0 w-full py-0.5">
-                <h1 className="font-display text-[9.5px] xs:text-[10.5px] sm:text-xs md:text-sm font-extrabold tracking-tight sm:tracking-wider text-white uppercase flex items-center justify-center gap-1.5 sm:gap-2 px-1">
+                <h1 className="font-display text-[9px] xs:text-[10px] sm:text-xs md:text-sm font-extrabold tracking-tight sm:tracking-wider text-white uppercase flex items-center justify-center gap-1.5 sm:gap-2 px-1">
                   <span className="navbar-live-dot shrink-0 my-auto" aria-hidden="true" />
                   <CenterAssembledText key={showTopMeta ? 'welcome-active' : 'welcome-inactive'} text="WELCOME TO IB CYBER SECURITY PRIVATE LIMITED" />
                 </h1>
@@ -165,7 +165,7 @@ export default function Header() {
               }`}
             >
               <div className="overflow-hidden min-h-0 w-full py-0.5">
-                <p className="w-full max-w-full text-center whitespace-normal sm:whitespace-nowrap text-[10px] sm:text-[11px] md:text-[12.5px] font-medium leading-tight sm:leading-snug tracking-normal sm:tracking-tight text-[#0FA4AF]">
+                <p className="w-full max-w-full text-center whitespace-normal sm:whitespace-nowrap text-[9.5px] sm:text-[11px] md:text-[12.5px] font-medium leading-tight sm:leading-snug tracking-normal sm:tracking-tight text-[#0FA4AF]">
                   One of the best international software product-based companies, focused on creating innovative and intelligent technology solutions. Creating intelligent software products and technologies for a digital future.
                 </p>
               </div>
@@ -178,7 +178,7 @@ export default function Header() {
               }`}
             >
               <div className="overflow-hidden min-h-0 w-full py-0.5">
-                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-[9.5px] sm:text-[10.5px] font-mono text-white/70">
+                <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 text-[9px] sm:text-[10.5px] font-mono text-white/70">
                   <span>ESTABLISHED • SEPT. 26-26</span>
                   <span className="text-[#0FA4AF] hidden sm:inline">•</span>
                   <span>MCA REGISTRATION NO. 1010</span>
@@ -191,31 +191,31 @@ export default function Header() {
       </div>
 
       {/* Sticky Navigation Menu Bar (Underneath Announcement Banner) */}
-      <div className="border-b border-white/10 bg-brand-navy/95 shadow-[0_8px_30px_-24px_rgba(0,49,53,.55)] backdrop-blur-xl">
+      <div className="border-b border-white/10 bg-brand-navy/95 shadow-[0_8px_30px_-24px_rgba(0,49,53,.55)] backdrop-blur-xl w-full max-w-full overflow-hidden">
         {/* Main Navigation Menu Bar (UNDERNEATH Heading & Description) */}
-        <div className="site-container flex h-14 sm:h-16 items-center justify-between gap-2">
+        <div className="w-full max-w-[1480px] mx-auto px-3 sm:px-5 lg:px-6 flex h-14 sm:h-16 items-center justify-between gap-1.5 sm:gap-2">
           {/* Logo & Brand Name */}
           <a href="#home" className="group flex min-w-0 items-center gap-1.5 sm:gap-2 focus-ring shrink-0" aria-label="IB Cyber Security home">
-            <LogoMark className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 drop-shadow-sm" />
+            <LogoMark className="h-7 w-7 sm:h-9 sm:w-9 shrink-0 drop-shadow-sm" />
             <span className="flex flex-col font-display leading-[1.1] min-w-0">
-              <span className="text-[11.5px] xs:text-[12.5px] sm:text-[13.5px] lg:text-[14px] font-extrabold tracking-[0.03em] text-white whitespace-nowrap">
+              <span className="text-[11px] xs:text-[12px] sm:text-[13.5px] lg:text-[14px] font-extrabold tracking-[0.03em] text-white whitespace-nowrap">
                 IB CYBER SECURITY
               </span>
-              <span className="text-[8.5px] xs:text-[9px] sm:text-[9.5px] lg:text-[10px] font-bold tracking-[0.06em] text-white/80 whitespace-nowrap">
+              <span className="text-[8px] xs:text-[8.5px] sm:text-[9.5px] lg:text-[10px] font-bold tracking-[0.06em] text-white/80 whitespace-nowrap">
                 PRIVATE LIMITED
               </span>
             </span>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex flex-1 items-center justify-center gap-2.5 xl:gap-3.5 2xl:gap-5 px-4 lg:px-8 mx-auto" aria-label="Primary navigation">
+          <nav className="hidden xl:flex flex-1 items-center justify-center gap-1 xl:gap-1.5 2xl:gap-3.5 mx-auto min-w-0" aria-label="Primary navigation">
             {navigationItems.map((item) => {
               const parts = item.label.split(' ');
               return (
                 <a
                   key={item.label}
                   href={item.href}
-                  className="rounded-md px-2 py-1 text-[11.5px] font-bold text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan focus-ring lg:text-[12px] 2xl:px-2.5 2xl:text-[13px] text-center whitespace-nowrap"
+                  className="rounded-md px-1.5 py-1 text-[10.5px] font-bold text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan focus-ring 2xl:px-2.5 2xl:text-[12.5px] text-center whitespace-nowrap"
                 >
                   {parts.length > 1 ? (
                     <span className="flex flex-col items-center leading-[1.15] text-center">
@@ -240,7 +240,7 @@ export default function Header() {
                   setIsSearchOpen((prev) => !prev);
                   setIsNotificationOpen(false);
                 }}
-                className="relative grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none"
+                className="relative grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
                 aria-label={isSearchOpen ? 'Close search' : 'Open search'}
                 title="Search"
               >
@@ -298,40 +298,40 @@ export default function Header() {
               )}
             </div>
 
-            {/* 2. Help Icon (Desktop/Tablet: md+) */}
+            {/* 2. Help Icon */}
             <a
               href="#help"
-              className="hidden md:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Help"
               aria-label="Help"
             >
               <HelpCircle className="h-4 w-4" />
             </a>
 
-            {/* 3. Follow Icon (Desktop/Tablet: md+) */}
+            {/* 3. Follow Icon */}
             <a
               href="#follow"
-              className="hidden md:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Follow"
               aria-label="Follow"
             >
               <UserPlus className="h-4 w-4" />
             </a>
 
-            {/* 4. Gallery Icon (Desktop/Tablet: md+) */}
+            {/* 4. Gallery Icon */}
             <a
               href="#gallery"
-              className="hidden md:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Gallery"
               aria-label="Gallery"
             >
               <Image className="h-4 w-4" />
             </a>
 
-            {/* 5. Tender Icon (Desktop/Tablet: md+) */}
+            {/* 5. Tender Icon */}
             <a
               href="#tender"
-              className="hidden md:grid h-8 w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none"
+              className="hidden lg:grid h-7 w-7 sm:h-8 sm:w-8 place-items-center text-white/90 transition-colors hover:bg-white/10 hover:text-brand-cyan rounded-lg focus:outline-none shrink-0"
               title="Tender"
               aria-label="Tender"
             >
@@ -341,7 +341,7 @@ export default function Header() {
             {/* 6. Contact Us CTA Button */}
             <a
               href="#contact"
-              className="group inline-flex items-center gap-1 rounded-md bg-brand-rust px-2 py-0.5 text-[10px] sm:text-[11px] font-bold text-white transition-all hover:bg-[#a9543e] shrink-0 shadow-xs whitespace-nowrap"
+              className="group inline-flex items-center gap-1 rounded-md bg-brand-rust px-2 sm:px-2.5 py-1 text-[10px] sm:text-[11px] font-bold text-white transition-all hover:bg-[#a9543e] shrink-0 shadow-xs whitespace-nowrap"
             >
               <span>Contact Us</span>
               <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -350,7 +350,7 @@ export default function Header() {
             {/* Mobile Navigation Menu Toggle */}
             <button
               type="button"
-              className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-white/20 bg-white/10 text-white transition-colors hover:bg-white/15 focus-ring xl:hidden"
+              className="grid h-7 w-7 sm:h-8 sm:w-8 shrink-0 place-items-center rounded-lg border border-white/20 bg-white/10 text-white transition-colors hover:bg-white/15 focus-ring xl:hidden"
               onClick={() => setIsMenuOpen((open) => !open)}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
