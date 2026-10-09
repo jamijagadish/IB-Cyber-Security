@@ -127,12 +127,15 @@ export default function DigitalExperienceDesignSection({ onOpenPage }) {
               className="font-display text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-[#003135] mb-5 text-center lg:text-left"
             />
 
-            <div className="space-y-4 text-[15px] sm:text-[16px] leading-relaxed text-[#003135]/85 font-medium mb-6 text-center lg:text-left">
+            <div className="space-y-3.5 text-[14.5px] sm:text-[15.5px] leading-relaxed text-[#003135]/85 font-medium mb-6 text-center lg:text-left">
               <p>
-                Designing intuitive user interfaces and immersive digital experiences that elevate user engagement and accessibility across web and mobile platforms.
+                <strong className="font-bold text-[#003135]">IB Cyber Security Private Limited</strong> designs digital experiences that make complex software products intuitive, accessible, engaging, and efficient to use. Our UI/UX approach combines user research, information architecture, interaction design, visual design, prototyping, usability, accessibility, and product engineering to create meaningful digital experiences.
               </p>
               <p>
-                We apply human-centered design principles, rigorous usability research, and modern design systems to create elegant software products that delight users and drive conversion.
+                We design interfaces for software products, government platforms, enterprise applications, cybersecurity systems, SaaS products, and mobile experiences.
+              </p>
+              <p>
+                By connecting user needs with product objectives and technology capabilities, IBCS creates consistent, responsive, and scalable experiences that improve usability, strengthen user engagement, and support the effective adoption of digital products across diverse users and operational environments.
               </p>
             </div>
 

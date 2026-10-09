@@ -127,12 +127,15 @@ export default function DevOpsContinuousDeliverySection({ onOpenPage }) {
             className="font-display text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-[#003135] mb-5 text-center"
           />
 
-          <div className="space-y-4 text-[15px] sm:text-[16px] leading-relaxed text-[#003135]/85 font-medium text-center max-w-3xl">
+          <div className="space-y-3.5 text-[14.5px] sm:text-[15.5px] leading-relaxed text-[#003135]/85 font-medium text-center max-w-3xl">
             <p>
-              Implementing modern DevOps practices and automated CI/CD pipelines to accelerate release cycles while maintaining security and stability.
+              <strong className="font-bold text-[#003135]">IB Cyber Security Private Limited</strong> follows modern DevOps and continuous delivery practices to build, test, secure, deploy, and continuously improve software products efficiently. Our approach brings together development, infrastructure, security, automation, testing, and operations throughout the product lifecycle.
             </p>
             <p>
-              Our automated release workflows integrate automated testing, vulnerability scanning, and zero-downtime deployment strategies to deliver high-quality software continuously.
+              We use modern tools and engineering practices to create reliable and repeatable delivery pipelines, improve release efficiency, strengthen software quality, and support scalable digital environments.
+            </p>
+            <p>
+              By integrating automation, continuous integration, continuous deployment, cloud infrastructure, monitoring, and security into our engineering processes, IBCS enables faster product evolution while maintaining reliability, consistency, security, and operational stability.
             </p>
           </div>
         </div>

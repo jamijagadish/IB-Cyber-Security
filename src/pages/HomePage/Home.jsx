@@ -74,7 +74,8 @@ export default function Home({
   onOpenDevOpsPage,
   onOpenDigitalExpPage,
   onOpenRegulatoryPage,
-  onOpenCybersecurityPage
+  onOpenCybersecurityPage,
+  onOpenIntroductionPage
 }) {
   return (
     <>
@@ -82,7 +83,7 @@ export default function Home({
 
       {/* 0. Introduction (Priority above-the-fold) */}
       <RevealSection priority>
-        <IntroductionSection />
+        <IntroductionSection onOpenPage={onOpenIntroductionPage} />
       </RevealSection>
 
       {/* 1. Software Development & Product Engineering (Priority above-the-fold) */}

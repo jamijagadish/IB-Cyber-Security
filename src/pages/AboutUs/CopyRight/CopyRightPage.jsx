@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Home } from 'lucide-react';
-import { COPYRIGHT_CARDS, getTwoLineName } from './CopyRightPageData';
+import { COPYRIGHT_CARDS } from './CopyRightPageData';
+import Device from './Device';
 
 // Embedded CSS Keyframe Animations and Base Styles
 const EMBEDDED_STYLES = `
@@ -9,6 +10,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #EBF7F8;
 }
 
 @keyframes ringDrawIn {
@@ -37,10 +39,24 @@ html, body {
 }
 
 @keyframes letterFromC {
-  0% { opacity: 0; transform: translateX(-100px) scale(0.5); filter: blur(4px); }
-  65% { opacity: 1; transform: translateX(6px) scale(1.06); filter: blur(0px); }
-  85% { transform: translateX(-2px) scale(0.98); }
-  100% { opacity: 1; transform: translateX(0) scale(1); filter: blur(0px); }
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.6);
+    filter: blur(4px);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(4px) scale(1.05);
+    filter: blur(0px);
+  }
+  85% {
+    transform: translateX(-1px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0px);
+  }
 }
 
 @keyframes fadeSlideIn {
@@ -75,19 +91,18 @@ html, body {
 .animate-letter-stagger {
   display: inline-block;
   opacity: 0;
-  animation: letterFromC 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: letterFromC 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-capsule-follow {
   opacity: 0;
-  animation: fadeSlideIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+  animation: fadeSlideIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
 }
 `;
 
-export function CopyrightCardItem({ item }) {
+export function CopyrightCardItem({ item, onSelectCard }) {
   const [isCircleHovered, setIsCircleHovered] = useState(false);
   const [cardKey, setCardKey] = useState(0);
-  const [line1, line2] = getTwoLineName(item.name);
 
   const toggleRotation = () => {
     setIsCircleHovered((prev) => !prev);
@@ -95,18 +110,12 @@ export function CopyrightCardItem({ item }) {
 
   return (
     <div 
-      onClick={() => setCardKey((k) => k + 1)}
-      className="flex flex-col items-center justify-between p-3.5 sm:p-4 md:p-5 rounded-2xl sm:rounded-3xl bg-white border border-neutral-200/80 hover:border-neutral-300 shadow-xs hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 active:scale-[0.99] cursor-pointer"
+      onClick={() => {
+        setCardKey((k) => k + 1);
+        if (onSelectCard) onSelectCard(item);
+      }}
+      className="flex flex-col items-center justify-between p-3.5 sm:p-4 md:p-5 rounded-2xl sm:rounded-3xl bg-transparent transition-all duration-300 group hover:-translate-y-1 active:scale-[0.99] cursor-pointer"
     >
-      {/* Card Header Tag */}
-      <div className="w-full flex items-center justify-between gap-2 mb-1 sm:mb-2">
-        <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-700 border border-neutral-200 truncate max-w-[150px]">
-          {item.badge}
-        </span>
-        <span className="text-[9px] sm:text-[10px] font-mono text-neutral-400 font-bold shrink-0">
-          {item.code}
-        </span>
-      </div>
 
       {/* SVG Emblem Canvas - Fully Responsive */}
       <div className="w-full flex items-center justify-center my-0.5 sm:my-1">
@@ -117,7 +126,7 @@ export function CopyrightCardItem({ item }) {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
-          aria-label={item.name}
+          aria-label={item.subtitle}
         >
           <defs>
             <linearGradient id={`ringGrad-${item.id}`} x1="0%" y1="0%" x2="100%" y2="100%">
@@ -174,57 +183,63 @@ export function CopyrightCardItem({ item }) {
             </g>
           </g>
 
-          {/* 3. FULL CARD NAME INSIDE EMBLEM (Uniform Text Size across all 16 cards, Pill Capsule Removed) */}
-          <g transform="translate(185, 202)" className="pointer-events-none">
-            {/* Line 1 */}
-            <text
-              x="20"
-              y="32"
-              className="select-none animate-letter-stagger"
-              style={{
-                fontFamily: "'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif",
-                fontSize: '25px',
-                fontWeight: 900,
-                fill: item.color,
-                stroke: item.color,
-                strokeWidth: '1.2px',
-                paintOrder: 'stroke fill',
-                letterSpacing: '0.03em',
-                animationDelay: '0.2s',
-              }}
-            >
-              {line1}
-            </text>
-
-            {/* Line 2 */}
-            {line2 && (
-              <text
-                x="20"
-                y="66"
-                className="select-none animate-letter-stagger"
+          {/* 3. NAME POSITIONED INSIDE 'C' */}
+          <g transform="translate(180, 192)" className="pointer-events-none">
+            {/* Main Title with staggered letter loading animation & extra bold size */}
+            <foreignObject x="15" y="-8" width="500" height="65" className="overflow-visible pointer-events-none">
+              <div 
+                className="flex items-center select-none leading-none whitespace-nowrap"
                 style={{
                   fontFamily: "'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif",
-                  fontSize: '24px',
-                  fontWeight: 800,
-                  fill: item.color,
-                  stroke: item.color,
-                  strokeWidth: '1px',
-                  paintOrder: 'stroke fill',
-                  letterSpacing: '0.02em',
-                  animationDelay: '0.35s',
+                  fontSize: '50px',
+                  fontWeight: 900,
+                  color: item.color,
+                  letterSpacing: '-0.02em',
                 }}
               >
-                {line2}
+                {item.subtitle.split('').map((char, idx) => (
+                  <span
+                    key={idx}
+                    className="inline-block animate-letter-stagger"
+                    style={{
+                      animationDelay: `${idx * 0.035 + 0.2}s`,
+                      whiteSpace: 'pre',
+                    }}
+                  >
+                    {char}
+                  </span>
+                ))}
+              </div>
+            </foreignObject>
+
+            {/* COPYRIGHT - Policy Capsule */}
+            <g className="animate-capsule-follow">
+              <rect
+                x="15"
+                y="66"
+                width="175"
+                height="40"
+                rx="20"
+                fill={item.capsuleBg}
+              />
+              <circle cx="34" cy="86" r="5" fill={item.color} />
+              <text
+                x="49"
+                y="91.5"
+                className="select-none font-black uppercase"
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif",
+                  fontSize: '14.5px',
+                  fontWeight: 900,
+                  fill: '#ffffff',
+                  letterSpacing: '0.16em',
+                }}
+              >
+                COPYRIGHT
               </text>
-            )}
+            </g>
           </g>
         </svg>
-      </div>
-
-      {/* Subtle Bottom Interaction Hint */}
-      <div className="w-full flex items-center justify-between pt-2 border-t border-neutral-100 text-[10px] text-neutral-400">
-        <span className="font-mono">{item.number} / 16</span>
-        <span className="group-hover:text-amber-600 font-medium transition-colors">Tap / Hover to Spin</span>
       </div>
     </div>
   );
@@ -232,9 +247,12 @@ export function CopyrightCardItem({ item }) {
 
 export default function Copyright({ onClose }) {
   const [globalKey, setGlobalKey] = useState(0);
+  const [selectedCard, setSelectedCard] = useState(null);
 
   const handleBack = () => {
-    if (window.history.length > 1) {
+    if (selectedCard) {
+      setSelectedCard(null);
+    } else if (window.history.length > 1) {
       window.history.back();
     } else if (onClose) {
       onClose();
@@ -249,8 +267,41 @@ export default function Copyright({ onClose }) {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
+  if (selectedCard) {
+    return (
+      <div className="min-h-screen w-full bg-gradient-to-b from-[#EBF7F8] via-[#F4FCFD] to-[#EBF7F8] px-3 py-3 sm:px-6 sm:py-4 lg:px-12 select-none overflow-x-hidden">
+        <style>{EMBEDDED_STYLES}</style>
+
+        {/* Top Header Navigation Bar */}
+        <div className="w-full max-w-7xl mx-auto mb-2 flex items-center justify-start gap-3 z-50 relative">
+          <button
+            type="button"
+            onClick={handleBack}
+            className="inline-flex items-center gap-2 rounded-xl bg-[#003135] hover:bg-[#0D5C63] px-4 py-2 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-sm active:scale-95"
+          >
+            ← Back
+          </button>
+
+          <button
+            type="button"
+            onClick={handleHome}
+            className="inline-flex items-center gap-2 rounded-xl bg-[#0FA4AF] hover:bg-[#12BCC8] px-4 py-2 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-sm active:scale-95"
+          >
+            <Home className="w-4 h-4 text-white" />
+            <span>Home</span>
+          </button>
+        </div>
+
+        {/* Interactive Device Simulation */}
+        <div className="max-w-7xl mx-auto">
+          <Device activeItem={selectedCard} />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-neutral-50 via-slate-50/60 to-neutral-100/50 px-3 py-6 sm:px-6 sm:py-10 lg:px-12 select-none overflow-x-hidden">
+    <div className="min-h-screen w-full bg-gradient-to-b from-[#EBF7F8] via-[#F4FCFD] to-[#EBF7F8] px-3 py-6 sm:px-6 sm:py-10 lg:px-12 select-none overflow-x-hidden">
       
       {/* Inject Embedded Animation Styles */}
       <style>{EMBEDDED_STYLES}</style>
@@ -276,66 +327,17 @@ export default function Copyright({ onClose }) {
       </div>
 
       {/* ========================================================= */}
-      {/* SECTION 1: COPYRIGHT (Header & Detailed Description Section) */}
+      {/* SECTION 1: COPYRIGHT (Header & Description Section)       */}
       {/* ========================================================= */}
-      <section className="max-w-7xl mx-auto mb-8 sm:mb-12 lg:mb-16 space-y-6 sm:space-y-8">
+      <section className="max-w-7xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center space-y-3 sm:space-y-4 px-2">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-neutral-900 capitalize">
+          Copyright
+        </h1>
         
-        {/* Main Heading & Badge */}
-        <div className="text-center space-y-3 sm:space-y-4 px-2">
-          
-          
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-neutral-900 capitalize">
-            Copyright
-          </h1>
-          
-          <p className="text-sm sm:text-base md:text-lg font-medium text-neutral-600 max-w-2xl mx-auto leading-relaxed px-2">
-            Universal intellectual property protection, licensing protocols, and digital content defense standards.
-          </p>
-        </div>
-
-        {/* Responsive Legal Description Card */}
-        <div className="bg-white rounded-2xl sm:rounded-3xl border border-neutral-200/90 shadow-sm p-4 sm:p-6 md:p-8 lg:p-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
-          
-          {/* Left Narrative Text */}
-          <div className="md:col-span-8 space-y-3 sm:space-y-4 text-left">
-            <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-amber-600">
-              <span>✦ Legal Notice &amp; Ownership Policy</span>
-            </div>
-            
-            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-neutral-900 leading-snug">
-              Comprehensive Protection for Original Works, Source Code, Digital Media &amp; Brand Assets.
-            </h2>
-            
-            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
-              All materials, design architectures, texts, vector emblems, graphics, and proprietary digital assets published on this platform are legally protected under international copyright treaties, Berne Convention guidelines, and digital ownership statutes. Unauthorized reproduction, modification, or redistribution without express written authorization is strictly prohibited.
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
-              <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-700 text-[10px] sm:text-xs font-semibold">16 Legal Chapters</span>
-              <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-700 text-[10px] sm:text-xs font-semibold">Berne Convention</span>
-              <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-700 text-[10px] sm:text-xs font-semibold">DMCA Protected</span>
-              <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-700 text-[10px] sm:text-xs font-semibold">Global Enforcement</span>
-            </div>
-          </div>
-
-          {/* Right Highlights & Metrics Box */}
-          <div className="md:col-span-4 bg-neutral-50/90 rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-neutral-200/80 grid grid-cols-2 md:grid-cols-1 gap-3 sm:gap-4 text-left">
-            <div>
-              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-neutral-900">© 2026</div>
-              <div className="text-[11px] sm:text-xs text-neutral-500 font-medium">All Rights Reserved</div>
-            </div>
-            <div className="hidden md:block border-t border-neutral-200" />
-            <div>
-              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-amber-600">16 / 16</div>
-              <div className="text-[11px] sm:text-xs text-neutral-500 font-medium">Verified Frameworks</div>
-            </div>
-            <div className="col-span-2 md:col-span-1 border-t border-neutral-200 pt-2">
-              <div className="text-[10px] text-neutral-400 font-mono tracking-tight">STATUS: ACTIVE &amp; GLOBALLY ENFORCED</div>
-            </div>
-          </div>
-
-        </div>
-
+        <p className="text-sm sm:text-base md:text-lg font-medium text-neutral-600 max-w-4xl mx-auto leading-relaxed px-2">
+          All material, design, architecture, text, vector, symbol, graphics and property, digital assets, etc., are proprietary and legally protected under international copyright frameworks.<br className="hidden sm:inline" />
+          Unauthorized reproduction, modification, copying, downloading, distribution, or commercial exploitation in any form is strictly prohibited.
+        </p>
       </section>
 
       {/* ========================================================= */}
@@ -353,6 +355,7 @@ export default function Copyright({ onClose }) {
             <CopyrightCardItem
               key={`${item.id}-${globalKey}`}
               item={item}
+              onSelectCard={(selected) => setSelectedCard(selected)}
             />
           ))}
         </div>
@@ -367,3 +370,4 @@ export default function Copyright({ onClose }) {
     </div>
   );
 }
+

@@ -252,16 +252,19 @@ export default function Header() {
                 <a
                   key={item.label}
                   href={item.href}
-                  className="rounded-lg px-1.5 xl:px-2 py-1 text-[11.5px] xl:text-[12px] 2xl:text-[13px] font-bold text-white/95 transition-colors hover:bg-white/10 hover:text-brand-cyan focus-ring text-center whitespace-nowrap shrink-0 flex items-center justify-center"
+                  className="group relative px-2 xl:px-2.5 py-1.5 text-[11.5px] xl:text-[12px] 2xl:text-[13px] font-bold text-white/95 transition-all duration-300 hover:text-brand-cyan focus-ring text-center whitespace-nowrap shrink-0 flex items-center justify-center"
                 >
                   {parts.length > 1 ? (
-                    <span className="flex flex-col items-center leading-[1.18] text-center">
+                    <span className="flex flex-col items-center leading-[1.18] text-center z-10">
                       <span>{parts[0]}</span>
                       <span>{parts.slice(1).join(' ')}</span>
                     </span>
                   ) : (
-                    <span className="leading-tight">{item.label}</span>
+                    <span className="leading-tight z-10">{item.label}</span>
                   )}
+
+                  {/* Center-to-both-sides expanding glowing line hover effect ONLY */}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2.5px] bg-gradient-to-r from-[#0FA4AF] via-[#5EEAD4] to-[#0FA4AF] rounded-full opacity-0 shadow-[0_0_10px_rgba(15,164,175,0.9)] group-hover:w-full group-hover:opacity-100 transition-all duration-300 ease-out" />
                 </a>
               );
             })}

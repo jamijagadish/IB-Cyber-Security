@@ -1,128 +1,159 @@
 import { 
-  ShieldAlert, UserX, Lock, Fingerprint, CreditCard, 
-  Cpu, AlertTriangle, Globe, MonitorX, Server 
+  Palette, 
+  Compass, 
+  Search, 
+  Layers, 
+  Smartphone, 
+  Sparkles, 
+  Network, 
+  MousePointerClick, 
+  FlaskConical, 
+  Zap, 
+  Monitor, 
+  Globe 
 } from "lucide-react";
+
+export const digitalExperiencePageData = {
+  badge: "IB Cyber Security Private Limited",
+  title: "Digital Experience & UI/UX Design",
+  description: "IB Cyber Security Private Limited designs digital experiences that make complex software products intuitive, accessible, engaging, and efficient to use. Our UI/UX approach combines user research, information architecture, interaction design, visual design, prototyping, usability, accessibility, and product engineering to create meaningful digital experiences. We design interfaces for software products, government platforms, enterprise applications, cybersecurity systems, SaaS products, and mobile experiences. By connecting user needs with product objectives and technology capabilities, IBCS creates consistent, responsive, and scalable experiences that improve usability, strengthen user engagement, and support the effective adoption of digital products across diverse users and operational environments."
+};
 
 export const cardsData = [
   { 
     id: 1, 
-    title: "Phishing Activity Awareness", 
-    icon: ShieldAlert, 
-    Icon: ShieldAlert,
-    color: "from-red-500 to-rose-700",
-    description: "Understand how phishing activities are used to deceive people online.",
-    desc: "Understand how phishing activities are used to deceive people online.",
-    content: "Phishing is a common cybercrime technique in which criminals use deceptive emails, messages, websites, or other communications to trick people into revealing information or taking unsafe actions. This section explains common phishing patterns, warning signs, and the types of information criminals may attempt to obtain. Users can learn how to examine suspicious messages, verify website addresses, recognize unusual requests, and avoid interacting with untrusted links or attachments. The focus is on awareness and prevention, helping people understand how phishing works at a high level without providing instructions that could enable misuse.",
-    details: "Phishing is a common cybercrime technique in which criminals use deceptive emails, messages, websites, or other communications to trick people into revealing information or taking unsafe actions. This section explains common phishing patterns, warning signs, and the types of information criminals may attempt to obtain. Users can learn how to examine suspicious messages, verify website addresses, recognize unusual requests, and avoid interacting with untrusted links or attachments. The focus is on awareness and prevention, helping people understand how phishing works at a high level without providing instructions that could enable misuse."
+    title: "User Interface Design", 
+    icon: Palette, 
+    Icon: Palette,
+    color: "from-blue-500 to-indigo-700",
+    description: "Creating modern, intuitive, and visually refined user interfaces across web, enterprise, and mobile platforms.",
+    desc: "Creating modern, intuitive, and visually refined user interfaces across web, enterprise, and mobile platforms.",
+    content: "IBCS creates modern user interfaces designed to provide clear, consistent, and intuitive interactions across digital products and platforms. Our interface design process considers visual hierarchy, typography, layout, spacing, navigation, component systems, interaction patterns, and responsive behaviour to create interfaces that are both functional and visually refined. We design interfaces for web applications, enterprise systems, government platforms, cybersecurity products, SaaS applications, and mobile experiences. Our approach balances aesthetics with usability, ensuring that visual decisions support the underlying product objectives and user workflows. By combining design principles with modern frontend technologies, IBCS aims to create polished interfaces that provide consistent experiences across devices, screen sizes, user roles, and operational environments.",
+    details: "IBCS creates modern user interfaces designed to provide clear, consistent, and intuitive interactions across digital products and platforms. Our interface design process considers visual hierarchy, typography, layout, spacing, navigation, component systems, interaction patterns, and responsive behaviour to create interfaces that are both functional and visually refined. We design interfaces for web applications, enterprise systems, government platforms, cybersecurity products, SaaS applications, and mobile experiences. Our approach balances aesthetics with usability, ensuring that visual decisions support the underlying product objectives and user workflows. By combining design principles with modern frontend technologies, IBCS aims to create polished interfaces that provide consistent experiences across devices, screen sizes, user roles, and operational environments."
   },
   { 
     id: 2, 
-    title: "Social Engineering Techniques", 
-    icon: UserX, 
-    Icon: UserX,
-    color: "from-blue-500 to-indigo-700",
-    description: "Learn how criminals manipulate trust, emotions, and human behavior online.",
-    desc: "Learn how criminals manipulate trust, emotions, and human behavior online.",
-    content: "Social engineering involves manipulating people into revealing information, providing access, transferring money, or performing actions that may compromise their security. This section explains common social engineering approaches such as impersonation, urgency, fear, trust-building, deception, and fraudulent requests. Users can learn how criminals may exploit human behavior through calls, messages, emails, social media, or other communication channels. The content focuses on recognizing manipulation techniques, verifying unexpected requests, and avoiding pressure-based decisions. Understanding social engineering can help individuals identify suspicious interactions and protect themselves from scams that rely more on human deception than technical attacks.",
-    details: "Social engineering involves manipulating people into revealing information, providing access, transferring money, or performing actions that may compromise their security. This section explains common social engineering approaches such as impersonation, urgency, fear, trust-building, deception, and fraudulent requests. Users can learn how criminals may exploit human behavior through calls, messages, emails, social media, or other communication channels. The content focuses on recognizing manipulation techniques, verifying unexpected requests, and avoiding pressure-based decisions. Understanding social engineering can help individuals identify suspicious interactions and protect themselves from scams that rely more on human deception than technical attacks."
+    title: "User Experience Design", 
+    icon: Compass, 
+    Icon: Compass,
+    color: "from-teal-500 to-emerald-700",
+    description: "Structuring digital products around user journeys, intuitive navigation, and simplified workflows.",
+    desc: "Structuring digital products around user journeys, intuitive navigation, and simplified workflows.",
+    content: "IBCS focuses on creating user experiences that make software products easier to understand, navigate, and operate. UX design involves studying user needs, workflows, goals, behaviours, and challenges to structure digital products around meaningful interactions. We consider user journeys, information architecture, navigation, task flows, interaction patterns, and usability throughout the product design process. Our UX approach is particularly important for complex products where users may work with large amounts of information or sophisticated functionality. By simplifying workflows and organising information effectively, IBCS aims to reduce unnecessary complexity and create experiences that help users complete tasks efficiently, confidently, and consistently across different digital products and technology environments.",
+    details: "IBCS focuses on creating user experiences that make software products easier to understand, navigate, and operate. UX design involves studying user needs, workflows, goals, behaviours, and challenges to structure digital products around meaningful interactions. We consider user journeys, information architecture, navigation, task flows, interaction patterns, and usability throughout the product design process. Our UX approach is particularly important for complex products where users may work with large amounts of information or sophisticated functionality. By simplifying workflows and organising information effectively, IBCS aims to reduce unnecessary complexity and create experiences that help users complete tasks efficiently, confidently, and consistently across different digital products and technology environments."
   },
   { 
     id: 3, 
-    title: "Account Takeover Methods", 
-    icon: Lock, 
-    Icon: Lock,
+    title: "User Research & Discovery", 
+    icon: Search, 
+    Icon: Search,
     color: "from-purple-500 to-fuchsia-700",
-    description: "Understand common ways criminals attempt to gain unauthorized access to online accounts.",
-    desc: "Understand common ways criminals attempt to gain unauthorized access to online accounts.",
-    content: "Account takeover occurs when a criminal gains unauthorized control of another person's online account. This section explains common high-level methods associated with account compromise, including stolen credentials, phishing, password reuse, credential exposure, session abuse, and social engineering. Users can learn how attackers may target email, social media, financial, or other important accounts and recognize warning signs such as unfamiliar login notifications, unexpected password changes, or unknown devices. The focus is on awareness and protection, including the importance of unique passwords, multi-factor authentication, secure recovery options, and monitoring account activity for suspicious changes.",
-    details: "Account takeover occurs when a criminal gains unauthorized control of another person's online account. This section explains common high-level methods associated with account compromise, including stolen credentials, phishing, password reuse, credential exposure, session abuse, and social engineering. Users can learn how attackers may target email, social media, financial, or other important accounts and recognize warning signs such as unfamiliar login notifications, unexpected password changes, or unknown devices. The focus is on awareness and protection, including the importance of unique passwords, multi-factor authentication, secure recovery options, and monitoring account activity for suspicious changes."
+    description: "Uncovering user needs, workflows, and operational requirements through structured product research.",
+    desc: "Uncovering user needs, workflows, and operational requirements through structured product research.",
+    content: "IBCS uses user research and product discovery practices to understand the people, requirements, environments, and challenges surrounding a digital product. Research can include user interviews, requirement analysis, stakeholder discussions, workflow studies, usability observations, competitor analysis, and feedback evaluation. These insights help inform product structure, functionality, navigation, and interface decisions before significant development begins. Our discovery approach helps identify user expectations and operational requirements while reducing assumptions during product design. By connecting research with product strategy and technology planning, IBCS aims to create digital experiences that solve meaningful problems and remain aligned with the practical needs of users, organisations, institutions, and the broader product ecosystem.",
+    details: "IBCS uses user research and product discovery practices to understand the people, requirements, environments, and challenges surrounding a digital product. Research can include user interviews, requirement analysis, stakeholder discussions, workflow studies, usability observations, competitor analysis, and feedback evaluation. These insights help inform product structure, functionality, navigation, and interface decisions before significant development begins. Our discovery approach helps identify user expectations and operational requirements while reducing assumptions during product design. By connecting research with product strategy and technology planning, IBCS aims to create digital experiences that solve meaningful problems and remain aligned with the practical needs of users, organisations, institutions, and the broader product ecosystem."
   },
   { 
     id: 4, 
-    title: "Identity Theft Methods", 
-    icon: Fingerprint, 
-    Icon: Fingerprint,
-    color: "from-green-500 to-emerald-700",
-    description: "Learn how criminals may misuse personal information to impersonate or target individuals.",
-    desc: "Learn how criminals may misuse personal information to impersonate or target individuals.",
-    content: "Identity theft involves the unauthorized use of personal information, identity details, credentials, or documents for fraudulent or harmful purposes. This section explains common ways criminals may obtain or misuse personal information, including phishing, social engineering, data exposure, impersonation, and compromised accounts. Users can learn about warning signs such as unfamiliar financial activity, unexpected account notifications, unknown applications, or communications made in their name. The content emphasizes protecting personal information, limiting unnecessary data sharing, monitoring important accounts, and reporting suspected misuse. Understanding identity theft methods helps users recognize risks before they lead to wider financial or personal harm.",
-    details: "Identity theft involves the unauthorized use of personal information, identity details, credentials, or documents for fraudulent or harmful purposes. This section explains common ways criminals may obtain or misuse personal information, including phishing, social engineering, data exposure, impersonation, and compromised accounts. Users can learn about warning signs such as unfamiliar financial activity, unexpected account notifications, unknown applications, or communications made in their name. The content emphasizes protecting personal information, limiting unnecessary data sharing, monitoring important accounts, and reporting suspected misuse. Understanding identity theft methods helps users recognize risks before they lead to wider financial or personal harm."
+    title: "Design Systems & Components", 
+    icon: Layers, 
+    Icon: Layers,
+    color: "from-cyan-500 to-blue-700",
+    description: "Developing scalable, reusable component libraries and consistent visual foundations for digital ecosystems.",
+    desc: "Developing scalable, reusable component libraries and consistent visual foundations for digital ecosystems.",
+    content: "IBCS develops structured design systems that establish reusable visual and interaction components across digital products. Design systems can include typography, colours, spacing, buttons, forms, navigation elements, cards, tables, notifications, icons, and other interface components. A consistent design system helps product teams maintain visual coherence while accelerating the development of new screens and features. Components can be designed to support accessibility, responsive behaviour, scalability, and consistent interaction patterns. Our approach enables interfaces to evolve without losing their underlying design language. By connecting design systems with frontend development, IBCS creates reusable foundations that support efficient product development and consistent experiences across applications, platforms, modules, and user environments.",
+    details: "IBCS develops structured design systems that establish reusable visual and interaction components across digital products. Design systems can include typography, colours, spacing, buttons, forms, navigation elements, cards, tables, notifications, icons, and other interface components. A consistent design system helps product teams maintain visual coherence while accelerating the development of new screens and features. Components can be designed to support accessibility, responsive behaviour, scalability, and consistent interaction patterns. Our approach enables interfaces to evolve without losing their underlying design language. By connecting design systems with frontend development, IBCS creates reusable foundations that support efficient product development and consistent experiences across applications, platforms, modules, and user environments."
   },
   { 
     id: 5, 
-    title: "Online Financial Crime Methods", 
-    icon: CreditCard, 
-    Icon: CreditCard,
-    color: "from-yellow-500 to-orange-700",
-    description: "Understand common methods used to commit financial crimes through digital platforms.",
-    desc: "Understand common methods used to commit financial crimes through digital platforms.",
-    content: "Online financial crime can involve unauthorized transactions, payment fraud, investment deception, banking scams, digital payment abuse, and other criminal activities conducted through online systems. This section explains these activities at a high level so users can recognize common patterns and warning signs without receiving operational instructions. Users can learn how criminals may use impersonation, fraudulent offers, deceptive payment requests, compromised accounts, or social engineering to target financial information and funds. The focus is on prevention, transaction verification, account protection, and responsible reporting. Awareness of financial crime methods can help users make safer decisions when managing money online.",
-    details: "Online financial crime can involve unauthorized transactions, payment fraud, investment deception, banking scams, digital payment abuse, and other criminal activities conducted through online systems. This section explains these activities at a high level so users can recognize common patterns and warning signs without receiving operational instructions. Users can learn how criminals may use impersonation, fraudulent offers, deceptive payment requests, compromised accounts, or social engineering to target financial information and funds. The focus is on prevention, transaction verification, account protection, and responsible reporting. Awareness of financial crime methods can help users make safer decisions when managing money online."
+    title: "Responsive Web & Mobile Design", 
+    icon: Smartphone, 
+    Icon: Smartphone,
+    color: "from-emerald-500 to-teal-700",
+    description: "Adapting digital experiences smoothly across desktop, tablet, and mobile touchpoints.",
+    desc: "Adapting digital experiences smoothly across desktop, tablet, and mobile touchpoints.",
+    content: "IBCS designs digital experiences that adapt effectively across desktops, laptops, tablets, and mobile devices. Responsive design considers screen sizes, input methods, content hierarchy, navigation patterns, performance requirements, and device-specific interaction behaviours. Our approach ensures that essential functionality remains accessible while layouts and components adapt naturally to different environments. We design responsive experiences for software products, SaaS platforms, enterprise applications, government portals, cybersecurity systems, and mobile applications. By combining responsive design principles with modern frontend technologies, IBCS aims to provide consistent and usable experiences regardless of the device through which users access a product, while maintaining visual quality, performance, accessibility, and functional clarity.",
+    details: "IBCS designs digital experiences that adapt effectively across desktops, laptops, tablets, and mobile devices. Responsive design considers screen sizes, input methods, content hierarchy, navigation patterns, performance requirements, and device-specific interaction behaviours. Our approach ensures that essential functionality remains accessible while layouts and components adapt naturally to different environments. We design responsive experiences for software products, SaaS platforms, enterprise applications, government portals, cybersecurity systems, and mobile applications. By combining responsive design principles with modern frontend technologies, IBCS aims to provide consistent and usable experiences regardless of the device through which users access a product, while maintaining visual quality, performance, accessibility, and functional clarity."
   },
   { 
     id: 6, 
-    title: "Malware Distribution Methods", 
-    icon: Cpu, 
-    Icon: Cpu,
-    color: "from-cyan-500 to-teal-700",
-    description: "Understand how malicious software can be delivered through common digital channels.",
-    desc: "Understand how malicious software can be delivered through common digital channels.",
-    content: "Malware distribution involves methods used to deliver malicious software to computers, smartphones, networks, or other digital devices. This section provides high-level awareness about common delivery channels such as suspicious email attachments, malicious links, compromised websites, unsafe downloads, fraudulent applications, and deceptive messages. Users can learn how to recognize potential warning signs and reduce exposure by using trusted software sources, keeping systems updated, avoiding unknown downloads, and maintaining appropriate security controls. The content focuses on prevention and awareness rather than technical instructions for creating or distributing malware, helping users better understand how malicious software may reach their devices.",
-    details: "Malware distribution involves methods used to deliver malicious software to computers, smartphones, networks, or other digital devices. This section provides high-level awareness about common delivery channels such as suspicious email attachments, malicious links, compromised websites, unsafe downloads, fraudulent applications, and deceptive messages. Users can learn how to recognize potential warning signs and reduce exposure by using trusted software sources, keeping systems updated, avoiding unknown downloads, and maintaining appropriate security controls. The content focuses on prevention and awareness rather than technical instructions for creating or distributing malware, helping users better understand how malicious software may reach their devices."
+    title: "Accessibility & Inclusive Design", 
+    icon: Sparkles, 
+    Icon: Sparkles,
+    color: "from-amber-500 to-orange-700",
+    description: "Ensuring readable typography, clear contrast, and accessible interfaces for diverse user groups.",
+    desc: "Ensuring readable typography, clear contrast, and accessible interfaces for diverse user groups.",
+    content: "IBCS considers accessibility and inclusive design as important components of modern digital product development. Our design approach can address readable typography, colour contrast, keyboard navigation, clear interaction states, semantic structures, accessible forms, understandable content, and other usability considerations. Inclusive design helps digital products serve users with different abilities, devices, technical familiarity, and environmental conditions. Accessibility requirements are considered during interface planning, component design, development, and testing rather than being treated as a final-stage adjustment. By incorporating accessibility into the product lifecycle, IBCS aims to create digital experiences that are easier to understand and use while supporting broader usability, better interaction quality, and more inclusive access to technology products.",
+    details: "IBCS considers accessibility and inclusive design as important components of modern digital product development. Our design approach can address readable typography, colour contrast, keyboard navigation, clear interaction states, semantic structures, accessible forms, understandable content, and other usability considerations. Inclusive design helps digital products serve users with different abilities, devices, technical familiarity, and environmental conditions. Accessibility requirements are considered during interface planning, component design, development, and testing rather than being treated as a final-stage adjustment. By incorporating accessibility into the product lifecycle, IBCS aims to create digital experiences that are easier to understand and use while supporting broader usability, better interaction quality, and more inclusive access to technology products."
   },
   { 
     id: 7, 
-    title: "Ransomware Activity Awareness", 
-    icon: AlertTriangle, 
-    Icon: AlertTriangle,
-    color: "from-red-600 to-black",
-    description: "Understand ransomware risks and how criminal activity can affect digital data and systems.",
-    desc: "Understand ransomware risks and how criminal activity can affect digital data and systems.",
-    content: "Ransomware is a type of malicious activity in which criminals attempt to disrupt access to systems or data and may demand payment from victims. This section explains ransomware at a public-awareness level, including common warning signs, potential impacts, prevention practices, and basic response considerations. Users can learn why regular backups, software updates, strong access controls, security awareness, and cautious handling of suspicious files are important. The content also highlights the importance of reporting suspected incidents and seeking appropriate technical or official assistance. The objective is to improve understanding of ransomware risks without providing operational guidance for conducting attacks.",
-    details: "Ransomware is a type of malicious activity in which criminals attempt to disrupt access to systems or data and may demand payment from victims. This section explains ransomware at a public-awareness level, including common warning signs, potential impacts, prevention practices, and basic response considerations. Users can learn why regular backups, software updates, strong access controls, security awareness, and cautious handling of suspicious files are important. The content also highlights the importance of reporting suspected incidents and seeking appropriate technical or official assistance. The objective is to improve understanding of ransomware risks without providing operational guidance for conducting attacks."
+    title: "Information Architecture", 
+    icon: Network, 
+    Icon: Network,
+    color: "from-sky-500 to-indigo-700",
+    description: "Structuring complex data, navigation, and functionality into logical, easy-to-explore frameworks.",
+    desc: "Structuring complex data, navigation, and functionality into logical, easy-to-explore frameworks.",
+    content: "IBCS designs information architectures that organise complex content, functionality, and data into structures that users can understand and navigate efficiently. Information architecture can include content hierarchy, navigation systems, page structures, categorisation, search, filtering, relationships between modules, and user-specific information flows. This is particularly important for enterprise, government, cybersecurity, investigation, analytics, and other products containing large amounts of information. Our approach focuses on making relevant information discoverable while reducing unnecessary complexity in navigation and workflows. By combining information architecture with user research and UX design, IBCS creates structured digital environments that help users locate information, understand relationships, and complete tasks more efficiently.",
+    details: "IBCS designs information architectures that organise complex content, functionality, and data into structures that users can understand and navigate efficiently. Information architecture can include content hierarchy, navigation systems, page structures, categorisation, search, filtering, relationships between modules, and user-specific information flows. This is particularly important for enterprise, government, cybersecurity, investigation, analytics, and other products containing large amounts of information. Our approach focuses on making relevant information discoverable while reducing unnecessary complexity in navigation and workflows. By combining information architecture with user research and UX design, IBCS creates structured digital environments that help users locate information, understand relationships, and complete tasks more efficiently."
   },
   { 
     id: 8, 
-    title: "Fake Website Operations", 
-    icon: Globe, 
-    Icon: Globe,
-    color: "from-pink-500 to-rose-600",
-    description: "Learn how fraudulent websites are used to deceive users and collect sensitive information.",
-    desc: "Learn how fraudulent websites are used to deceive users and collect sensitive information.",
-    content: "Fake websites are designed to imitate legitimate websites, services, businesses, or organizations in order to mislead visitors. Criminals may use these websites to collect login credentials, payment information, personal details, or other sensitive data. This section explains common characteristics of fraudulent websites, including misleading domain names, unusual URLs, copied branding, unrealistic offers, suspicious payment requests, and unexpected login pages. Users can learn how to verify website addresses, check trusted sources, avoid suspicious links, and use official websites when accessing important services. The goal is to help people identify deceptive websites before sharing information or making transactions.",
-    details: "Fake websites are designed to imitate legitimate websites, services, businesses, or organizations in order to mislead visitors. Criminals may use these websites to collect login credentials, payment information, personal details, or other sensitive data. This section explains common characteristics of fraudulent websites, including misleading domain names, unusual URLs, copied branding, unrealistic offers, suspicious payment requests, and unexpected login pages. Users can learn how to verify website addresses, check trusted sources, avoid suspicious links, and use official websites when accessing important services. The goal is to help people identify deceptive websites before sharing information or making transactions."
+    title: "Interaction Design", 
+    icon: MousePointerClick, 
+    Icon: MousePointerClick,
+    color: "from-rose-500 to-pink-700",
+    description: "Designing predictable feedback, intuitive gestures, and seamless interaction states across applications.",
+    desc: "Designing predictable feedback, intuitive gestures, and seamless interaction states across applications.",
+    content: "IBCS designs interaction patterns that define how users communicate with software products and how systems respond to their actions. Interaction design can include buttons, forms, menus, gestures, transitions, feedback states, loading behaviour, notifications, confirmations, error handling, and other interactive elements. Our approach focuses on making system behaviour predictable, understandable, and efficient while reducing confusion during important workflows. Thoughtful interaction design is particularly valuable for complex software products where users may perform detailed operational tasks. By combining interaction principles with usability testing, visual design, and frontend engineering, IBCS aims to create digital products where interactions feel natural, provide clear feedback, and support users throughout their complete workflow.",
+    details: "IBCS designs interaction patterns that define how users communicate with software products and how systems respond to their actions. Interaction design can include buttons, forms, menus, gestures, transitions, feedback states, loading behaviour, notifications, confirmations, error handling, and other interactive elements. Our approach focuses on making system behaviour predictable, understandable, and efficient while reducing confusion during important workflows. Thoughtful interaction design is particularly valuable for complex software products where users may perform detailed operational tasks. By combining interaction principles with usability testing, visual design, and frontend engineering, IBCS aims to create digital products where interactions feel natural, provide clear feedback, and support users throughout their complete workflow."
   },
   { 
     id: 9, 
-    title: "Online Extortion Methods", 
-    icon: MonitorX, 
-    Icon: MonitorX,
+    title: "Prototyping & Usability Testing", 
+    icon: FlaskConical, 
+    Icon: FlaskConical,
     color: "from-violet-500 to-purple-800",
-    description: "Understand how criminals use threats, pressure, or sensitive information for online extortion.",
-    desc: "Understand how criminals use threats, pressure, or sensitive information for online extortion.",
-    content: "Online extortion occurs when criminals use threats, intimidation, or sensitive information to pressure individuals into providing money, access, or other demands. Situations may involve threats to publish private information, expose personal content, damage reputations, or continue harassment. This section helps users recognize common warning signs and understand that responding under pressure may increase risk. Users can learn the importance of preserving evidence, avoiding unnecessary engagement, protecting accounts, seeking trusted support, and using appropriate reporting channels. The content focuses on awareness, safety, and victim protection rather than providing operational details that could facilitate criminal activity.",
-    details: "Online extortion occurs when criminals use threats, intimidation, or sensitive information to pressure individuals into providing money, access, or other demands. Situations may involve threats to publish private information, expose personal content, damage reputations, or continue harassment. This section helps users recognize common warning signs and understand that responding under pressure may increase risk. Users can learn the importance of preserving evidence, avoiding unnecessary engagement, protecting accounts, seeking trusted support, and using appropriate reporting channels. The content focuses on awareness, safety, and victim protection rather than providing operational details that could facilitate criminal activity."
+    description: "Validating concepts through interactive prototypes and structured usability testing with real users.",
+    desc: "Validating concepts through interactive prototypes and structured usability testing with real users.",
+    content: "IBCS uses prototyping and usability testing to evaluate product concepts and user experiences before and during software development. Prototypes can range from early wireframes and functional flows to high-fidelity interactive interfaces that represent realistic product behaviour. Usability testing helps identify navigation problems, confusing interactions, unclear content, and workflow challenges through structured user evaluation and feedback. Findings can then be used to refine designs before implementation or future product releases. This iterative process reduces design assumptions and helps product teams make informed decisions. By combining prototyping, testing, user feedback, and continuous refinement, IBCS aims to create digital experiences that are practical, understandable, efficient, and aligned with real user requirements.",
+    details: "IBCS uses prototyping and usability testing to evaluate product concepts and user experiences before and during software development. Prototypes can range from early wireframes and functional flows to high-fidelity interactive interfaces that represent realistic product behaviour. Usability testing helps identify navigation problems, confusing interactions, unclear content, and workflow challenges through structured user evaluation and feedback. Findings can then be used to refine designs before implementation or future product releases. This iterative process reduces design assumptions and helps product teams make informed decisions. By combining prototyping, testing, user feedback, and continuous refinement, IBCS aims to create digital experiences that are practical, understandable, efficient, and aligned with real user requirements."
   },
   { 
     id: 10, 
-    title: "Cybercrime Modus Operandi", 
-    icon: Server, 
-    Icon: Server,
-    color: "from-slate-600 to-slate-900",
-    description: "Understand common patterns criminals use to plan and carry out cybercrime.",
-    desc: "Understand common patterns criminals use to plan and carry out cybercrime.",
-    content: "Modus operandi refers to the general patterns, behaviors, and approaches associated with how criminal activities are carried out. This section provides high-level awareness of common cybercrime patterns, including targeting methods, impersonation, social engineering, fraudulent communication, unauthorized access, data misuse, and financial deception. Users can learn how different techniques may be combined during a cybercrime incident and how recognizing recurring patterns can improve prevention and early detection. The content is designed for public awareness, education, and risk recognition rather than operational use. Understanding cybercrime patterns helps individuals identify suspicious situations and make safer decisions in the digital environment.",
-    details: "Modus operandi refers to the general patterns, behaviors, and approaches associated with how criminal activities are carried out. This section provides high-level awareness of common cybercrime patterns, including targeting methods, impersonation, social engineering, fraudulent communication, unauthorized access, data misuse, and financial deception. Users can learn how different techniques may be combined during a cybercrime incident and how recognizing recurring patterns can improve prevention and early detection. The content is designed for public awareness, education, and risk recognition rather than operational use. Understanding cybercrime patterns helps individuals identify suspicious situations and make safer decisions in the digital environment."
+    title: "Motion & Interactive Experiences", 
+    icon: Zap, 
+    Icon: Zap,
+    color: "from-teal-600 to-cyan-800",
+    description: "Incorporating purposeful motion, micro-interactions, and visual feedback for engaging experiences.",
+    desc: "Incorporating purposeful motion, micro-interactions, and visual feedback for engaging experiences.",
+    content: "IBCS incorporates purposeful motion and interactive elements into digital products where they can improve usability, communication, and overall experience. Animations, transitions, micro-interactions, loading states, feedback effects, and interactive visual elements can help users understand system behaviour and navigate interfaces more naturally. Our approach avoids unnecessary visual complexity and focuses on motion that supports product functionality and user understanding. Interactive experiences can be applied across web applications, mobile products, dashboards, SaaS platforms, and other digital environments. By combining thoughtful motion design with performance considerations and responsive engineering, IBCS aims to create engaging interfaces that feel modern while maintaining usability, accessibility, consistency, and efficient product operation.",
+    details: "IBCS incorporates purposeful motion and interactive elements into digital products where they can improve usability, communication, and overall experience. Animations, transitions, micro-interactions, loading states, feedback effects, and interactive visual elements can help users understand system behaviour and navigate interfaces more naturally. Our approach avoids unnecessary visual complexity and focuses on motion that supports product functionality and user understanding. Interactive experiences can be applied across web applications, mobile products, dashboards, SaaS platforms, and other digital environments. By combining thoughtful motion design with performance considerations and responsive engineering, IBCS aims to create engaging interfaces that feel modern while maintaining usability, accessibility, consistency, and efficient product operation."
+  },
+  { 
+    id: 11, 
+    title: "Product Experience Design", 
+    icon: Monitor, 
+    Icon: Monitor,
+    color: "from-blue-600 to-indigo-800",
+    description: "Connecting user needs, business goals, and technology into end-to-end product experiences.",
+    desc: "Connecting user needs, business goals, and technology into end-to-end product experiences.",
+    content: "IBCS approaches UI/UX as an integral part of product development rather than as an isolated visual design activity. Product experience design connects user needs, business objectives, technology capabilities, workflows, interface design, and long-term product strategy. We consider the complete experience across onboarding, navigation, core functionality, notifications, support, account management, and ongoing product interaction. This approach helps create consistent experiences across different modules and user roles. By combining product thinking with UX research, interaction design, visual systems, prototyping, and engineering collaboration, IBCS aims to build software products that are not only visually refined but also useful, understandable, scalable, and capable of delivering meaningful value to their intended users.",
+    details: "IBCS approaches UI/UX as an integral part of product development rather than as an isolated visual design activity. Product experience design connects user needs, business objectives, technology capabilities, workflows, interface design, and long-term product strategy. We consider the complete experience across onboarding, navigation, core functionality, notifications, support, account management, and ongoing product interaction. This approach helps create consistent experiences across different modules and user roles. By combining product thinking with UX research, interaction design, visual systems, prototyping, and engineering collaboration, IBCS aims to build software products that are not only visually refined but also useful, understandable, scalable, and capable of delivering meaningful value to their intended users."
+  },
+  { 
+    id: 12, 
+    title: "Digital Experience Innovation", 
+    icon: Globe, 
+    Icon: Globe,
+    color: "from-cyan-600 to-teal-800",
+    description: "Exploring AI, conversational interfaces, and immersive interactions for future-ready software.",
+    desc: "Exploring AI, conversational interfaces, and immersive interactions for future-ready software.",
+    content: "IBCS continuously explores new approaches to improve digital experiences through emerging technologies, evolving design practices, user insights, and product innovation. We evaluate how artificial intelligence, automation, data visualisation, conversational interfaces, responsive technologies, immersive interactions, and other emerging capabilities can improve the way users interact with software. Our objective is not simply to create visually modern interfaces, but to develop experiences that make technology more useful, accessible, intelligent, and efficient. By combining research, design, technology, and continuous experimentation, IBCS aims to create digital experiences that evolve with user expectations and technological change while supporting the long-term growth and differentiation of its software products.",
+    details: "IBCS continuously explores new approaches to improve digital experiences through emerging technologies, evolving design practices, user insights, and product innovation. We evaluate how artificial intelligence, automation, data visualisation, conversational interfaces, responsive technologies, immersive interactions, and other emerging capabilities can improve the way users interact with software. Our objective is not simply to create visually modern interfaces, but to develop experiences that make technology more useful, accessible, intelligent, and efficient. By combining research, design, technology, and continuous experimentation, IBCS aims to create digital experiences that evolve with user expectations and technological change while supporting the long-term growth and differentiation of its software products."
   }
 ];
 
 export const cardData = cardsData;
-
-export const DigitalExperienceDesignData = {
-  title: "Digital Experience & UI/UX Design",
-  eyebrow: "Digital Experience & UI/UX Design",
-  slug: "digital-experience-ui-ux-design",
-  description: "Crafting intuitive user interfaces and seamless digital experiences across web, mobile and desktop applications.",
-  cards: cardsData
-};
-
+export const DigitalExperienceDesignData = cardsData;
+export default cardsData;

@@ -18,7 +18,7 @@ import {
   coursesData
 } from './AboutUsPageData';
 import helpIllustrationLeft from '../../assets/help_illustration_left.jpg';
-export default function AboutUs({ onClose, onOpenCopyrightPage }) {
+export default function AboutUs({ onClose, onOpenCopyrightPage, onOpenMeaningPage }) {
   const handleBack = () => {
     if (window.history.length > 1) {
       window.history.back();
@@ -48,8 +48,11 @@ export default function AboutUs({ onClose, onOpenCopyrightPage }) {
       if (onOpenCopyrightPage) {
         onOpenCopyrightPage();
       }
-    } else {
-      setActiveArticle(article);
+    } else if (titleLower.includes('meaning behind our name') || article?.id === 'about-1') {
+      window.location.hash = '#meaning-behind-our-name-page';
+      if (onOpenMeaningPage) {
+        onOpenMeaningPage();
+      }
     }
   };
 
@@ -495,87 +498,6 @@ export default function AboutUs({ onClose, onOpenCopyrightPage }) {
           </div>
         </div>
       </main>
-
-      {/* TOPIC READER MODAL */}
-      {activeArticle && (
-        <div className="fixed inset-0 z-50 bg-black/55 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
-          <div className="bg-[#FFFDFB] text-[#1E293B] w-full max-w-2xl rounded-[28px] p-6 sm:p-8 shadow-2xl border border-[#EADFD5] relative max-h-[85vh] overflow-y-auto custom-scrollbar space-y-5">
-            <button
-              onClick={() => setActiveArticle(null)}
-              className="absolute top-5 right-5 text-slate-400 hover:text-slate-800 p-1.5 rounded-full hover:bg-[#F4EFEA] transition-all"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
-                <span className="text-[10px] font-extrabold tracking-widest uppercase bg-[#E07A5F] text-white px-2.5 py-0.5 rounded font-mono">
-                  {activeArticle.category}
-                </span>
-                <span className="text-xs text-slate-400 font-semibold flex items-center space-x-1">
-                  <Clock className="w-3.5 h-3.5" />
-                  <span>{activeArticle.readTime}</span>
-                </span>
-              </div>
-              <h2 className="text-xl sm:text-2xl font-black font-display text-[#1E293B] leading-snug capitalize">
-                {activeArticle.title}
-              </h2>
-            </div>
-
-            <div className="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed font-sans border-t border-b border-[#EAE0D5] py-4">
-              <p className="font-semibold text-[#1E293B] text-sm leading-relaxed">{activeArticle.summary}</p>
-
-              {activeArticle.details && (
-                <div className="space-y-2.5 bg-[#FDF8F5] p-4 rounded-xl border border-[#F4E3D7]">
-                  <h4 className="font-bold text-[#D96B43] font-display text-xs uppercase tracking-wider">
-                    Key Highlights & Framework:
-                  </h4>
-                  <ul className="list-disc list-inside space-y-2 text-slate-700">
-                    {activeArticle.details.map((point, i) => (
-                      <li key={i} className="leading-relaxed">{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {activeArticle.additionalText && (
-                <p className="text-slate-600 leading-relaxed">
-                  {activeArticle.additionalText}
-                </p>
-              )}
-            </div>
-
-            {/* Feedback Section */}
-            <div className="flex items-center justify-between bg-[#FDF2EC] p-4 rounded-xl border border-[#FAD8C7]">
-              <span className="text-xs font-bold text-[#1E293B]">Was this section informative?</span>
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={() => handleFeedback(activeArticle.id, 'yes')}
-                  className={`flex items-center space-x-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                    feedbackState[activeArticle.id] === 'yes'
-                      ? 'bg-[#E07A5F] text-white shadow-sm'
-                      : 'bg-white text-slate-700 hover:bg-slate-100 border border-[#EADFD5]'
-                  }`}
-                >
-                  <ThumbsUp className="w-3.5 h-3.5" />
-                  <span>Yes</span>
-                </button>
-                <button
-                  onClick={() => handleFeedback(activeArticle.id, 'no')}
-                  className={`flex items-center space-x-1 px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                    feedbackState[activeArticle.id] === 'no'
-                      ? 'bg-rose-600 text-white shadow-sm'
-                      : 'bg-white text-slate-700 hover:bg-slate-100 border border-[#EADFD5]'
-                  }`}
-                >
-                  <ThumbsDown className="w-3.5 h-3.5" />
-                  <span>No</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Footer */}
       <footer className="py-2.5 text-center text-[11px] text-[#64748B] select-none">

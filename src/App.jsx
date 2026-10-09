@@ -27,6 +27,7 @@ const GlobalInfrastructureManagedServicesPage = lazy(() => import('./pages/HomeP
 const DevOpsContinuousDeliveryPage = lazy(() => import('./pages/HomePage/DevOpsContinuousDeliveryPage/DevOpsContinuousDeliveryPage'));
 const DigitalExperienceDesignPage = lazy(() => import('./pages/HomePage/DigitalExperienceDesignPage/DigitalExperienceDesignPage'));
 const RegulatoryComplianceGovernancePage = lazy(() => import('./pages/HomePage/RegulatoryComplianceGovernancePage/RegulatoryComplianceGovernancePage'));
+const IntroductionPage = lazy(() => import('./pages/HomePage/IntroductionPage/IntroductionPage'));
 const SoftwareProductPage = lazy(() => import('./pages/SoftwareProducts/SoftwareProductPage'));
 const AboutUsPage = lazy(() => import('./pages/AboutUs/AboutUsPage'));
 const GalleryPage = lazy(() => import('./pages/Gallery/GalleryPage'));
@@ -34,7 +35,9 @@ const FollowPage = lazy(() => import('./pages/Follow/FollowPage'));
 const CareerPage = lazy(() => import('./pages/Careers/CareerPage'));
 const CybersecurityDigitalSecurityPage = lazy(() => import('./pages/HomePage/CybersecurityDigitalSecurityPage/CybersecurityDigitalSecurityPage'));
 const CopyRightPage = lazy(() => import('./pages/AboutUs/CopyRight/CopyRightPage'));
+const MeaningBehindOurNamePage = lazy(() => import('./pages/AboutUs/MeaningBehindOurName/MeaningBehindOurNamePage'));
 const SkillDevelopmentPage = lazy(() => import('./pages/SkillDevelopment/SkillDevelopmentPage.jsx'));
+const SoftwareLibraryPage = lazy(() => import('./pages/SoftwareLibrary/SoftwareLibraryPage'));
 
 // Root App Component
 export default function App() {
@@ -65,8 +68,10 @@ export default function App() {
   const [isCareerPageOpen, setIsCareerPageOpen] = useState(false);
   const [isCybersecurityPageOpen, setIsCybersecurityPageOpen] = useState(false);
   const [isCopyrightPageOpen, setIsCopyrightPageOpen] = useState(false);
+  const [isMeaningPageOpen, setIsMeaningPageOpen] = useState(false);
   const [isSkillDevPageOpen, setIsSkillDevPageOpen] = useState(false);
-
+  const [isIntroductionPageOpen, setIsIntroductionPageOpen] = useState(false);
+  const [isSoftwareLibraryPageOpen, setIsSoftwareLibraryPageOpen] = useState(false);
 
   // Initial fast platform loading transition
   useEffect(() => {
@@ -126,7 +131,9 @@ export default function App() {
                                                      ? 'careers'
                                                      : isCybersecurityPageOpen
                                                        ? 'cybersecurity'
-                                                       : 'home';
+                                                       : isSoftwareLibraryPageOpen
+                                                         ? 'software-library'
+                                                         : 'home';
 
   const isAnyDetailPageOpen =
     isSdpePageOpen ||
@@ -155,7 +162,10 @@ export default function App() {
     isCareerPageOpen ||
     isCybersecurityPageOpen ||
     isCopyrightPageOpen ||
-    isSkillDevPageOpen;
+    isMeaningPageOpen ||
+    isSkillDevPageOpen ||
+    isIntroductionPageOpen ||
+    isSoftwareLibraryPageOpen;
 
   useEffect(() => {
     const handleHash = () => {
@@ -186,7 +196,10 @@ export default function App() {
         setIsCareerPageOpen(false);
         setIsCybersecurityPageOpen(false);
         setIsCopyrightPageOpen(false);
+        setIsMeaningPageOpen(false);
         setIsSkillDevPageOpen(false);
+        setIsIntroductionPageOpen(false);
+        setIsSoftwareLibraryPageOpen(false);
       };
 
       if (window.location.hash === '#sdpe-page') {
@@ -273,12 +286,30 @@ export default function App() {
       ) {
         resetAll(); setIsCopyrightPageOpen(true);
       } else if (
+        window.location.hash === '#meaning-behind-our-name-page' ||
+        window.location.hash === '#meaning-behind-our-name' ||
+        window.location.hash === '#meaning-page' ||
+        window.location.hash === '#meaning-behind-our-name-card'
+      ) {
+        resetAll(); setIsMeaningPageOpen(true);
+      } else if (
         window.location.hash === '#skill-development-page' ||
         window.location.hash === '#skill-development' ||
         window.location.hash === '#skill-dev' ||
         window.location.hash === '#skill-dev-page'
       ) {
         resetAll(); setIsSkillDevPageOpen(true);
+      } else if (
+        window.location.hash === '#introduction-page' ||
+        window.location.hash === '#introduction'
+      ) {
+        resetAll(); setIsIntroductionPageOpen(true);
+      } else if (
+        window.location.hash === '#software-library-page' ||
+        window.location.hash === '#software-library' ||
+        window.location.hash === '#software-library-section'
+      ) {
+        resetAll(); setIsSoftwareLibraryPageOpen(true);
       } else {
         resetAll();
       }
@@ -304,7 +335,7 @@ export default function App() {
         clearTimeout(timer2);
       };
     }
-  }, [isAnyDetailPageOpen, isSdpePageOpen, isIpPageOpen, isSpcPageOpen, isPdlPageOpen, isOpePageOpen, isOtPageOpen, isAiPageOpen, isCloudPageOpen, isDaPageOpen, isApisPageOpen, isEduPageOpen, isEntPageOpen, isGovPageOpen, isInvPageOpen, isArchPageOpen, isGlobalInfraPageOpen, isDevOpsPageOpen, isDigitalExpPageOpen, isRegulatoryPageOpen, isSoftwareProductPageOpen, isAboutUsPageOpen, isGalleryPageOpen, isFollowPageOpen, isCareerPageOpen, isCybersecurityPageOpen, isCopyrightPageOpen, isSkillDevPageOpen]);
+  }, [isAnyDetailPageOpen, isSdpePageOpen, isIpPageOpen, isSpcPageOpen, isPdlPageOpen, isOpePageOpen, isOtPageOpen, isAiPageOpen, isCloudPageOpen, isDaPageOpen, isApisPageOpen, isEduPageOpen, isEntPageOpen, isGovPageOpen, isInvPageOpen, isArchPageOpen, isGlobalInfraPageOpen, isDevOpsPageOpen, isDigitalExpPageOpen, isRegulatoryPageOpen, isSoftwareProductPageOpen, isAboutUsPageOpen, isGalleryPageOpen, isFollowPageOpen, isCareerPageOpen, isCybersecurityPageOpen, isCopyrightPageOpen, isSkillDevPageOpen, isIntroductionPageOpen, isSoftwareLibraryPageOpen]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -332,6 +363,7 @@ export default function App() {
   const openDigitalExp = () => { setIsDigitalExpPageOpen(true); scrollToTop(); };
   const openRegulatory = () => { setIsRegulatoryPageOpen(true); scrollToTop(); };
   const openCybersecurity = () => { setIsCybersecurityPageOpen(true); scrollToTop(); };
+  const openIntroduction = () => { setIsIntroductionPageOpen(true); scrollToTop(); };
   const openCopyright = () => { setIsCopyrightPageOpen(true); scrollToTop(); window.location.hash = '#copyright-page'; };
 
   const openSoftwareProduct = () => { setIsSoftwareProductPageOpen(true); scrollToTop(); };
@@ -365,6 +397,8 @@ export default function App() {
     setIsCybersecurityPageOpen(false);
     setIsCopyrightPageOpen(false);
     setIsSkillDevPageOpen(false);
+    setIsIntroductionPageOpen(false);
+    setIsSoftwareLibraryPageOpen(false);
 
     window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${sectionId}`);
 
@@ -402,8 +436,12 @@ export default function App() {
   const handleCloseCareerPage = () => closePageAndScrollTo('home');
   const handleCloseCybersecurityPage = () => closePageAndScrollTo('cybersecurity-digital-security');
   const handleCloseCopyrightPage = () => { window.location.hash = '#about-us'; };
+  const openMeaning = () => { setIsMeaningPageOpen(true); scrollToTop(); window.location.hash = '#meaning-behind-our-name-page'; };
+  const handleCloseMeaningPage = () => { window.location.hash = '#about-us'; };
   const openSkillDev = () => { setIsSkillDevPageOpen(true); scrollToTop(); window.location.hash = '#skill-development-page'; };
   const handleCloseSkillDevPage = () => closePageAndScrollTo('home');
+  const handleCloseIntroductionPage = () => closePageAndScrollTo('introduction');
+  const handleCloseSoftwareLibraryPage = () => closePageAndScrollTo('home');
 
   return (
     <div className="min-h-screen bg-[#001C1F]">
@@ -433,6 +471,7 @@ export default function App() {
             onOpenDigitalExpPage={openDigitalExp}
             onOpenRegulatoryPage={openRegulatory}
             onOpenCybersecurityPage={openCybersecurity}
+            onOpenIntroductionPage={openIntroduction}
           />
         </div>
 
@@ -457,13 +496,16 @@ export default function App() {
           {isDigitalExpPageOpen && <DigitalExperienceDesignPage onClose={handleCloseDigitalExpPage} />}
           {isRegulatoryPageOpen && <RegulatoryComplianceGovernancePage onClose={handleCloseRegulatoryPage} />}
           {isSoftwareProductPageOpen && <SoftwareProductPage onClose={handleCloseSoftwareProductPage} />}
-          {isAboutUsPageOpen && <AboutUsPage onClose={handleCloseAboutUsPage} onOpenCopyrightPage={openCopyright} />}
+          {isAboutUsPageOpen && <AboutUsPage onClose={handleCloseAboutUsPage} onOpenCopyrightPage={openCopyright} onOpenMeaningPage={openMeaning} />}
           {isGalleryPageOpen && <GalleryPage onClose={handleCloseGalleryPage} />}
           {isFollowPageOpen && <FollowPage onClose={handleCloseFollowPage} />}
           {isCareerPageOpen && <CareerPage onClose={handleCloseCareerPage} />}
           {isCybersecurityPageOpen && <CybersecurityDigitalSecurityPage onClose={handleCloseCybersecurityPage} />}
           {isCopyrightPageOpen && <CopyRightPage onClose={handleCloseCopyrightPage} />}
+          {isMeaningPageOpen && <MeaningBehindOurNamePage onClose={handleCloseMeaningPage} />}
           {isSkillDevPageOpen && <SkillDevelopmentPage onClose={handleCloseSkillDevPage} />}
+          {isIntroductionPageOpen && <IntroductionPage onClose={handleCloseIntroductionPage} />}
+          {isSoftwareLibraryPageOpen && <SoftwareLibraryPage onClose={handleCloseSoftwareLibraryPage} />}
         </Suspense>
       </main>
 

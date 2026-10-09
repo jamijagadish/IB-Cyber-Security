@@ -53,39 +53,39 @@ function GlobalInfrastructureTopologySVG() {
       <text x="260" y="265" textAnchor="middle" fill="#003135" fontSize="11" fontWeight="800" fontFamily="system-ui">Primary Cluster (HA)</text>
 
       {/* Satellite Node 1: Region US-East (Top-Left) */}
-      <g transform="translate(60, 60)">
-        <rect width="105" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="24" cy="27" r="12" fill="#E6F7F9" />
-        <circle cx="24" cy="27" r="4" fill="#10B981" />
-        <text x="44" y="24" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Edge Pop 01</text>
-        <text x="44" y="38" fill="#0FA4AF" fontSize="9" fontWeight="bold" fontFamily="system-ui">0.8ms Latency</text>
+      <g transform="translate(32, 60)">
+        <rect width="132" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="22" cy="27" r="11" fill="#E6F7F9" />
+        <circle cx="22" cy="27" r="4" fill="#10B981" />
+        <text x="40" y="24" fill="#003135" fontSize="10.5" fontWeight="bold" fontFamily="system-ui">Edge Pop 01</text>
+        <text x="40" y="38" fill="#0FA4AF" fontSize="9.5" fontWeight="bold" fontFamily="system-ui">0.8ms Latency</text>
       </g>
 
       {/* Satellite Node 2: Region EU-Central (Top-Right) */}
       <g transform="translate(355, 60)">
-        <rect width="105" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="24" cy="27" r="12" fill="#E6F7F9" />
-        <circle cx="24" cy="27" r="4" fill="#10B981" />
-        <text x="44" y="24" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Edge Pop 02</text>
-        <text x="44" y="38" fill="#0FA4AF" fontSize="9" fontWeight="bold" fontFamily="system-ui">1.2ms Latency</text>
+        <rect width="132" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="22" cy="27" r="11" fill="#E6F7F9" />
+        <circle cx="22" cy="27" r="4" fill="#10B981" />
+        <text x="40" y="24" fill="#003135" fontSize="10.5" fontWeight="bold" fontFamily="system-ui">Edge Pop 02</text>
+        <text x="40" y="38" fill="#0FA4AF" fontSize="9.5" fontWeight="bold" fontFamily="system-ui">1.2ms Latency</text>
       </g>
 
       {/* Satellite Node 3: Region AP-South (Bottom-Left) */}
-      <g transform="translate(60, 245)">
-        <rect width="105" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="24" cy="27" r="12" fill="#E6F7F9" />
-        <circle cx="24" cy="27" r="4" fill="#10B981" />
-        <text x="44" y="24" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Failover Replica</text>
-        <text x="44" y="38" fill="#0FA4AF" fontSize="9" fontWeight="bold" fontFamily="system-ui">Automated Sync</text>
+      <g transform="translate(32, 245)">
+        <rect width="132" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="22" cy="27" r="11" fill="#E6F7F9" />
+        <circle cx="22" cy="27" r="4" fill="#10B981" />
+        <text x="40" y="24" fill="#003135" fontSize="10.5" fontWeight="bold" fontFamily="system-ui">Failover Replica</text>
+        <text x="40" y="38" fill="#0FA4AF" fontSize="9.5" fontWeight="bold" fontFamily="system-ui">Automated Sync</text>
       </g>
 
       {/* Satellite Node 4: Health Telemetry (Bottom-Right) */}
       <g transform="translate(355, 245)">
-        <rect width="105" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
-        <circle cx="24" cy="27" r="12" fill="#E6F7F9" />
-        <path d="M 18 28 L 22 23 L 26 29 L 30 25" stroke="#0FA4AF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-        <text x="44" y="24" fill="#003135" fontSize="10" fontWeight="bold" fontFamily="system-ui">Telemetry 24/7</text>
-        <text x="44" y="38" fill="#10B981" fontSize="9" fontWeight="bold" fontFamily="system-ui">99.99% Uptime</text>
+        <rect width="132" height="55" rx="10" fill="#FFFFFF" stroke="#AFDDE5" strokeWidth="1.5" />
+        <circle cx="22" cy="27" r="11" fill="#E6F7F9" />
+        <path d="M 16 28 L 20 23 L 24 29 L 28 25" stroke="#0FA4AF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+        <text x="40" y="24" fill="#003135" fontSize="10.5" fontWeight="bold" fontFamily="system-ui">Telemetry 24/7</text>
+        <text x="40" y="38" fill="#10B981" fontSize="9.5" fontWeight="bold" fontFamily="system-ui">99.99% Uptime</text>
       </g>
     </svg>
   );
@@ -120,12 +120,15 @@ export default function GlobalInfrastructureManagedServicesSection({ onOpenPage 
               className="font-display text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.15] tracking-tight text-[#003135] mb-5 text-center lg:text-left"
             />
 
-            <div className="space-y-4 text-[15px] sm:text-[16px] leading-relaxed text-[#003135]/85 font-medium mb-6 text-center lg:text-left">
+            <div className="space-y-3.5 text-[14.5px] sm:text-[15.5px] leading-relaxed text-[#003135]/85 font-medium mb-6 text-center lg:text-left">
               <p>
-                Engineering scalable global infrastructure solutions and managed technology services designed for continuous uptime and operational resilience.
+                <strong className="font-bold text-[#003135]">IB Cyber Security Private Limited</strong> provides technology infrastructure and managed services designed to support secure, reliable, scalable, and continuously available digital environments. Our capabilities span cloud infrastructure, data centres, network management, cybersecurity operations, application infrastructure, monitoring, backup, disaster recovery, technical support, and managed technology operations.
               </p>
               <p>
-                We build robust cloud-native infrastructure, automated monitoring systems, and high-availability server clusters to ensure your mission-critical applications remain accessible globally 24/7.
+                We combine modern infrastructure technologies, automation, security engineering, and operational expertise to help organisations maintain dependable digital environments.
+              </p>
+              <p>
+                Our approach focuses on performance, availability, security, scalability, and continuous improvement, enabling businesses, government institutions, enterprises, and technology platforms to operate efficiently while adapting to evolving infrastructure requirements, workloads, technologies, and digital transformation needs.
               </p>
             </div>
 

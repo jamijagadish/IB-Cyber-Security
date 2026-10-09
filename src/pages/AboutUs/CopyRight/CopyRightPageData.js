@@ -306,36 +306,18 @@ export const COPYRIGHT_CARDS = [
   },
 ];
 
-export function getTwoLineName(name) {
-  const customSplits = {
-    'Copyright Legal Notice': ['COPYRIGHT', 'LEGAL NOTICE'],
-    'Copyright Declaration': ['COPYRIGHT', 'DECLARATION'],
-    'Copyright Ownership Statement': ['COPYRIGHT', 'OWNERSHIP STATEMENT'],
-    'Copyright Protection Notice': ['COPYRIGHT', 'PROTECTION NOTICE'],
-    'Copyright Infringement Notice': ['COPYRIGHT', 'INFRINGEMENT NOTICE'],
-    'Copyright Usage Policy': ['COPYRIGHT', 'USAGE POLICY'],
-    'Copyright Reproduction Policy': ['COPYRIGHT', 'REPRODUCTION POLICY'],
-    'Copyright Permission Policy': ['COPYRIGHT', 'PERMISSION POLICY'],
-    'Copyright Content Protection Policy': ['COPYRIGHT CONTENT', 'PROTECTION POLICY'],
-    'Website Copyright Policy': ['WEBSITE', 'COPYRIGHT POLICY'],
-    'Digital Content Copyright Notice': ['DIGITAL CONTENT', 'COPYRIGHT NOTICE'],
-    'Copyright Enforcement Policy': ['COPYRIGHT', 'ENFORCEMENT POLICY'],
-    'Copyright Legal Disclaimer': ['COPYRIGHT', 'LEGAL DISCLAIMER'],
-    'Copyright Registration & Certificate': ['COPYRIGHT', 'REGISTRATION & CERTIFICATE'],
-    'Copyright Licensing Policy': ['COPYRIGHT', 'LICENSING POLICY'],
-    'Copyright Attribution Policy': ['COPYRIGHT', 'ATTRIBUTION POLICY'],
-  };
-
-  if (customSplits[name]) {
-    return customSplits[name];
+export function getMainTitleStyle(text) {
+  const len = text ? text.length : 10;
+  let fontSize = 44;
+  if (len > 20) {
+    fontSize = 25;
+  } else if (len > 16) {
+    fontSize = 29;
+  } else if (len > 12) {
+    fontSize = 35;
   }
-
-  const words = (name || '').split(' ');
-  if (words.length <= 1) return [(name || '').toUpperCase(), ''];
-  const mid = Math.ceil(words.length / 2);
-  return [
-    words.slice(0, mid).join(' ').toUpperCase(),
-    words.slice(mid).join(' ').toUpperCase(),
-  ];
+  return {
+    fontSize: `${fontSize}px`,
+  };
 }
 

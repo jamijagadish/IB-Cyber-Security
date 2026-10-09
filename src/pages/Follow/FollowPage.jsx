@@ -516,7 +516,9 @@ export default function FollowPage({ onClose }) {
   const [burstCount, setBurstCount] = useState(0);
 
   const handleBack = () => {
-    if (onClose) {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (onClose) {
       onClose();
     } else {
       window.location.hash = '#home';

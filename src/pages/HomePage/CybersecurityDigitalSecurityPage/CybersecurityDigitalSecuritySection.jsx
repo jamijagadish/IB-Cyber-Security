@@ -76,42 +76,42 @@ export default function CybersecurityDigitalSecuritySection({ onOpenPage }) {
       title: 'Cloud Security',
       icon: Cloud,
       bgColor: 'bg-[#0fa4af]',
-      pos: 'top-[18%] right-[4%] sm:right-[12%] lg:top-[22%] lg:right-[-1%] xl:top-[18%] xl:right-[2%]',
+      pos: 'top-[16%] right-[3%] sm:right-[10%] lg:top-[22%] lg:right-[-1%] xl:top-[18%] xl:right-[2%]',
     },
     {
       id: 'data-security',
       title: 'Data Security',
       icon: Database,
       bgColor: 'bg-[#0284c7]',
-      pos: 'top-[48%] right-[1%] sm:right-[6%] lg:top-[52%] lg:right-[-2%] xl:top-[50%] xl:right-[0%]',
+      pos: 'top-[48%] right-[1%] sm:right-[5%] lg:top-[52%] lg:right-[-2%] xl:top-[50%] xl:right-[0%]',
     },
     {
       id: 'threat-intelligence',
       title: 'Threat Intelligence',
       icon: Eye,
       bgColor: 'bg-[#0d9488]',
-      pos: 'bottom-[2%] right-[6%] sm:right-[14%] lg:bottom-[0%] lg:right-[2%] xl:bottom-[2%] xl:right-[5%]',
+      pos: 'bottom-[3%] right-[6%] sm:right-[12%] lg:bottom-[0%] lg:right-[2%] xl:bottom-[2%] xl:right-[5%]',
     },
     {
       id: 'security-monitoring',
       title: 'Security Monitoring',
       icon: Activity,
       bgColor: 'bg-[#0f766e]',
-      pos: 'bottom-[2%] left-[6%] sm:left-[14%] lg:bottom-[0%] lg:left-[2%] xl:bottom-[2%] xl:left-[5%]',
+      pos: 'bottom-[3%] left-[6%] sm:left-[12%] lg:bottom-[0%] lg:left-[2%] xl:bottom-[2%] xl:left-[5%]',
     },
     {
       id: 'vulnerability-management',
       title: 'Vulnerability Management',
       icon: Bug,
       bgColor: 'bg-[#0284c7]',
-      pos: 'top-[48%] left-[1%] sm:left-[6%] lg:top-[52%] lg:left-[-2%] xl:top-[50%] xl:left-[0%]',
+      pos: 'top-[48%] left-[1%] sm:left-[5%] lg:top-[52%] lg:left-[-2%] xl:top-[50%] xl:left-[0%]',
     },
     {
       id: 'security-analytics',
       title: 'Security Analytics',
       icon: BarChart3,
       bgColor: 'bg-[#0fa4af]',
-      pos: 'top-[18%] left-[4%] sm:left-[12%] lg:top-[22%] lg:left-[-1%] xl:top-[18%] xl:left-[2%]',
+      pos: 'top-[16%] left-[3%] sm:left-[10%] lg:top-[22%] lg:left-[-1%] xl:top-[18%] xl:left-[2%]',
     },
   ];
 
@@ -286,28 +286,29 @@ export default function CybersecurityDigitalSecuritySection({ onOpenPage }) {
               {floatingBadges.map((badge, idx) => {
                 const BadgeIcon = badge.icon;
                 return (
-                  <motion.div
-                    key={badge.id}
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{
-                      duration: 3.2,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                      delay: idx * 0.3,
-                    }}
-                    className={`absolute ${badge.pos} bg-white/95 backdrop-blur-md rounded-full lg:rounded-2xl p-1 lg:px-3 lg:py-2 xl:px-3.5 xl:py-2.5 shadow-md border border-cyan-100/90 hover:border-[#0FA4AF] hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center gap-2 lg:gap-2.5 select-none cursor-pointer group`}
-                    title={badge.title}
-                  >
-                    {/* Icon Box */}
-                    <div className={`w-8.5 h-8.5 sm:w-9.5 sm:h-9.5 lg:w-8.5 lg:h-8.5 xl:w-9.5 xl:h-9.5 rounded-full lg:rounded-xl ${badge.bgColor} text-white flex items-center justify-center shrink-0 shadow-xs group-hover:scale-110 transition-transform`}>
-                      <BadgeIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-white" strokeWidth={2.2} />
-                    </div>
+                  <div key={badge.id} className={`absolute ${badge.pos}`}>
+                    <motion.div
+                      animate={{ y: [0, -8, 0] }}
+                      transition={{
+                        duration: 3.2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                        delay: idx * 0.3,
+                      }}
+                      className="bg-white/95 backdrop-blur-md rounded-full lg:rounded-2xl p-1.5 sm:p-2 lg:px-3 lg:py-2 xl:px-3.5 xl:py-2.5 shadow-lg border-2 lg:border border-cyan-100/95 hover:border-[#0FA4AF] hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center gap-2 lg:gap-2.5 select-none cursor-pointer group"
+                      title={badge.title}
+                    >
+                      {/* Icon Box */}
+                      <div className={`w-10 h-10 sm:w-11 sm:h-11 lg:w-9 lg:h-9 xl:w-10 xl:h-10 rounded-full lg:rounded-xl ${badge.bgColor} text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
+                        <BadgeIcon className="w-5 h-5 sm:w-5.5 sm:h-5.5 lg:w-4.5 lg:h-4.5 xl:w-5 xl:h-5 text-white" strokeWidth={2.4} />
+                      </div>
 
-                    {/* Title (Hidden on Mobile, Visible on Desktop) */}
-                    <span className="hidden lg:inline text-[11px] xl:text-[12.5px] font-extrabold text-[#003135] tracking-tight leading-snug whitespace-nowrap">
-                      {badge.title}
-                    </span>
-                  </motion.div>
+                      {/* Title (Hidden on Mobile, Visible on Desktop) */}
+                      <span className="hidden lg:inline text-[11px] xl:text-[12.5px] font-extrabold text-[#003135] tracking-tight leading-snug whitespace-nowrap">
+                        {badge.title}
+                      </span>
+                    </motion.div>
+                  </div>
                 );
               })}
             </div>

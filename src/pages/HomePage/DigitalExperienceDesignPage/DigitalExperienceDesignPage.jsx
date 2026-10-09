@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, X, ShieldAlert } from "lucide-react";
-import { cardData as cardsData } from "./DigitalExperienceDesignPageData";
+import { 
+  cardData as cardsData, 
+  digitalExperiencePageData 
+} from "./DigitalExperienceDesignPageData";
 
 /* ─── ICONS & ILLUSTRATIONS ──────────────────────────────────────────────── */
 
@@ -475,11 +478,18 @@ export default function DigitalExperienceDesignPage({ onClose }) {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="w-full max-w-4xl mx-auto px-4 z-20 mb-6 mt-4 text-center"
      >
+      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#AFDDE5] shadow-xs mb-3">
+        <span className="w-2 h-2 rounded-full bg-[#0FA4AF] animate-pulse" />
+        <span className="text-xs font-extrabold text-[#003135] tracking-wider uppercase">
+          {digitalExperiencePageData.badge}
+        </span>
+      </div>
+
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[#003135] tracking-wider uppercase mb-3">
-        DIGITAL EXPERIENCE &amp; UI/UX DESIGN
+        {digitalExperiencePageData.title}
       </h1>
       <p className="text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed font-medium max-w-3xl mx-auto">
-        Designing human-centered digital experiences, intuitive interfaces, and cohesive design systems that elevate brand engagement and product usability across web and mobile platforms.
+        {digitalExperiencePageData.description}
       </p>
      </motion.div>
 
@@ -557,6 +567,15 @@ export default function DigitalExperienceDesignPage({ onClose }) {
      </AnimatePresence>
 
      <motion.div layout className="flex flex-col shrink-0">
+     <div className="flex items-center gap-2 mb-2">
+       <span className="px-2.5 py-0.5 rounded-full text-[10px] md:text-xs font-black bg-[#0FA4AF]/15 text-[#003135] border border-[#0FA4AF]/30">
+         {String(card.id).padStart(2, '0')}
+       </span>
+       <span className="text-[10px] md:text-xs font-bold text-[#0FA4AF] uppercase tracking-wider">
+         {card.title}
+       </span>
+     </div>
+
      <motion.div layout className={`flex items-center gap-3.5 ${isShowingDetails ? 'mb-2.5 pr-10 md:pr-16' : 'mb-3 md:mb-4'}`}>
      <motion.div 
      layout 
@@ -564,7 +583,7 @@ export default function DigitalExperienceDesignPage({ onClose }) {
      isShowingDetails ? 'w-10 h-10 md:w-12 md:h-12' : 'w-12 h-12 md:w-16 md:h-16'
      } ${theme.iconBg}`}
      >
-     {IconComponent ? <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-[#003135]" /> : <PhishingIcon />}
+     {IconComponent ? <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-[#0FA4AF]" /> : <PhishingIcon />}
      </motion.div>
 
      <motion.h2 layout className={`font-black text-[#003135] leading-[1.2] tracking-tight pb-0.5 ${isShowingDetails ? 'text-lg md:text-2xl' : 'text-2xl md:text-3xl lg:text-[2.5rem]'}`}>
@@ -572,7 +591,7 @@ export default function DigitalExperienceDesignPage({ onClose }) {
      </motion.h2>
      </motion.div>
 
-     <motion.div layout className={`w-12 md:w-16 h-1.5 bg-gradient-to-r ${theme.gradientLine} rounded-full shrink-0 ${isShowingDetails ? 'mb-2 md:mb-3' : 'mb-5 md:mb-6'}`} />
+     <motion.div layout className={`w-12 md:w-16 h-1.5 bg-gradient-to-r ${theme.gradientLine} rounded-full shrink-0 ${isShowingDetails ? 'mb-2 md:mb-3' : 'mb-4 md:mb-5'}`} />
      </motion.div>
 
      <AnimatePresence mode="wait">
@@ -583,7 +602,11 @@ export default function DigitalExperienceDesignPage({ onClose }) {
      animate={{ opacity: 1, y: 0 }}
      exit={{ opacity: 0, y: 10 }}
      transition={{ duration: 0.2 }}
+     className="flex flex-col"
      >
+     <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed line-clamp-2 md:line-clamp-3 mb-4">
+       {card.desc || card.description}
+     </p>
      <button
      onClick={(e) => { e.stopPropagation(); setShowDetails(true); }}
      className={`bg-gradient-to-r ${theme.buttonGrad} text-white px-6 md:px-8 py-3 rounded-xl text-sm font-semibold flex items-center justify-center md:justify-start gap-2 w-full md:w-max transition-all active:scale-95 shrink-0 cursor-pointer`}
@@ -606,7 +629,7 @@ export default function DigitalExperienceDesignPage({ onClose }) {
      Detailed Analysis
      </h3>
      <p className="text-slate-600 text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-medium text-justify">
-     {card.details || card.desc}
+     {card.details || card.content || card.desc}
      </p>
      </div>
      </motion.div>
@@ -621,47 +644,62 @@ export default function DigitalExperienceDesignPage({ onClose }) {
      </AnimatePresence>
      </motion.div>
 
-     {/* Simple Pagination & Controls */}
+     {/* Pagination & Controls with Active Card Name */}
      <motion.div 
        initial={{ opacity: 0, y: 30 }}
        animate={{ opacity: 1, y: 0 }}
        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-       className="flex justify-center items-center space-x-4 mt-6 z-30 relative"
+       className="flex justify-center items-center mt-6 z-30 relative px-4"
      >
-       <button
-         onClick={() => {
-           setCurrentIndex((prev) => (prev === 0 ? cardsData.length - 1 : prev - 1));
-           setShowDetails(false);
-         }}
-         className="p-2.5 rounded-full bg-[#003135] text-white hover:bg-[#0FA4AF] transition-colors shadow-md cursor-pointer"
-         title="Previous Card"
-       >
-         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
-       </button>
+       <div className="flex items-center space-x-2.5 sm:space-x-3.5 bg-white/95 backdrop-blur-md px-3 sm:px-4 py-2 rounded-full border border-teal-200/80 shadow-md">
+         <button
+           onClick={() => {
+             setCurrentIndex((prev) => (prev === 0 ? cardsData.length - 1 : prev - 1));
+             setShowDetails(false);
+           }}
+           className="p-1.5 sm:p-2 rounded-full bg-[#003135] text-white hover:bg-[#0FA4AF] transition-colors cursor-pointer active:scale-95 shadow-xs"
+           title="Previous Card"
+           aria-label="Previous Card"
+         >
+           <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
+         </button>
 
-       <div className="flex space-x-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-teal-100 shadow-sm">
-         {cardsData.map((_, index) => (
-           <button
-             key={index}
-             onClick={() => {
-               setCurrentIndex(index);
-               setShowDetails(false);
-             }}
-             className={`w-3 h-3 rounded-full transition-all cursor-pointer ${currentIndex === index ? "bg-[#0FA4AF] scale-125 shadow-sm" : "bg-teal-200 hover:bg-teal-300"}`}
-           />
-         ))}
+         <div className="flex items-center gap-1.5 sm:gap-2 px-1 text-xs sm:text-sm font-extrabold text-[#003135]">
+           <span className="text-[#0FA4AF]">{String(currentIndex + 1).padStart(2, '0')}</span>
+           <span className="text-slate-400 font-normal">/ {cardsData.length}</span>
+           <span className="text-slate-300 font-light">•</span>
+           <span className="text-[#003135] font-bold truncate max-w-[150px] sm:max-w-[240px] md:max-w-[320px]">
+             {cardsData[currentIndex]?.title}
+           </span>
+         </div>
+
+         <div className="hidden lg:flex space-x-1.5 items-center pl-2 border-l border-slate-200">
+           {cardsData.map((c, index) => (
+             <button
+               key={index}
+               onClick={() => {
+                 setCurrentIndex(index);
+                 setShowDetails(false);
+               }}
+               className={`rounded-full transition-all cursor-pointer ${currentIndex === index ? "bg-[#0FA4AF] w-4 h-2 shadow-xs" : "bg-teal-200 hover:bg-teal-300 w-2 h-2"}`}
+               title={c.title}
+               aria-label={c.title}
+             />
+           ))}
+         </div>
+
+         <button
+           onClick={() => {
+             setCurrentIndex((prev) => (prev + 1) % cardsData.length);
+             setShowDetails(false);
+           }}
+           className="p-1.5 sm:p-2 rounded-full bg-[#003135] text-[#003135] hover:bg-[#0FA4AF] transition-colors cursor-pointer active:scale-95 shadow-xs"
+           title="Next Card"
+           aria-label="Next Card"
+         >
+           <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+         </button>
        </div>
-
-       <button
-         onClick={() => {
-           setCurrentIndex((prev) => (prev + 1) % cardsData.length);
-           setShowDetails(false);
-         }}
-         className="p-2.5 rounded-full bg-[#003135] text-white hover:bg-[#0FA4AF] transition-colors shadow-md cursor-pointer"
-         title="Next Card"
-       >
-         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-       </button>
      </motion.div>
    </motion.div>
  );

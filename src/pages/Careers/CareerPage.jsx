@@ -1241,7 +1241,9 @@ export default function CareerPage({ onClose }) {
   const [currentView, setCurrentView] = useState(getViewFromHash);
 
   const handleBackToSite = () => {
-    if (onClose) {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else if (onClose) {
       onClose();
     } else {
       window.location.hash = '#home';

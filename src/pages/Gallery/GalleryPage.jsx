@@ -814,7 +814,15 @@ export function ArcHero({ onSelectCard, onStartGenerating, onClose }) {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              if (window.history.length > 1) {
+                window.history.back();
+              } else if (onClose) {
+                onClose();
+              } else {
+                window.location.hash = '#home';
+              }
+            }}
             className="inline-flex items-center gap-2 rounded-xl bg-[#003135] hover:bg-[#0D5C63] px-4 py-2 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-sm active:scale-95"
           >
             ← Back
@@ -822,7 +830,11 @@ export function ArcHero({ onSelectCard, onStartGenerating, onClose }) {
 
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              if (onClose) onClose();
+              window.location.hash = '#home';
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            }}
             className="inline-flex items-center gap-2 rounded-xl bg-[#0FA4AF] hover:bg-[#12BCC8] px-4 py-2 text-xs sm:text-sm font-bold text-white transition-all cursor-pointer shadow-sm active:scale-95"
           >
             <Home className="w-4 h-4 text-white" />

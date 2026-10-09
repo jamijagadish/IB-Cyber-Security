@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import ReactDOM from 'react-dom/client'
 import { 
   ShieldCheck, 
@@ -21,9 +21,13 @@ import {
   Globe, 
   Layers, 
   X,
-  Home
+  Home,
+  ChevronLeft,
+  ChevronRight,
+  Play,
+  Pause
 } from 'lucide-react'
-import { securityCardsData } from './GlobalInfrastructureManagedServicesPageData.js';
+import { securityCardsData } from './GlobalInfrastructureManagedServicesPageData';
 
 // Icon registry mapping
 const ICONS = {
@@ -92,7 +96,6 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  overflow-y: auto;
   font-family: var(--font-sans);
   background-color: var(--bg-room);
   color: var(--text-main);
@@ -415,22 +418,7 @@ body {
   align-items: center;
   gap: 32px;
   width: max-content;
-  animation: marquee-scroll 60s linear infinite;
   will-change: transform;
-}
-
-.marquee-track:has(.story-card:hover),
-.marquee-track.is-paused {
-  animation-play-state: paused;
-}
-
-@keyframes marquee-scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
 }
 
 /* Floating Card (4 per screen width) */
@@ -686,12 +674,29 @@ body {
   text-transform: uppercase;
 }
 
+.expanded-full-desc-container {
+  max-height: 190px;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin: 12px 0 16px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 164, 175, 0.4) transparent;
+}
+
+.expanded-full-desc-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.expanded-full-desc-container::-webkit-scrollbar-thumb {
+  background: rgba(15, 164, 175, 0.4);
+  border-radius: 9999px;
+}
+
 .expanded-full-desc {
   font-size: 0.92rem;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--text-body);
   font-weight: 450;
-  margin: 14px 0 18px 0;
 }
 
 .expanded-chips-row {
@@ -749,6 +754,140 @@ body {
   object-fit: contain;
   object-position: bottom center;
   filter: drop-shadow(0 20px 30px rgba(45, 35, 25, 0.08));
+}
+
+/* Stage Slide Navigation Buttons & Floating Dock */
+.stage-nav-btn {
+  position: absolute;
+  top: 40%;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(15, 164, 175, 0.35);
+  box-shadow: 0 10px 25px -5px rgba(0, 49, 53, 0.18), 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #003135;
+  cursor: pointer;
+  z-index: 35;
+  transition: all 0.25s var(--smooth-ease);
+}
+
+.stage-nav-btn:hover {
+  background: #0FA4AF;
+  color: #ffffff;
+  transform: scale(1.12);
+  box-shadow: 0 14px 30px -4px rgba(15, 164, 175, 0.45);
+  border-color: #0FA4AF;
+}
+
+.stage-nav-btn:active {
+  transform: scale(0.95);
+}
+
+.stage-nav-btn.prev {
+  left: 24px;
+}
+
+.stage-nav-btn.next {
+  right: 24px;
+}
+
+@media (max-width: 640px) {
+  .stage-nav-btn {
+    width: 42px;
+    height: 42px;
+    top: 36%;
+  }
+  .stage-nav-btn.prev {
+    left: 10px;
+  }
+  .stage-nav-btn.next {
+    right: 10px;
+  }
+}
+
+/* Bottom Slide Control Dock */
+.slide-control-dock {
+  position: relative;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px auto 0 auto;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(15, 164, 175, 0.25);
+  border-radius: 9999px;
+  box-shadow: 0 12px 32px -8px rgba(0, 49, 53, 0.14);
+}
+
+.dock-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F0F9FA;
+  border: 1px solid rgba(15, 164, 175, 0.25);
+  color: #003135;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dock-btn:hover {
+  background: #0FA4AF;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.dock-counter {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 750;
+  color: #003135;
+  padding: 0 4px;
+  min-width: 58px;
+  text-align: center;
+}
+
+.dock-dots-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dock-dot-pill {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #CBD5E1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dock-dot-pill.is-active {
+  width: 20px;
+  background: #0FA4AF;
+}
+
+.dock-dot-pill:hover {
+  background: #0E7980;
+}
+
+@media (max-width: 640px) {
+  .dock-dots-row {
+    display: none;
+  }
 }
 
 /* Floating Scroll Back to Top Button */
@@ -1243,7 +1382,8 @@ function CardItem({
   isExpandedInPlace, 
   hasAnyExpanded,
   onSelect,
-  onClose
+  onClose,
+  onHoverChange
 }) {
   const IconComponent = ICONS[card.iconName] || ShieldCheck
 
@@ -1266,7 +1406,12 @@ function CardItem({
   else if (hasAnyExpanded) cardClass += ' is-dimmed'
 
   return (
-    <div className={cardClass} onClick={handleClick}>
+    <div 
+      className={cardClass} 
+      onClick={handleClick}
+      onMouseEnter={() => onHoverChange?.(true)}
+      onMouseLeave={() => onHoverChange?.(false)}
+    >
       {isExpandedInPlace ? (
         /* Expanded in-place view */
         <div className="card-expanded-inner">
@@ -1313,10 +1458,12 @@ function CardItem({
                 </span>
               </div>
 
-              {/* Verbatim Description */}
-              <p className="expanded-full-desc">
-                {card.description}
-              </p>
+              {/* Verbatim Description Container */}
+              <div className="expanded-full-desc-container">
+                <p className="expanded-full-desc">
+                  {card.description}
+                </p>
+              </div>
             </div>
 
             {/* Highlights / Capabilities Chips */}
@@ -1376,6 +1523,16 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
   const [expandedKey, setExpandedKey] = useState(null)
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 })
   const [scrolledPastHero, setScrolledPastHero] = useState(false)
+  const [isCardHovered, setIsCardHovered] = useState(false)
+  const [activeCardIndex, setActiveCardIndex] = useState(0)
+  const [trackOffset, setTrackOffset] = useState(0)
+
+  const currentOffsetRef = useRef(0)
+  const targetOffsetRef = useRef(0)
+
+  const TOTAL_CARDS = securityCardsData.length // 12
+  const CARD_STEP = 322 // 290px card width + 32px gap
+  const LOOP_WIDTH = TOTAL_CARDS * CARD_STEP // 3864px
 
   const handleBack = () => {
     if (onClose) {
@@ -1391,6 +1548,62 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
     } else {
       window.location.href = '/';
     }
+  };
+
+  // Continuous auto-slide stream at 60fps; ONLY pauses when cursor hovers on any card or when card is expanded
+  useEffect(() => {
+    let animId;
+    const speed = 0.85; // smooth auto-slide velocity per frame
+
+    const tick = () => {
+      // Auto-slide advances when cursor is NOT hovering on any card and no card is expanded
+      if (!isCardHovered && !expandedKey) {
+        targetOffsetRef.current += speed;
+      }
+
+      // Smoothly interpolate currentOffset towards targetOffset for fluid gliding
+      const diff = targetOffsetRef.current - currentOffsetRef.current;
+      if (Math.abs(diff) > 0.05) {
+        currentOffsetRef.current += diff * 0.12;
+      } else {
+        currentOffsetRef.current = targetOffsetRef.current;
+      }
+
+      // Seamless infinite loop wrapping
+      if (currentOffsetRef.current >= LOOP_WIDTH) {
+        currentOffsetRef.current -= LOOP_WIDTH;
+        targetOffsetRef.current -= LOOP_WIDTH;
+      } else if (currentOffsetRef.current < 0) {
+        currentOffsetRef.current += LOOP_WIDTH;
+        targetOffsetRef.current += LOOP_WIDTH;
+      }
+
+      setTrackOffset(currentOffsetRef.current);
+
+      const activeIdx = Math.floor(((currentOffsetRef.current % LOOP_WIDTH) + CARD_STEP * 0.5) / CARD_STEP) % TOTAL_CARDS;
+      setActiveCardIndex((activeIdx + TOTAL_CARDS) % TOTAL_CARDS);
+
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(animId);
+  }, [isCardHovered, expandedKey]);
+
+  // Slide navigation handlers - clicking slide / dot glides smoothly to target card
+  const handlePrevSlide = (e) => {
+    e?.stopPropagation();
+    targetOffsetRef.current -= CARD_STEP;
+  };
+
+  const handleNextSlide = (e) => {
+    e?.stopPropagation();
+    targetOffsetRef.current += CARD_STEP;
+  };
+
+  const handleSelectDot = (idx) => {
+    const currentLoop = Math.floor(currentOffsetRef.current / LOOP_WIDTH);
+    targetOffsetRef.current = currentLoop * LOOP_WIDTH + (idx * CARD_STEP);
   };
 
   // Track mouse coordinates for 3D room parallax
@@ -1417,11 +1630,15 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
     }
   }, [])
 
-  // Keyboard navigation & Shortcuts (ESC to close)
+  // Keyboard navigation & Shortcuts (ESC to close, Left/Right to slide)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && expandedKey) {
         setExpandedKey(null)
+      } else if (e.key === 'ArrowRight') {
+        handleNextSlide()
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevSlide()
       }
     }
 
@@ -1435,13 +1652,6 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
 
   const handleCardClose = () => {
     setExpandedKey(null)
-  }
-
-  const scrollToSection = (id) => {
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' })
-    }
   }
 
   const scrollToTop = () => {
@@ -1500,53 +1710,22 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
 
         {/* Main Hero Headline */}
         <h1 className="hero-main-title">
-          Cybersecurity &amp; Digital Security
+          Global Infrastructure &amp; Managed Services
         </h1>
 
         {/* Glassmorphism Overview Container */}
         <div className="hero-card-container">
           <div className="hero-description-wrap">
             <p className="hero-desc-paragraph">
-              Cybersecurity is a core technology area within <strong>IB Cyber Security Private Limited</strong>. We develop security-focused software products designed to help organisations address application, infrastructure, data and digital security requirements through modern technology.
+              <strong>IB Cyber Security Private Limited</strong> provides technology infrastructure and managed services designed to support secure, reliable, scalable, and continuously available digital environments. Our capabilities span cloud infrastructure, data centres, network management, cybersecurity operations, application infrastructure, monitoring, backup, disaster recovery, technical support, and managed technology operations.
             </p>
             <div className="hero-desc-divider" />
             <p className="hero-desc-paragraph">
-              Our cybersecurity product development combines security engineering, monitoring, analytics, automation and intelligent technologies. From threat intelligence and vulnerability management to privacy and incident management, our security products are designed to support organisations in building more secure and resilient digital environments.
+              We combine modern infrastructure technologies, automation, security engineering, and operational expertise to help organisations maintain dependable digital environments. Our approach focuses on performance, availability, security, scalability, and continuous improvement, enabling businesses, government institutions, enterprises, and technology platforms to operate efficiently while adapting to evolving infrastructure requirements, workloads, technologies, and digital transformation needs.
             </p>
           </div>
         </div>
 
-        {/* Value Highlights Pill Row */}
-        <div className="hero-stats-row">
-          <div className="stat-pill">
-            <Shield size={16} className="stat-icon" />
-            <span>12 Core Security Domains</span>
-          </div>
-          <div className="stat-pill">
-            <Cpu size={16} className="stat-icon" />
-            <span>Intelligent Automation &amp; AI</span>
-          </div>
-          <div className="stat-pill">
-            <Lock size={16} className="stat-icon" />
-            <span>Zero Trust &amp; Privacy First</span>
-          </div>
-          <div className="stat-pill">
-            <Globe size={16} className="stat-icon" />
-            <span>Global Threat Telemetry</span>
-          </div>
-        </div>
-
-        {/* Scroll CTA Button */}
-        <div className="hero-actions">
-          <button 
-            className="scroll-cue-btn" 
-            onClick={() => scrollToSection('showcase-section')}
-            title="Scroll to explore 3D cards"
-          >
-            <span>Explore 3D Interactive Showcase</span>
-            <ArrowDown size={16} className="bounce-arrow" />
-          </button>
-        </div>
       </header>
 
       {/* =====================================================================
@@ -1554,23 +1733,31 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
           ===================================================================== */}
       <section id="showcase-section" className="showcase-stage-section">
         
-        {/* Section Header */}
-        <div className="stage-section-header">
-          <span className="section-pill-tag">
-            <Layers size={13} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
-            Interactive 3D Stage
-          </span>
-          <h2 className="section-headline">
-            Security Software Portfolio
-          </h2>
-          <p className="section-subtext">
-            Hover cursor over any card to pause stream • Click to expand in-place specifications
-          </p>
-        </div>
-
         {/* 3D Viewport Wrapper */}
         <div className="stage-viewport">
           
+          {/* Floating Left Slide Button */}
+          <button 
+            type="button"
+            className="stage-nav-btn prev"
+            onClick={handlePrevSlide}
+            title="Slide Left (Previous Card)"
+            aria-label="Previous Card"
+          >
+            <ChevronLeft size={26} strokeWidth={2.6} />
+          </button>
+
+          {/* Floating Right Slide Button */}
+          <button 
+            type="button"
+            className="stage-nav-btn next"
+            onClick={handleNextSlide}
+            title="Slide Right (Next Card)"
+            aria-label="Next Card"
+          >
+            <ChevronRight size={26} strokeWidth={2.6} />
+          </button>
+
           {/* Edge smooth gradient fades */}
           <div className="edge-fade-left" />
           <div className="edge-fade-right" />
@@ -1583,7 +1770,13 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
             }}
           >
             <div className="marquee-wrapper">
-              <div className={`marquee-track ${expandedKey ? 'is-paused' : ''}`}>
+              <div 
+                className="marquee-track"
+                style={{
+                  transform: `translate3d(${-trackOffset}px, 0, 0)`,
+                  willChange: 'transform'
+                }}
+              >
                 {MARQUEE_ITEMS.map((card, index) => (
                   <CardItem
                     key={card.uniqueKey}
@@ -1593,6 +1786,7 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
                     hasAnyExpanded={Boolean(expandedKey)}
                     onSelect={handleCardSelect}
                     onClose={handleCardClose}
+                    onHoverChange={setIsCardHovered}
                   />
                 ))}
               </div>
@@ -1602,6 +1796,49 @@ export default function GlobalInfrastructureManagedServicesPage({ onClose }) {
           {/* Minimalist White Desk, Chair & Potted Plant */}
           <DeskScene mousePos={mousePos} />
         </div>
+
+        {/* Interactive Bottom Slide Control Dock */}
+        <div className="slide-control-dock">
+          <button 
+            type="button" 
+            className="dock-btn" 
+            onClick={handlePrevSlide}
+            title="Previous Card"
+            aria-label="Previous Card"
+          >
+            <ChevronLeft size={18} strokeWidth={2.5} />
+          </button>
+
+          <div className="dock-counter">
+            <span>{String(activeCardIndex + 1).padStart(2, '0')}</span>
+            <span className="text-slate-400 font-normal"> / 12</span>
+          </div>
+
+          {/* 12 Interactive dot pills */}
+          <div className="dock-dots-row">
+            {securityCardsData.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => handleSelectDot(idx)}
+                className={`dock-dot-pill ${activeCardIndex === idx ? 'is-active' : ''}`}
+                title={`Card ${idx + 1}: ${securityCardsData[idx].title}`}
+                aria-label={`Go to card ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          <button 
+            type="button" 
+            className="dock-btn" 
+            onClick={handleNextSlide}
+            title="Next Card"
+            aria-label="Next Card"
+          >
+            <ChevronRight size={18} strokeWidth={2.5} />
+          </button>
+        </div>
+
       </section>
 
       {/* Floating Scroll Back to Top Button */}
